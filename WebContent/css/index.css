@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/*헤더(로고/로그인/로그아웃)*/
+div#top-header{
+	overflow: hidden;
+}
+/*헤더-로고*/
+div#top-header h1{
+	float:left;
+	font-size:32pt;
+	font-family:Coiny;
+	margin:10px 0 10px 0;
+	height:50px;	
+}
+/*헤더-로그인*/
+div#top-header div.log_in{
+	float:right;
+	font-size:10pt;
+	margin:10px 10px 0 0;
+	color:#555;
+	height:20px;
+}
+.log_in a{
+	border-radius: 5px;
+	display: inline-block;
+	line-height: 14px;
+	padding: 5px;
+}
+.log_in a:hover{
+	background-color:#f7dee1; 
+	transition:all 1s ease;
+}
+.log_in a:nth-child(2n){
+}
+/*헤더-카테고리 메뉴바*/
+header > nav {
+	height:50px;
+	background-color:#f7dee1;
+}
+ul.cate-menubar li.col{ 
+	width:16.5%; 
+	font-size:12pt;
+	height:50px;
+}
+ul.cate-menubar li.col h3 a{
+	line-height:50px;
+}
+ul.cate-menubar li.col h3 a:hover{
+	color:white;
+}
+.cate-title{
+	padding-left: 25px;
+	background-image: url('../img/store/arrow-down.png');
+	background-size: 18px;
+	background-position:0 3px;
+	background-repeat: no-repeat;
+}
+.cate-title:hover{
+	background-image: url('../img/store/arrow-down-hover.png');
+}
+ul.cate-menubar div.dropdown{
+	display:none;
+}
+ul.cate-menubar div.dropdown.show{
+	display:block;
+	position:absolute;
+	width:1000px;
+}
+
+
+/*메인-기획전배너*/
+

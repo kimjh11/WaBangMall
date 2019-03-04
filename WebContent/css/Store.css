@@ -253,12 +253,12 @@ section .bx-wrapper{
 
 
 /*///// 헤더-베너 /////*/ 
-#store_top_banner{height:350px; position:relative;}
-#store_top_banner_img{width:100%; height:350px;}
-#store_top_banner_img li{display:none; width:100%; position:absolute;}
-#store_top_banner_img li:first-child{display:block;}
-#store_top_banner_img li a img{width:100%; height:350px;}
-#store_top_banner_img li a span{
+#event-banner-wrap{height:350px; position:relative;}
+#event-banner{width:100%; height:350px;}
+#event-banner li{display:none; width:100%; position:absolute;}
+#event-banner li:first-child{display:block;}
+#event-banner li a img{width:100%; height:350px;}
+#event-banner li a span{
 	display:block; 
 	position:absolute; 
 	top:150px; 
@@ -266,9 +266,11 @@ section .bx-wrapper{
 	width:30%;
 	min-width:270px;
 }
-#store_top_banner_img li a span strong{
+#event-banner ul li a span strong{
 	font-size:18pt;
 }
+
+
 #store_header .bx-wrapper .bx-controls-direction a{
 	z-index:1;
 }
