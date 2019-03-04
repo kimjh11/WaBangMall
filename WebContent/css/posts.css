@@ -1,0 +1,38 @@
+	
+	body{font-family: 'Noto Sans KR'}
+	#top{position:fixed;width:50px; height:50px;left:95%;bottom:38px; display:none;}
+	ul{margin-left:15%}
+	#title h1{margin-left:5%;margin-bottom:30px}
+	#titleTag li{float:left; list-style-type:none; width:10%;}
+	#writer{float:left;font-weight:bold; }
+	#titleTag{margin-bottom:100px; margin-top:-1%;margin-left:5%}
+	#content{width:100%;text-align:center;padding:0px 5%;font-size:1.1em}
+	#content img{margin:25px 0; }
+	#buttons{text-align:center; font-size:1.2em;padding:50px 0;border-bottom:1px dotted gray;}
+	#buttons a{color:black; text-decoration:none; margin:2%}
+	#comment{margin:0; list-style-type:none;padding:0%}
+	#comment li{background:#e7f0ff;height:60px;width:87%;margin:0 auto}
+	#comment img{float:left;width:5%;  margin-right:2%;}
+	#nickname{float:left; width:80%;}
+	#day{text-align:center}
+	#day button{width:3%; height:25px;padding:0px}
+	input[type=text]{width:75%; height:70px}
+	#write{text-align:center}
+	#write button{width:60px; height:70px}
+	#star1, #star2{height:25px}
+	#star1{display:none}
+	#like{border:none; background:#fff}
+	.full{display:none}
+	#close{margin-left:35px}
+	
+	@media only screen and (max-width:1200px){
+		#content img{width:100%}
+		#titleTag ul{margin-left:150px}
+		#title li{width:100px}
+	}
+	
+	@media only screen and (max-width:991px){
+		#content img{width:100%;display:block;margin:0 auto}
+		#nickname{width:60%}
+	
+	}

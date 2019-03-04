@@ -1,0 +1,304 @@
+@charset "UTF-8";
+
+/*공통*/
+
+table tr{
+	text-align:center
+}
+tbody tr{
+	border-bottom:1px solid #ddd;
+	width:100%;
+}
+tbody tr{
+	border-top:1px solid #ddd;
+}
+tfoot{
+	border-bottom:1px solid #ddd
+}
+tr td:first-child{
+	border:none
+}
+tr td{
+	/* border-left:1px solid #ddd; */
+	/* border-bottom: 1px solid #ddd; */
+}
+
+
+/*common*/
+#table-layout{
+	width:100%;
+}
+.shopping_list_table{
+	width:100%;
+}
+.col1{width:50%}
+.col2{width:10%}
+.col3{width:10%}
+.col4{width:12%}
+.col5{width:18%}
+
+.shopping_list h4{
+	margin:0;
+	padding: 50px 0 15px 15px;
+	font-weight:bold;
+}
+.list_chk_option{
+	padding:5px 5px;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+}
+.list_chk_option input[type="checkbox"]{
+	vertical-align:middle;
+	height:20px;
+}
+.list_chk_option > a{
+	text-align:center;
+	font-size:9.5pt;
+	display:inline-block;
+	vertical-align:middle;
+	line-height:20px;
+	width:55px;
+}
+.list_chk_option > span{
+	vertical-align:middle;
+}
+.shopping_list_table thead tr{
+	font-size:11pt;
+	font-weight:bold;
+	height:30px;
+}
+.shopping_list_table thead tr td:first-child,
+.shopping_list_table thead tr td:nth-child(4){
+	letter-spacing:5px;
+}
+.table_item_info{
+	text-align:left;
+	position:relative;
+	padding:10px;
+}
+.table_item_info input[type="checkbox"]{
+	position:absolute;
+	top:10px;
+	left:10px;
+}
+a.table_item_info_img{
+	float:left;
+	margin-right: 20px;
+}
+a.table_item_info_img img{
+	width:100px;
+}
+.table_item_info_txt h5{
+	margin:5px 0;
+}
+.table_item_info_txt div span{
+	display:block;
+	margin:3px 0;
+}
+
+.shopping_list_table tbody strong{
+	font-size:12pt;
+	padding-right:2px;
+}
+.shopping_list_table tbody small{
+	font-size:10pt;
+}
+
+.shopping_list_table tfoot td{
+	padding:20px 0;
+	
+}
+.shopping_list_table tfoot td div{
+	font-size:12pt;
+	font-weight:bold;
+	padding-left:60%;
+	text-align:left;
+}
+.shopping_list_table tfoot td div span{
+	display:inline-block;
+	width:35%;
+}
+.shopping_list_table tfoot td div strong{
+	display:inline-block;
+	text-align:right;
+	width:25%;
+	font-size:15pt;
+	margin-right:5px;
+}
+.order_btn_div{
+	padding:0 30%;
+}
+.shopping_list .order_btn{
+	width:auto;
+}
+.shopping_list .order_btn li{
+	width:45%;
+}
+.shopping_list .order_btn li:first-child{
+	margin-right:10%;
+}
+.table_item_setting{
+	padding:10px;
+}
+.table_item_setting button{
+	display:block;
+	width: 70%;
+	margin: 0 auto;
+	/* margin-left: 35%; */
+	line-height:30px;
+	height:30px;
+	border:1px solid #ddd;
+	border-radius:5px;
+	margin-top:5px;
+	background:none;
+}
+.table_item_setting button:first-child{
+	margin-top:0;
+}
+
+
+@media screen and (max-width: 575px){
+#store_header .store_search_bar{
+	top: 108px;
+}
+.store_search_bar input[type=text]{
+	border: 1px solid #ddd;
+    background-color: #fafafa;
+}
+
+table, thead, tbody, th, td, tr { 
+	display: block; 
+}
+tbody tr{
+	border-top:none;
+	border-bottom:none;
+}
+thead tr{ 
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+	
+td{ 
+	/* Behave  like a "row" */
+	border: none;
+	border-bottom: 1px solid #eee;
+	width: 95%;
+	margin: 0 auto;
+	/* margin-left:30%; */
+	padding:2px 0;
+	padding-left: 30%;
+}
+td:before { 
+	/* Now like a table header */
+	width: 30%;
+	text-align: center;
+	position: absolute;
+	font-family: "noto sans KR";
+	font-size: 10pt;
+	font-weight: bold;
+	left: 20px;
+	white-space: nowrap;
+}
+td:nth-of-type(1):before {display: none;content: "상품정보";position: absolute;top: 8px;left: 15px;font-size: 12pt;width: auto;}
+td:nth-of-type(2):before { content: "수량"; }
+td:nth-of-type(3):before { content: "배송료"; }
+td:nth-of-type(4):before { content: "금액"; }
+td:nth-of-type(5):before { content: "주문관리"; }
+tr td:first-child{
+	margin: 0 auto;
+	width: 95%;
+	/* margin-top: 0px; */
+	padding-top: 10px;
+	height: 120px;
+	position: relative;
+	border-bottom: 1px solid #ddd;
+}
+tfoot tr{
+	position:absolute;
+	width:100%;
+	border:none;
+	
+}
+tfoot tr td:before{
+	display:none;
+}
+.table_item_info{
+	padding: 10px;
+	position:static;
+}
+.table_item_info input[type="checkbox"]{
+	top:inherit;
+	left: 10px;
+}
+.shopping_list_table tfoot td div strong{
+	font-size:14pt;
+}
+.table_item_info_txt{
+	display:block;
+	/* border-bottom:1px solid #ddd; */
+	/* border-left:1px solid #ddd; */
+}
+.table_item_setting button{
+	margin-left: 35%;
+	    width: 65%;
+}
+.order_btn_div{
+	padding:0;
+	margin-top:120px;
+}
+.order_btn li a{
+	width: 100%;
+    line-height: 40px;
+    letter-spacing: 1px;
+    font-size: 11pt;
+}
+.shopping_list .order_btn{
+	width: 275px;
+	margin: 30px auto;
+}
+.shopping_list .order_btn li:first-child{
+	margin-right: 15px;
+}
+.shopping_list .order_btn li{
+	width: 130px;
+	height: 40px;
+}
+.shopping_list_table tfoot td{
+	height:100px;
+}
+.shopping_list_table tfoot td div{
+	font-size:12pt;
+	padding-left:0;
+}
+.shopping_list_table tfoot td div span{
+	text-align: right;
+	width:40%;
+}
+.shopping_list_table tfoot td div strong{
+	width:45%;
+}
+
+
+
+	
+}
+
+
+@media screen and (min-width: 576px) and (max-width: 767px){
+	
+.order_btn_div{
+	padding:0;
+}
+.shopping_list .order_btn{
+	width: 315px;
+	margin: 30px auto;
+}
+.shopping_list .order_btn li:first-child{
+	margin-right: 15px;
+}
+.shopping_list .order_btn li{
+	width: 150px;
+}
+}
+

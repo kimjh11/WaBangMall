@@ -1,0 +1,81 @@
+@CHARSET "UTF-8";
+
+/* body, ul, li{margin:0; padding:0; list-style-type:none;} */
+
+.HeaderUL{margin: 0; padding: 0}
+.HeaderLI{margin: 0; padding: 0}
+
+/* 각 헤더 페이지마다 간격 적용 */
+header{margin-bottom: 130px;}
+
+/* 로그인 부분 */
+.log_in {position:absolute; right:15px; top:15px; font-size:0;}
+.log_in a{display:inline-block; width:55px; font-size:9pt; text-align:center; font-family:"font-noto-header-login"; color:#555}
+.log_in a:hover{background-color:pink; transition:all 1s ease;}
+
+/* 로고 */
+.menubar a:hover{text-decoration: none;}
+
+/* 메뉴 */
+.menubar{margin-top:3%; height:40px; line-height:40px; overflow:hidden; text-align:center; border-bottom:1px solid lightgray; padding-bottom:10px;}
+.menubar > li{float:left; width:16%; list-style-type:none;}
+.menubar > li > a{display:block; width:100%; border-radius:20px; font-family:font-noto-header; color:#555; font-size: 1.2em;}
+
+.logo{font-family:font-coiny-header-logo; font-size:1.8em; color:#555}
+
+/* 스토어 */
+#hoverStore{position: absolute; display:none; width:11%; margin-left:2%; 
+			background-color: white; z-index: 100; border-radius: 10px;}
+#hoverStore li{list-style-type:none;}
+#hoverStore a:hover{color:brown; opacity:0.5; text-decoration: none;}
+#hoverStore > ul > li > a{font-family:font-noto; font-size:0.9em; color:#555; font-weight: bold;}
+
+/* 소품 */
+#hoverItem{position: absolute; display: none; margin-left:-21%; width:65%; background-color: white; z-index: 100;
+		   border-radius: 15px;} 
+#hoverItem img{width: 60px; height: 60px;}
+#hoverItem > ul > li {float: left; margin-left: 10%; margin-top: 1%; list-style-type:none;}
+#hoverItem > ul > li > a{ font-family:font-noto; font-size:0.9em; color:#555; font-weight: bold;}
+#hoverItem > ul > li > a:hover{color:brown; opacity:0.5; text-decoration: none;}
+#hoverItem span{margin-left: 10%;}
+
+
+/* 반응형시 변경되는 헤더 */
+#sideBtn{margin-left: 65%; margin-top: -85px; 
+		font-size: 1em; border: 1px solid gray; border-radius:20px;}
+
+#sideMenubar{border: 1px solid gray; width:130px; height: 325px; 
+			position: absolute; z-index: 100; margin-left: 60%;
+			display: none; border-radius: 15px; background-color: white;}
+#sideMenubar li{text-align: center; list-style-type:none;}
+#sideMenubar li a{font-size: 0.9em;}		
+#sideItemNB{display: none; }
+#sideStoreNB{display: none; }
+#sideBtn{display: none;}
+
+/* ===================================================== */
+/* 반응형 */
+@media (max-width:1600px){
+	#sideBtn{
+		display: none;
+	}
+}
+
+@media (max-width:1210px){
+	nav .menubar .logo{
+		font-size: 1em;
+	}
+}
+
+@media(max-width:950px){
+	.PageHeader nav{
+		display: none;
+	}
+	#sideBtn{
+		display: block;
+	}
+}
+
+
+
+

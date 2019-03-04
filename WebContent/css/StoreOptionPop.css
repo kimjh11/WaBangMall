@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/* 맨 위에 이미지랑 설명있는 곳 */
+ul{
+	overflow:hidden;	
+}
+ul, li{
+	list-style-type:none;
+	float:left;
+}
+
+
+#option-header{
+	border-bottom:1px solid #ddd;
+}
+#item-image{
+	float:left; 
+	margin:10px; 
+	width:100px;
+}
+#item-image img{width:100%}
+	
+#item-title-info{
+	padding:10px; 
+	height:120px;
+}
+#item-title-info strong{
+	display:block;
+}
+#item-title-info small{
+	font-size:8pt;
+}
+	
+/* 중간 select있는 곳 */
+#option_selectbox{
+	border-bottom:1px solid lightgray;
+	}
+#option_selectbox select{
+	display:block;
+	width:90%;
+	margin:15px;
+	height:45px;
+	border:1px solid lightgray
+}
+							 
+/* 밑에 수량 정하는곳 */
+#option_count div{margin:20px;border-bottom:1px solid lightgray}
+	
+/* 맨밑 버튼 2개  */
+#option_button button{width:50%; color:#fff;background:rgb(66 66 66);border:none;
+					 	  position:fixed;bottom:0px;height:50px}
+#ok{left:50%}

@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+/*body, ul, li{margin:0; padding:0; list-style-type:none;} */
+
+.FooterUL{margin:0; padding:0; list-style-type:none;}
+.FooterLI{margin:0; padding:0; list-style-type:none;}
+
+.footer{width: 100%; float:left; z-index:100; background-color: rgb(236, 236, 236); margin-top: 20px;}
+/* 스토어 페이지 footer */
+.Footerstore{margin-top: -150px; width: 100%; float:left; z-index:100; background-color: rgb(236, 236, 236);}
+
+#info{margin-left: 10%; width:40%; float: left; padding: 10px 0;}
+#icon{margin-left: 70%; margin-top:2%; width:20%;}
+
+#icon img{width:35px; height:35px;}
+#icon>ul>li{float:left; padding-left:10%}
+
+.footerDiv{display: block;}

@@ -1,0 +1,37 @@
+
+	#combobox>ul{height:35px;line-height:2.5;margin:0px;padding:0px; font-size:1.5em;font-weight: bold;margin-bottom:30px}
+	#combobox li{list-style-type:none; float:left; margin-right:40px;width:15%;height:35px}
+	#combobox select{width:100%}
+	#conbobox{font-size:1.5em}
+	#titleText, #hashTag{ margin-top:2%;font-size:1.5em; font-weight:bold;margin-bottom:5px}
+	#titleid{float:left;width:60%}
+	#fileid{width:140px;float:left;overflow:hidden;}
+	#titleText input[type=text]{width:70%; border-radius:10px;margin-left:7%}
+	#hashTag input[type=text]{width:10%; border-radius:10px;margin-left:1.6%}
+	#titleText button{width:20%;border:none;background:#fff}
+	#hashTag button{width:10%;border:none;background:#fff}
+	#textarea{text-align:center}
+	input[type=file]{opacity:0;position:absolute;width:120px;top:360px;}
+	#textbox{border:1px solid;border-radius:10px;height:500px;overflow:scroll;}
+	#textarea button{border-radius:10px;width:30%;height:50px;
+					 font-size:1.5em;background-color:rgb(80 200 239);color:#fff}
+	
+	@media only screen and (max-width: 991px){
+		#combobox ul{margin-bottom:20px}
+		#combobox li{font-size:20px;width:80px;margin-right:38px}
+		input[type=file]{top:330px}
+		#btn{width:140px} 
+		#fileid{width:140px}
+	}
+	@media only screen and (max-width: 521px){
+		#combobox{margin-bottom:15px}
+		#combobox ul{margin:0px}
+		#combobox li{font-size:15px;width:81px;margin-right:10px}
+		input[type=file]{top:310px}
+		#titleText{font-size:15px}
+		#hashTag{font-size:15px;margin-top:10px}
+	}
+	@media only screen and (max-width:435px){
+		#titleText input[type=text]{width:65%}
+	
+	}

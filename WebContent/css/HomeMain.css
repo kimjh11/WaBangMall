@@ -1,0 +1,235 @@
+@CHARSET "UTF-8";
+
+body, ul, li, h1{margin:0; padding:0; list-style-type:none;}
+a, p{text-decoration:none; color:black;} 
+   
+header > h1{height:200px; line-height:200px; font-size: 50pt; text-align:center;}
+   
+.log_in {position:absolute; right:15px; top:15px; font-size:0;}
+.log_in a{display:inline-block; width:55px; font-size:9pt; text-align:center; font-family:"font-noto-header-login"; color:#555}
+.log_in a:hover{background-color:pink; transition:all 1s ease;}
+   
+.menubar{height:40px; line-height:40px; overflow:hidden; text-align:center; border-bottom:1px solid lightgray; padding-bottom:10px;}
+.menubar > li{float:left; width:20%; }
+.menubar > li > a{display:block; width:100%; border-radius:20px; font-family:inherit; font-weight:bold; font-size:1.5em; color:#555}
+.menubar > li > a:hover{background-color:brown; color:#fff; transition:all 1s ease; opacity:0.5;
+						text-decoration: none;}
+   
+.banner{padding:20px 0;}
+.banner > img:first-child{width:50%; max-width:500px;}
+
+/* 스토리 보러가기 */
+.storyBox{width:65%; height:390px; border: 1px gray solid; position: relative; float: left;
+		  background-image: url("../img/posts/posts1.jpg"); 
+		  background-repeat: no-repeat;
+		  background-size: 100%;
+		  border-radius:10px;
+		  transition:all 1s ease;}
+
+#btn{width: 40%; height: 55px; margin-left: 80%; margin-top: 43%;}
+#btn a{text-decoration: none; color: black;}
+
+#title{width: 30%; margin-top: 43%; margin-left: 10%; float: left;}
+#title a{text-decoration: none; color: black;}
+#title p:nth-child(1){width: 100%;overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
+#title p:nth-child(2){margin-top: -10%; width: 80%;overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
+#title img{width: 10%;}
+
+/* 슬라이드 메뉴 */
+.slideMenu{border: 1px gray solid; width: 31%; height: 393px; margin-left: 69%;}
+#slideImg img{width: 100%; height: 390px}
+
+
+/*스토어 보러가기*/
+.storeBox{width:100%; height:310px; margin-top:3%; border: 1px solid red;}
+#item{width:100%; height:310px;}
+
+div.store{
+  width: 21%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius:10px;
+  float: left;
+  margin-left: 3%;
+}
+div.container{
+	padding: 3%;
+}
+.store img{width:100%; border-radius:5px;}
+
+.store p:nth-child(1){ width:80%; overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
+
+/* ===================================================== */
+/* 반응형 */
+@media (max-width:992px){
+	#titlelogo{
+		font-size: 4em;
+	}
+	header>nav{
+		width: 800px;
+		margin-left: 90px;
+		font-size: 0.9em;   
+	}
+	.container{
+		max-width: 965px;
+	}
+	.wrap{
+		margin-left: -120px;
+	}
+	.storyBox{
+		width: 695px;
+		margin-left: 110px;
+	}
+	#title{
+		margin-top: 140px;
+	}
+	#btn{
+		margin-left: 65px;
+		margin-top: 1px;
+	}
+	.slideMenu{
+		margin-left: 110px;
+		width: 695px;
+		height: 392px;
+		float: left;
+	}
+	#rightBtn{
+		margin-top: 460px;
+		height: 80px;
+	}
+	#leftBtn{
+		margin-top: 460px;
+		height: 80px;
+	}
+	#slideImg img{
+		height: 390px;
+	}
+	#item{
+		width: 850px;
+		margin-left: 48px;
+	}
+}
+	
+@media(max-width:768px){
+	#titlelogo{
+		font-size: 3em;
+	}
+	header>nav{
+		width: 730px;
+		margin-left: 3px;
+		font-size: 0.7em;   
+	}
+	.container{
+		max-width: 800px;
+	}
+	.wrap{
+		margin-left: -198px;
+	}
+	.storyBox{
+		width: 695px;
+		margin-left: 110px;
+	}
+	#title{
+		margin-top: 140px;
+	}
+	#btn{
+		margin-left: 65px;
+		margin-top: 1px;
+	}
+	.slideMenu{
+		margin-left: 110px;
+		width: 695px;
+		height: 392px;
+		float: left;
+	}
+	#rightBtn{
+		margin-top: 145px;
+		height: 80px;
+	}
+	#leftBtn{
+		margin-top: 145px;
+		height: 80px;
+	}
+	#slideImg img{
+		height: 390px;
+	}
+	#item{
+		width: 746px;
+		margin-left: 90px;
+	}
+	
+}
+
+@media(max-width:466px){
+	#titlelogo{
+		font-size: 2em;
+	}
+	header>nav{
+		width: 320px;
+		margin-left: 18px;
+		font-size: 0.4em;   
+	}
+	.banner{
+		padding: 10px 0;
+	}
+	.container{
+		max-width: 215px;
+	}
+	.wrap{
+		margin-left: 88px;
+	}
+	.storyBox{
+		width: 320px;
+		height: 213px;
+		margin-left: -155px;
+	}
+	#title{
+		margin-top: 70px;
+	}
+	#title>p{
+		font-size: 0.8em;
+	}
+	#btn{
+		margin-left: 12px;
+		margin-top: 1px;
+	}
+	#btn>button{
+		font-size: 1em;
+	}
+	.slideMenu{
+		margin-left: -132px;
+		width: 280px;
+		height: 392px;
+		float: left;
+	}
+	#rightBtn{
+		margin-top: 150px;
+		height: 80px;
+	}
+	#leftBtn{
+		margin-top: 150px;
+		height: 80px;
+	}
+	#slideImg img{
+		height: 390px;
+	}
+	.storeBox{
+		width: 100%;
+    	height: 310px;
+    	margin-top: 15px;
+	}
+	#item{
+		width: 300px;
+		margin-left: -170px;
+	}
+	#item>.store{
+		width: 275px;
+		margin-left: 40px;
+		float: inherit;
+	}
+	#item .container>p{
+		font-size: 0.8em;
+	} 
+}
+
+

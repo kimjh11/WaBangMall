@@ -1,0 +1,91 @@
+@CHARSET "UTF-8";
+
+body{background-color: rgb(249, 249, 249)}
+h1{text-align: center;}
+p{text-align: right;}
+hr{margin-top: -1%;}
+
+a:link{color:#555; text-decoration: none}/*링크가 상태일때 스타일*/
+a:visited{color:#555; text-decoration: none }/*방문했을때 스타일*/
+a:active{color:#555; text-decoration: none }/*마우스를 누른상태일때 스타일*/
+
+h1>a:hover{color:black; text-decoration: none;}
+.join>a:hover{color:rgb(209, 147, 147); text-decoration: none;}
+#order:hover{color:rgb(209, 147, 147); text-decoration: none;}
+#order{text-align: center;}
+
+/* 로고부분 */
+.loginLogo{margin-top: 5%;}
+
+/* 로그인 입력창 */
+.formDiv{ margin-left: 35%; width: 32%; height: 330px;}
+#useridDiv{margin-bottom: -3%;}
+
+/* 회원가입 버튼  */
+.join{margin-top: 5%; margin-left: 17%;}
+
+/* 비회원 버튼 */
+#order{margin-left: 30%;}
+
+/*비회원 버튼 클릭시 출력*/
+.orderDiv{margin-top:5%; display: none;}
+#orderBtn{margin-bottom: 50px;}
+
+/*아이디 경고글 색상  / 비밀번호 경고글 색상 / 아이디/비밀번호 맞지 않을때*/
+#warningid, #warningpwd, #warning{color: red;}
+
+/* 가상 아이디 . 비번*/
+#cyberid, #cyberpwd{display: none;}
+
+/* 로그인 버튼, 주문조회 버튼 */
+#loginBtn{background-color: #adb5bd;}
+#orderBtn{background-color: #adb5bd;}
+
+
+/* ===================================================== */
+/* 반응형 */
+@media (max-width:991px){
+	h1>a{
+	 font-size: 70%;
+	}
+	.formDiv{
+		width: 297.6px;
+		margin-left: 200px;
+		    
+	}
+}
+
+@media(max-width:768px){
+	h1>a{
+	 font-size: 50%;
+	}
+	.formDiv{
+		width: 297.6px;
+		margin-left: 125px;
+	
+	}
+}
+
+@media(max-width:550px){
+	h1>a{
+	 font-size: 50%;
+	}
+	.formDiv{
+		width: 297.6px;
+		margin-left: 115px;
+		
+	}
+}
+
+@media(max-width:490px){
+	h1>a{
+	 font-size: 50%;
+	}
+	.formDiv{
+		width: 297.6px;
+		margin-left: 4px;
+		
+	}
+}
+
+
