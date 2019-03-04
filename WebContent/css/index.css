@@ -7,9 +7,9 @@ div#top-header{
 div#top-header h1{
 	float:left;
 	font-size:32pt;
-	font-family:Coiny;
-	margin:10px 0 10px 0;
-	height:50px;	
+	font-family:Coiny;	
+}div#top-header h1 a{
+	line-height:75px;
 }
 /*헤더-로그인*/
 div#top-header div.log_in{
@@ -29,23 +29,21 @@ div#top-header div.log_in{
 	background-color:#f7dee1; 
 	transition:all 1s ease;
 }
-.log_in a:nth-child(2n){
-}
 /*헤더-카테고리 메뉴바*/
 header > nav {
 	height:50px;
 	background-color:#f7dee1;
 }
-ul.cate-menubar li.col{ 
+ul.cate-menubar > li.col{ 
 	width:16.5%; 
 	font-size:12pt;
-	height:50px;
 }
-ul.cate-menubar li.col h3 a{
+ul.cate-menubar > li.col > h3 > a{
 	line-height:50px;
 }
-ul.cate-menubar li.col h3 a:hover{
-	color:white;
+ul.cate-menubar > li.col > h3 > a:hover{
+	color: #d9a5ab;
+	transition:all 0.2s ease;
 }
 .cate-title{
 	padding-left: 25px;
@@ -59,13 +57,63 @@ ul.cate-menubar li.col h3 a:hover{
 }
 ul.cate-menubar div.dropdown{
 	display:none;
+	padding:0 10px 10px 20px;
 }
 ul.cate-menubar div.dropdown.show{
 	display:block;
 	position:absolute;
-	width:1000px;
+	width:80%;
+	background-color:#ffecee;
+	z-index:10;
+}
+#main-category > li{
+	width:20%;
+}
+#main-category > li > h3{
+	font-size:11pt;
+}
+#main-category > li > h3 > a{
+	line-height:40px;
+}
+#middle-category > li > h3{
+	font-weight:normal;
+	font-size:9.5pt;
+}
+#middle-category > li > h3 > a{
+	line-height:23px;
+}
+#middle-category > li > h3:hover{
+	border-radius:5px;
+	background-color:#f7dee1;
 }
 
-
 /*메인-기획전배너*/
+ul#event-banner li a{
+	display:block;
+	width:100%;
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: 100% 300px;
+}
+/*bx-slider 테두리없애기*/
+#event-banner-wrap .bx-wrapper{
+	box-shadow: inherit;
+	border:none;
+}
+/*bx-slider 페이징 위치 이동*/
+#event-banner-wrap .bx-wrapper .bx-pager{
+	bottom:10px;
+}
+/*bx-slider 좌우컨트롤러 이미지 변경*/
+#event-banner-wrap .bx-controls-direction{
+	background:none;
+}
+#event-banner-wrap .bx-controls-direction .bx-prev{
+	background:url(../img/store/left-arrow.png) no-repeat 0 0; 	 
+	background-size:100%;
+}
+#event-banner-wrap .bx-controls-direction .bx-next{
+	background:url(../img/store/right-arrow.png) no-repeat 0 0;
+	background-size:100%;
+}
 

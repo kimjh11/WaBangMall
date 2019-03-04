@@ -24,13 +24,28 @@ $(function(){
 				}
 				cateTag +='</ul></li>';
 			}
-			cateTag += '</ul></li></ul>';
+			cateTag += '</ul></li>';
 		}
+		cateTag += '</ul>';
 		$(".dropdown").append(cateTag);
 	});
 	
 	/*이벤트 베너 생성*/
+	$('#event-banner').ready(function eventTagSet(){
+		//태그생성
+		for(i=1; i<=5; i++){
+			eventTag = '<li><a href="#" style="background-image:url(img/store/event-banner-img-'+i+'.png)"></a></li>';
+			$('#event-banner').append(eventTag);
+		}
+		//이미지 슬라이드
+		$('.bxslider').bxSlider({
+			mode: 'fade',
+			auto:true,
+			speed:1000,
+		});
+	});
 	
-
+	
+	
 	
 });
