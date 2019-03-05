@@ -19,54 +19,77 @@
 </head>
 
 <body>
+<div id="index-wrap">
 <!-- Header -->
 <%@ include file="index/store-header.jspf" %>
 <section>
 	<!-- 이벤트 배너 : index.js, jquery로 li생성-->	
 	<div id="event-banner-wrap" class="full_size">
-		<ul id="event-banner" class="bxslider"></ul>
+		<ul id="event-banner" class="event-slider"></ul>
 	</div>
 	
-	<!-- 베스트상품 -->
-	<div id="best-item" class="width-auto">
-		<div class="menu-title div_underline">
+	<!-- 베스트상품 start -->
+	<div id="best-item-warp" class="width-auto">
+		<!-- 베스트 상품 타이틀 -->
+		<div class="main-title div-underline">
 			<h3>베스트상품</h3>
-			<a class="more-view" href="#">더보기<span></span></a>
-		</div>	
-		<ul id="best_item_list" class="bxslider_second">
+			<a class="more-view" href="#">더보기</a>
+		</div>
+		<!-- 베스트 상품 리스트시작 -->
+		<ul id="best-item-slider" class="best-item-slider">
+			<c:forEach var="i" begin="1" end="10">
 			<li>
 				<a href="#">
-					<span class="best_item_txt">
-						<p>오로라스텐드</p>
-						<span>59%</span>
-						<span><strong>23,000</strong>원</span>
-					</span>
+					<span class="rank">${i }</span>
+					<img src="img/store/item-thumnail-${i }.jpg">
+					<div class="item-info">
+						<p class="i-name">${i }번째 상품명</p>
+						<span class="i-discount">20</span>
+						<strong class="i-price">45000</strong>
+					</div>
 				</a>
 			</li>
+			</c:forEach>
 		</ul>
 	</div>
+	<!-- 베스트상품 end -->
 	
-	<!-- 자주찾는 카테고리 -->
-	<div id="more-view-category" class="width-auto">
-		<div class="store_home_title">
+	<!-- 자주찾는 카테고리 start -->
+	<div id="popular-cate-wrap" class="width-auto">
+		<!-- 자주찾는 카테고리 타이틀 -->
+		<div class="main-title div-underline">
 			<h3>자주찾는 카테고리</h3>
-			<a class="more-view" href="#">더보기<span></span></a>
+			<a class="more-view" href="#">더보기</a>
 		</div>
+		<!-- 자주찾는 카테고리 리스트 -->
+		<ul id="popular-cate-list">
+			<c:forEach var="j" begin="1" end="8">
+			<li>
+				<a href="#">카테고리${j }</a>
+			</li>
+			</c:forEach>
+		</ul>
 	</div>
+	<!-- 자주찾는 카테고리 end -->
 	
-	<!-- 초특가 상품배너 -->
-	<div class="line-banner">
-		<a href="#" class="width-auto">
-			<span>초특가 상품배너</span>
+	
+	<!-- 초특가 상품배너 start -->
+	<div class="line-banner-wrap">
+		<a href="#" class="line-banner ">
+			<span class="width-auto">초특가 상품 이벤트 명</span>
 		</a>
 	</div>
+	<!-- 초특가 상품배너 end -->
 	
-	<!-- 오늘만특가 -->
-	<div id="today_sale_item" class="container">
-		<div class="store_home_title">
+	
+	<!-- 오늘만특가 start -->
+	<div id="today-sale" class="width-auto">
+		<!-- 오늘만특가 타이틀 -->
+		<div class="main-title div-underline">
 			<h3>오늘만 특가</h3>
-			<a class="more-view" href="#">더보기<span></span></a>
+			<a class="more-view" href="#">더보기</a>
 		</div>
+		<!-- 오늘만특가 상품리스트 -->
 		<ul>
 			<li class="col3">
 				<a href="#">
@@ -88,9 +111,12 @@
 			</li>
 		</ul>
 	</div>
+	<!-- 오늘만특가 end -->
 </section>
+
 <!-- Footer -->
 <%@ include file="index/store-footer.jspf" %>
+</div>
 </body>
 
 </html>
