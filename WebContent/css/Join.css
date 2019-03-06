@@ -16,6 +16,8 @@ h1>a:hover{color:black; text-decoration: none;}
 #joinBtn{background-color: #adb5bd;}
 /* 우편번호 버튼 */
 #codeBtn{background-color: #adb5bd; margin-left: 2%;}
+/*아이디 중복 버튼 */
+#idchk{background-color: #adb5bd; margin-left: 2%;}
 
 /*경고글 색상*/
 #warningid, #warningpwd, #warningusername, #warningaddr, #warningtel, #warningemail{color:red;}
@@ -25,10 +27,6 @@ h1>a:hover{color:black; text-decoration: none;}
 
 /*필수요소 표시 색상*/
 #star{color: red; size: 0.7em}
-
-/* 가상 아이디 */
-#cyberid{display: none;}
-
 
 /* ===================================================== */
 /* 반응형 */

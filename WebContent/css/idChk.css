@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+/* 중복검사 버튼 */
+#idChk{background-color: #adb5bd; margin-top: 2%;}
+
+/* 확인 버튼 */
+#setID{background-color: #adb5bd; margin-top: 2%;}
+
+/* 아이디 사용 여부 색상 */
+#redTxt {color: red;}
+#blueTxt{color: blue;}
+
+/*경고글*/
+#warningid{color: red;}
