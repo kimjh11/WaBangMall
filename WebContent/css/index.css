@@ -5,7 +5,7 @@
 div#top-header{
 	overflow: hidden;
 }
-/*헤더-로고*/
+/*헤더-로고*/   
 div#top-header h1{
 	float:left;
 	font-size:32pt;

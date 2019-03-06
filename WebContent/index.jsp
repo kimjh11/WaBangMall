@@ -17,7 +17,7 @@
 <script src="js/index.js"></script>
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </head>
-
+<!-- 추가 -->
 <body>
 <div id="index-wrap">
 <!-- Header -->
