@@ -3,7 +3,7 @@ $(function(){
 	$('#all-category').click(function(){
 		$('.dropdown').toggleClass('show');
 	});
-
+   
 	/*메뉴바에 카테고리 생성*/	
 	$.getJSON('index/category.json',function(allCategory){
 		var cateTag = '<ul id="main-category">';
