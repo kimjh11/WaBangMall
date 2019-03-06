@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+section > div{
+	margin-bottom:40px;
+}
+section > div.width-auto{
+	margin : 0 auto 40px;
+}
 
 /*///헤더(로고/로그인/로그아웃)///*/
 div#top-header{
@@ -97,10 +103,15 @@ ul#event-banner li a{
 	background-repeat: no-repeat;
 	background-size: 100% 340px;
 }
-/*bx-slider 테두리없애기*/
+
+
+
 #index-wrap .bx-wrapper{
+	/*bx-slider 테두리없애기*/
 	box-shadow: inherit;
 	border:none;
+	/*bx-slider 하단 마진 삭제*/
+	margin-bottom:0;
 }
 /*bx-slider 페이징 위치 이동*/
 #event-banner-wrap .bx-wrapper .bx-pager{
@@ -202,21 +213,19 @@ ul#event-banner li a{
 /*/////자주찾는 카테고리/////*/
 ul#popular-cate-list{
 	overflow: hidden;
-	border:1px solid red;
-	margin: 0 auto;
 }
 ul#popular-cate-list li{
 	float:left;
-	height:60px;
-	width:23.5%;
-	margin-left:2%;
-	margin-top:10px;
+	width:24.25%;
+	margin-left:1%;
 }
 ul#popular-cate-list li:first-child,
 ul#popular-cate-list li:nth-child(5){
 	margin-left:0;
 }
-
+ul#popular-cate-list li.col-top{
+	margin-bottom:1%;
+}
 ul#popular-cate-list li a{
 	display:block;
 	width:100%;
@@ -233,13 +242,122 @@ ul#popular-cate-list li a:hover{
 }
 
 
+/*/////오늘만 특가/////*/
+#today-sale{/*하단 공간 여유주기*/
+	overflow: hidden;
+	margin-bottom:100px;
+}
+#today-sale ul{
+	width:90%;
+	margin:0 auto;
+}
+#today-sale ul li{
+	float:left;
+	width:32%;
+	position:relative;
+	margin-left:2%;
+	overflow:hidden;
+}
+#today-sale ul li:first-child{
+	margin-left:0;
+}
+#today-sale .i-thumnail{
+	width:100%;
+}
+#today-sale .i-thumnail.op-scale{
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+}
+#today-sale .i-thumnail.op-scale:hover{
+  	transform: scale(1.05);
+  	-webkit-transform: scale(1.05);
+  	-moz-transform: scale(1.05);
+  	-ms-transform: scale(1.05);
+  	-o-transform: scale(1.05);	
+}
+#today-sale .i-name{
+	position:absolute;
+	z-index:100;
+	left:0;
+	bottom:20px;
+	display:block;
+	font-size:12pt;
+	background-color:rgba(0,0,0,0.5);
+	width:98%;
+	padding-left:3%;
+	line-height:30px;
+	color:#fff;
+}
+#today-sale .i-discount.top-label{
+	position:absolute;
+	z-index:100;
+	top:0;
+	right:10px;
+	height:55px;
+	width:60px;
+	font-size:14pt;
+	line-height: 45px;
+	font-weight:bold;
+	border-radius:0 0 30px 30px;
+	text-align:center;
+	background-color:#FF4A4A;
+	color:#fff;
+}
+#today-sale .i-discount.top-label::after{
+	content:'%';
+}
+
+/*//////푸터 정보//////*/
+#footer-info-warp{
+	margin-bottom:50px;
+	background-color:#ddd;
+	padding:10px 0;
+}
+#footer-info{
+	position: relative;
+}
+#footer-info h1{
+	font-size:20pt;
+	font-family: Coiny;
+}
+#footer-info address > span{
+	font-style:normal;
+	display:block;
+	padding:1px 0;
+}
+#footer-info address > span > span{
+	padding-right:30px;
+}
+#footer-info ul{
+	position: absolute;
+	right:20px;
+	top:20px;
+}
+#footer-info ul#app-icon li{
+	float: left;
+	margin-left: 15px;
+}
+#footer-info ul#app-icon li a{
+	display:inline-block;
+	width:35px;
+	height:35px;
+}
+#footer-info ul#app-icon img{
+	width:100%;
+}
+
 /*//////푸터 메뉴바//////*/
 #footer-menubar-warp{
 	position:fixed;
 	bottom:0;
+	z-index:200;
 	background-color:#D4D4D4;
 	height:50px;
-	width:100%
+	width:100%;
 }
 #footer-menubar li{
 	width:20%;
@@ -277,10 +395,11 @@ footer .toggle-btn button{
 	bottom:50px;
 	right:50px;
 	font-size:10pt;
+	background-color: #949494;
+	color: #fff;
+	letter-spacing: 1px;
 }
-
 .line-banner-wrap{
-	margin:30px 0;
 	width:100%;
 	background-color:#b08664;
 	height:70px;

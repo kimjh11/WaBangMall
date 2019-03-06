@@ -5,6 +5,21 @@
 <c:url var="home" value="/index.do"/>
 <c:url var="shoppingList" value="/shoppingList.do"/>
 <footer>
+<div id="footer-info-warp">
+	<div id="footer-info" class="width-auto">
+		<h1>WABANG</h1>
+		<address>
+			<span><span>대표자:흥해라팀</span><span>대표전화:1234-1234</span></span>
+			<span>주소:서울특별시 구로구 시흥대로 163길 33 2층(구로동, 주호타워)</span>
+			<span>Copyrightⓒ2019 by GoottAcademy흥해라 All Rights Reserved</span>
+		</address>
+		<ul id="app-icon">
+			<li><a href=""><img src="img/icon/instagram.png"/></a></li>
+			<li><a href=""><img src="img/icon/facebook.png"/></a></li>
+			<li><a href=""><img src="img/icon/twitter.png"/></a></li>
+		</ul>
+	</div>
+</div>
 <div id="footer-menubar-warp">
 	<nav>
 		<ul id="footer-menubar" class="width-auto">
