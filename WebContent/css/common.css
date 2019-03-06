@@ -60,5 +60,7 @@ button:hover{
 	width:80%;
 	margin:0 auto;
 }
-
+.spacing{
+	letter-spacing: 2px;
+}
 

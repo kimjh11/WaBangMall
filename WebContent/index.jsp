@@ -64,9 +64,16 @@
 		<!-- 자주찾는 카테고리 리스트 -->
 		<ul id="popular-cate-list">
 			<c:forEach var="j" begin="1" end="8">
-			<li>
-				<a href="#">카테고리${j }</a>
-			</li>
+			<c:if test="${j<=4 }">
+				<li class="col-top">
+					<a href="#">카테고리${j }</a>
+				</li>
+			</c:if>
+			<c:if test="${j>4 }">
+				<li class="col-bottom">
+					<a href="#">카테고리${j }</a>
+				</li>
+			</c:if>
 			</c:forEach>
 		</ul>
 	</div>
@@ -77,6 +84,7 @@
 	<div class="line-banner-wrap">
 		<a href="#" class="line-banner ">
 			<span class="width-auto">초특가 상품 이벤트 명</span>
+			<img src=""/>
 		</a>
 	</div>
 	<!-- 초특가 상품배너 end -->
@@ -91,24 +99,15 @@
 		</div>
 		<!-- 오늘만특가 상품리스트 -->
 		<ul>
-			<li class="col3">
+			<c:forEach var="z" begin="1" end="3">
+			<li>
 				<a href="#">
-					<span class='top_rank_info'>76%</span>
-					<span>노래부르고싶은 영화포스터, 1+1</span>
+					<span class="i-name">특가상품명${z }</span>
+					<span class="i-discount top-label">76</span>
+					<img class="i-thumnail op-scale" src="img/store/sale-item-${z }.jpg"/>
 				</a>
 			</li>
-			<li class="col3">
-				<a href="#">
-					<span class='top_rank_info'>27%</span>
-					<span>요리는 장비빨! 냄비 풀세트</span>
-				</a>
-			</li>
-			<li class="col3">
-				<a href="#">
-					<span class='top_rank_info'>42%</span>
-					<span>따뜻한 감성, 페브릭소파</span>
-				</a>
-			</li>
+			</c:forEach>
 		</ul>
 	</div>
 	<!-- 오늘만특가 end -->
