@@ -10,14 +10,17 @@
 <title>제목</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/common.css"/>
 <style>
+	.content{margin:0 auto;width:1200px}
+	.content>h2{font-size:2em}
 	#orderLiDiv{margin-top:30px;}
 	h2{margin-top:30px}
 </style>
 </head>
 <body>
-<div class="container">
+<%@ include file="../index/store-header.jspf" %>
+<div class="content">
 <%@include file="menu.jspf"%>
 <h2>주문목록</h2>
 <div id="orderLiDiv">
@@ -45,7 +48,39 @@
 					</tr>
 			</tbody>
 		</table>
-</div>	
+</div>
+	<!-- 페이징start -->
+		<ul class="pagination pagination-sm justify-content-center">
+			<!-- 이전페이지 -->
+			
+				<li class="page-item disabled"><a href="#" class="page-link">prev</a></li>
+			
+			<c:if test="">
+			<li class="page-item"><a href="">prev</a></li>
+			</c:if>
+			<!-- 이전페이지 end -->
+			<c:forEach var="i" begin="" end="">
+				<c:if test="">
+					<c:choose>
+						<c:when test="">
+							<li class="page-item active"><a href="" class="page-link"></a></li>						
+						</c:when>
+						<c:when test="">
+							<li class="page-item"><a href="" class="page-link"></a></li>
+						</c:when>
+					</c:choose>
+				</c:if>
+			</c:forEach>
+			<!-- 다음페이지 -->
+			
+				<li class="page-item disabled"><a href="#" class="page-link">next</a></li>
+			
+			<c:if test="">
+				<li class="page-item"><a href="" class="page-link">next</a></li>
+			</c:if>
+			<!-- 다음페이지end -->
+		</ul>
+		<!-- 페이징end -->	
 </div>
 </body>
 </html>
