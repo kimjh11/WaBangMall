@@ -12,15 +12,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <style>
+	#secessionDiv{margin-top:30px;}
 	h2{margin-top:30px}
 </style>
 </head>
 <body>
 <div class="container">
 <%@include file="menu.jspf"%>
-<h2>내정보 보기/수정</h2>
-<div id="myInfoDiv">
-
+<h2>회원탈퇴</h2>
+<div id="secessionDiv">
 	
 </div>	
 </div>
