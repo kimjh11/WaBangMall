@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:url var="ctx" value="/"/>
+<style>
+	#mpDiv{margin-top:30px}
+	#mpDiv div{float:left;text-align:center;line-height:50px}
+	#mpCal1,#mpCal2,#mpCal3,#mpCal4{width:150px;height:50px;background:rgb(90,90,90);border-radius:10px 10px 0 0;margin-left:1px}
+	#mpCal5{width:500px;height:50px;border-bottom:1px black solid}
+</style>
+<div id="mpDiv">	
+		<div id="mpCal1"><a href="${ctx }mypage/myInfo.do">내정보</a></div>
+		<div id="mpCal2"><a href="${ctx }mypage/orderList.do">주문목록</a></div>
+		<div id="mpCal3"><a href="${ctx }mypage/depositList.do">내문의</a></div>
+		<div id="mpCal4"><a href="${ctx }mypage/secession.do">회원탈퇴</a></div>
+		<div id="mpCal5"></div>	
+</div>
