@@ -14,9 +14,11 @@
 			<span>Copyrightⓒ2019 by GoottAcademy흥해라 All Rights Reserved</span>
 		</address>
 		<ul id="app-icon">
-			<li><a href=""><img src="<%=request.getContextPath()%>img/icon/instagram.png"/></a></li>
-			<li><a href=""><img src="<%=request.getContextPath()%>img/icon/facebook.png"/></a></li>
-			<li><a href=""><img src="<%=request.getContextPath()%>img/icon/twitter.png"/></a></li>
+
+			<li><a href=""><img src="${ctx }img/icon/instagram.png"/></a></li>
+			<li><a href=""><img src="${ctx }img/icon/facebook.png"/></a></li>
+			<li><a href=""><img src="${ctx }img/icon/twitter.png"/></a></li>
+
 		</ul>
 	</div>
 </div>
@@ -26,12 +28,12 @@
 			<li>
 				<a href="${home }">
 					<span>스토어홈</span>
-					<img class="nav_icon" alt="스토어홈" title="스토어홈" src="img/store/footer_01_home.png">
+					<img class="nav_icon" alt="스토어홈" title="스토어홈" src="${ctx }img/store/footer_01_home.png">
 				</a>
 			</li>
 			<li>
 				<a href="" id="footer_search_btn">
-					<img class="nav_icon" alt="검색" title="검색" src="img/store/footer_02_search.png"/>
+					<img class="nav_icon" alt="검색" title="검색" src="${ctx }img/store/footer_02_search.png"/>
 				</a>
 				<div class="search-bar">
 					<input type="text"/>
@@ -41,19 +43,19 @@
 			<li>
 				<a href="${shoppingList }">
 					<span>장바구니</span>
-					<img class="nav_icon" alt="장바구니" title="장바구니" src="img/store/footer_03_cart.png"/>
+					<img class="nav_icon" alt="장바구니" title="장바구니" src="${ctx }img/store/footer_03_cart.png"/>
 				</a>
 			</li>
 			<li>
 				<a href="#">
 					<span>MY페이지</span>
-					<img class="nav_icon" alt="장바구니" title="장바구니" src="img/store/footer_04_user.png"/>
+					<img class="nav_icon" alt="장바구니" title="장바구니" src="${ctx }img/store/footer_04_user.png"/>
 				</a>
 			</li>
 			<li>
 				<a href="#">
 					<span>고객센터</span>
-					<img class="nav_icon" alt="고객센터" title="고객센터" src="img/store/footer_05_call.png">
+					<img class="nav_icon" alt="고객센터" title="고객센터" src="${ctx }img/store/footer_05_call.png">
 				</a>
 			</li>
 		</ul>
