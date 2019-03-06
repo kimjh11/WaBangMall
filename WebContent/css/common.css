@@ -64,3 +64,184 @@ button:hover{
 	letter-spacing: 2px;
 }
 
+/*헤더*/
+/*///헤더(로고/로그인/로그아웃)///*/
+div#top-header{
+	overflow: hidden;
+}
+/*헤더-로고*/   
+div#top-header h1{
+	float:left;
+	font-size:32pt;
+	font-family:Coiny;	
+}div#top-header h1 a{
+	line-height:75px;
+}
+/*헤더-로그인*/
+div#top-header div.log_in{
+	float:right;
+	font-size:10pt;
+	margin:10px 10px 0 0;
+	color:#555;
+	height:20px;
+}
+.log_in a{
+	border-radius: 5px;
+	display: inline-block;
+	line-height: 14px;
+	padding: 5px;
+}
+.log_in a:hover{
+	background-color:#f7dee1; 
+	transition:all 1s ease;
+}
+
+/*헤더-카테고리 메뉴바*/
+header > nav {
+	height:50px;
+	background-color:#f7dee1;
+}
+ul.cate-menubar > li.col{ 
+	width:16.5%; 
+	font-size:12pt;
+}
+ul.cate-menubar > li.col > h3 > a{
+	line-height:50px;
+}
+ul.cate-menubar > li.col > h3 > a:hover{
+	color: #d9a5ab;
+	transition:all 0.2s ease;
+}
+.cate-title{
+	padding-left: 25px;
+	background-image: url('../img/store/arrow-down.png');
+	background-size: 18px;
+	background-position:0 3px;
+	background-repeat: no-repeat;
+}
+.cate-title:hover{
+	background-image: url('../img/store/arrow-down-hover.png');
+}
+ul.cate-menubar div.dropdown{
+	display:none;
+	padding:0 10px 10px 20px;
+}
+ul.cate-menubar div.dropdown.show{
+	display:block;
+	position:absolute;
+	width:80%;
+	background-color:#ffecee;
+	z-index:10;
+}
+#main-category > li{
+	width:20%;
+}
+#main-category > li > h3{
+	font-size:11pt;
+}
+#main-category > li > h3 > a{
+	line-height:40px;
+}
+#middle-category > li > h3{
+	font-weight:normal;
+	font-size:9.5pt;
+}
+#middle-category > li > h3 > a{
+	line-height:23px;
+}
+#middle-category > li > h3:hover{
+	border-radius:5px;
+	background-color:#f7dee1;
+}
+
+
+/*푸터*/
+/*//////푸터 정보//////*/
+#footer-info-warp{
+	margin-bottom:50px;
+	background-color:#ddd;
+	padding:10px 0;
+}
+#footer-info{
+	position: relative;
+}
+#footer-info h1{
+	font-size:20pt;
+	font-family: Coiny;
+}
+#footer-info address > span{
+	font-style:normal;
+	display:block;
+	padding:1px 0;
+}
+#footer-info address > span > span{
+	padding-right:30px;
+}
+#footer-info ul{
+	position: absolute;
+	right:20px;
+	top:20px;
+}
+#footer-info ul#app-icon li{
+	float: left;
+	margin-left: 15px;
+}
+#footer-info ul#app-icon li a{
+	display:inline-block;
+	width:35px;
+	height:35px;
+}
+#footer-info ul#app-icon img{
+	width:100%;
+}
+
+
+/*//////푸터 메뉴바//////*/
+#footer-menubar-warp{
+	position:fixed;
+	bottom:0;
+	z-index:200;
+	background-color:#D4D4D4;
+	height:50px;
+	width:100%;
+}
+#footer-menubar li{
+	width:20%;
+	float:left;
+	text-align: center;
+}
+#footer-menubar li a{
+	font-size:12pt;
+	font-weight:bold;
+	line-height:50px;
+}
+#footer-menubar li a img{
+	width:35px;
+	height:35px;
+	display:none;
+}
+.search-bar{
+	position: relative;
+}
+.search-bar input{
+	width:100%;
+	margin-top:12px;
+	line-height:20px;
+}
+.search-bar a{
+	position: absolute;
+	right:0;
+	top:0;
+}
+footer .toggle-btn button{
+	width:60px;
+	height:30px;
+	border-radius:10px 10px 0 0;
+	position: absolute;
+	bottom:50px;
+	right:50px;
+	font-size:10pt;
+	background-color: #949494;
+	color: #fff;
+	letter-spacing: 1px;
+}
