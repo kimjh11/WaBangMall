@@ -73,7 +73,7 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 		//로그인 체크 (아이디/비밀번호)
 		try{
 			dbCon();
-			String sql = "select m_id from member where m_id=? and m_pwd=?";
+			String sql = "select m_id from storemember where m_id=? and m_pwd=?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, vo.getM_id());
