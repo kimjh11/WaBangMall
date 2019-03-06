@@ -32,20 +32,28 @@
 				<td>선택옵션</td>
 				<td>결제금액</td>
 				<td>받는주소</td>
+				<td>주문날짜</td>
 				<td>결제여부</td>
 				<td>배송여부</td>
 			</tr>
 			</thead>
 			<tbody id="orderList">
+				<c:forEach var="OrderVO" items="${list}">
 					<tr>
-						<td>asdf123</td>
-						<td>asdf1234</td>
-						<td>흰색</td>
-						<td>26800원</td>
-						<td>서울 금천구 시흥</td>
-						<td>미결제</td>
-						<td>결제미확인</td>
+						<td>${OrderVO.o_num }</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							우편번호: ${OrderVO.m_zipCode}<br/>
+							${OrderVO.m_addr}&nbsp;
+							${OrderVO.m_addrDetail}
+						</td>
+						<td>${OrderVO.o_date }</td>
+						<td></td>
+						<td></td>
 					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 </div>

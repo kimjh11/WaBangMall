@@ -14,9 +14,9 @@
 			<span>Copyrightⓒ2019 by GoottAcademy흥해라 All Rights Reserved</span>
 		</address>
 		<ul id="app-icon">
-			<li><a href=""><img src="img/icon/instagram.png"/></a></li>
-			<li><a href=""><img src="img/icon/facebook.png"/></a></li>
-			<li><a href=""><img src="img/icon/twitter.png"/></a></li>
+			<li><a href=""><img src="<%=request.getContextPath()%>img/icon/instagram.png"/></a></li>
+			<li><a href=""><img src="<%=request.getContextPath()%>img/icon/facebook.png"/></a></li>
+			<li><a href=""><img src="<%=request.getContextPath()%>img/icon/twitter.png"/></a></li>
 		</ul>
 	</div>
 </div>

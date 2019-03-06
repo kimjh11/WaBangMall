@@ -35,13 +35,15 @@
 			</tr>
 			</thead>
 			<tbody id="questionList">
+				<c:forEach var="DepositVO" items="${list}">
 					<tr>
-						<td>옷생상관련해서</td>					
-						<td>안녕하세요 질문이 있는데요.</td>
-						<td>2019-09-15</td>
+						<td>${DepositVO.q_title }</td>
+						<td>${DepositVO.q_content }</td>
+						<td>${DepositVO.q_regdate }</td>
 						<td></td>
-						<td></td>						
+						<td></td>
 					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 </div>
