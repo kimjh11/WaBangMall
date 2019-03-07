@@ -12,15 +12,15 @@ h1>a:hover{color:black; text-decoration: none;}
 
 .formDiv{width:60%; margin-left:20%;}
 
-/* 회원가입 버튼 */
-#joinBtn{
+
+/* 우편번호 버튼 */
+#codeBtn{background-color: #adb5bd; margin-left: 2%;}
+
+/* 수정하기 버튼 */
+#updateBtn{
 	background-color: #adb5bd;
 	margin-bottom: 3%;
 }
-/* 우편번호 버튼 */
-#codeBtn{background-color: #adb5bd; margin-left: 2%;}
-/*아이디 중복 버튼 */
-#idchk{background-color: #adb5bd; margin-left: 2%;}
 
 /*경고글 색상*/
 #warningid, #warningpwd, #warningusername, #warningaddr, #warningtel, #warningemail{color:red;}
@@ -30,6 +30,12 @@ h1>a:hover{color:black; text-decoration: none;}
 
 /*필수요소 표시 색상*/
 #star{color: red; size: 0.7em}
+
+/* 수정폼  */
+#frm{
+	margin-top: 3%;
+}
+
 
 /* ===================================================== */
 /* 반응형 */
