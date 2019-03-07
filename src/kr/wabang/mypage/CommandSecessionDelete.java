@@ -1,4 +1,4 @@
-package kr.wabang.member;
+package kr.wabang.mypage;
 
 import java.io.IOException;
 
@@ -8,22 +8,34 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.wabang.controller.CommandService;
+import kr.wabang.member.MemberDAO;
+import kr.wabang.member.MemberVO;
 
-public class CommandMyInfoSelect implements CommandService {
+public class CommandSecessionDelete implements CommandService {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		//내 정보 수정
-		//session 아이디로 데이터 선택 후 view 페이지로 이동
+		//회원탈퇴
+		req.setCharacterEncoding("UTF-8");
+		
+		//세션 아이디
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("loginId");
 		
-		//DB
+		MemberVO vo = new MemberVO();
+		vo.setM_pwd(req.getParameter("userpwd"));
+		
 		MemberDAO dao = new MemberDAO();
-		MemberVO vo = dao.myInfoSelect(userid);
 		
-		req.setAttribute("vo", vo);
+		int cnt = dao.myInfoDelete(userid ,vo);
 		
-		return "myInfo.jsp";
+		//세션 지우기
+		if(cnt>0){
+			session.invalidate();
+		}
+		
+		req.setAttribute("cnt", cnt);
+		
+		return "secessionOk.jsp";
 	}
 }
