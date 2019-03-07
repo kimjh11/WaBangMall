@@ -63,6 +63,15 @@ button:hover{
 .spacing{
 	letter-spacing: 2px;
 }
+.percent::after{
+	content:"%";
+}
+.won::after{
+	content:"원";
+}
+.del-line{
+	text-decoration: line-through;
+}
 
 /*헤더*/
 /*///헤더(로고/로그인/로그아웃)///*/
