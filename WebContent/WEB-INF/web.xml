@@ -31,7 +31,7 @@
   	<servlet-class>kr.wabang.controller.ControllerAction</servlet-class>
   	<init-param>
   		<param-name>proConfig</param-name>
-  		<param-value>E:\workspaceWeb\WaBangMall\WebContent\WEB-INF\properties\UrlMapping.properties</param-value>
+  		<param-value>C:\Users\korea\git\WaBangMall\WebContent\WEB-INF\properties\UrlMapping.properties</param-value>
   	</init-param>
   </servlet>
   <servlet-mapping>
