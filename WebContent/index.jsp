@@ -18,13 +18,11 @@
 
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </head>
-<!-- 추가 -->
 <body>
 <div id="index-wrap">
 <!-- Header -->
 <%@ include file="index/store-header.jspf" %>
-<section>
-	<!-- 이벤트 배너 : index.js, jquery로 li생성-->	
+<section>	
 	<div id="event-banner-wrap" class="full_size">
 		<ul id="event-banner" class="event-slider"></ul>
 	</div>
@@ -40,7 +38,7 @@
 		<ul id="best-item-slider" class="best-item-slider">
 			<c:forEach var="i" begin="1" end="10">
 			<li>
-				<a href="#">
+				<a href="item/detailView.do?i-code=">
 					<span class="rank">${i }</span>
 					<img src="img/store/item-thumnail-${i }.jpg">
 					<div class="item-info">

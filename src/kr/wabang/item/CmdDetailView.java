@@ -1,4 +1,4 @@
-package kr.wabang.mypage;
+package kr.wabang.item;
 
 import java.io.IOException;
 
@@ -8,13 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.wabang.controller.CommandService;
 
-public class CommandSecession implements CommandService {
+public class CmdDetailView implements CommandService {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		//회원탈퇴
-		
-		return "secession.jsp";
+		// 상품 상세페이지
+		return "detailView.jsp";
 	}
 
 }
