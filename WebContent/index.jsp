@@ -42,7 +42,7 @@
 		<ul id="best-item-slider" class="best-item-slider">
 			<c:forEach var="i" begin="1" end="10">
 			<li>
-				<a href="item/detailView.do?i-code=">
+				<a href="item/detailView.do?i-code=20190307-01">
 					<span class="rank">${i }</span>
 					<img src="${ctx }img/store/item-thumnail-${i }.jpg">
 					<div class="item-info">
