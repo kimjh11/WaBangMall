@@ -10,5 +10,5 @@ public interface MyPageInterface {
 	public List<DepositVO> getAllDeposit(String userid);
 
 	//입금완료
-	public int updateDeposit(String userid,String deposit,String i_code);
+	public int updateDeposit(String userid,String deposit,String i_code,String o_num);
 }

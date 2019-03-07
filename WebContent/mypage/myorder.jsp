@@ -17,9 +17,6 @@
 	#orderLiDiv{margin-top:30px;}
 	h2{margin-top:30px}
 </style>
-<script>
-	
-</script>
 </head>
 <body>
 <%@ include file="../index/store-header.jspf" %>
@@ -55,9 +52,19 @@
 							${OrderVO.m_addr}&nbsp;
 							${OrderVO.m_addrDetail}
 						</td>
-						<td>${OrderVO.o_date }</td>						
-						<td><a href="${ctx }mypage/payment.do?i_code=${OrderVO.i_code }" class="money">${OrderVO.o_deposit }</a></td>					
-						<td>${OrderVO.o_delivery}</td>
+						<td>${OrderVO.o_date }</td>
+						<c:if test="${OrderVO.o_deposit=='미결제' }">					
+							<td><a href="${ctx }mypage/payment.do?i_code=${OrderVO.i_code }&o_num=${OrderVO.o_num }" style="color:red">${OrderVO.o_deposit }</a></td>					
+						</c:if>
+						<c:if test="${OrderVO.o_deposit=='결제완료' }">					
+							<td><a href="${ctx }mypage/payment.do?i_code=${OrderVO.i_code }&o_num=${OrderVO.o_num }" style="color:blue">${OrderVO.o_deposit }</a></td>					
+						</c:if>
+						<c:if test="${OrderVO.o_delivery=='배송준비중' }">
+							<td style="color:red">${OrderVO.o_delivery}</td>
+						</c:if>
+						<c:if test="${OrderVO.o_delivery=='배송완료' }">
+							<td style="color:blue">${OrderVO.o_delivery}</td>
+						</c:if>
 					</tr>
 				</c:forEach>
 			</tbody>

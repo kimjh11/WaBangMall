@@ -20,6 +20,7 @@ public class CommandPayment implements CommandService {
 		
 		String deposit = "결제완료";
 		String i_code = req.getParameter("i_code");
+		String o_num = req.getParameter("o_num");
 		String userid = (String) session.getAttribute("loginId");
 		
 		//값들어왔는지 확인
@@ -27,8 +28,9 @@ public class CommandPayment implements CommandService {
 		System.out.println("로그인한 아이디="+userid);
 		System.out.println("결제상태="+deposit);
 		System.out.println("i_code="+i_code);
+		System.out.println("o_num="+o_num);
 		
-		int cnt = dao.updateDeposit(userid, deposit, i_code);
+		int cnt = dao.updateDeposit(userid, deposit, i_code,o_num);
 		req.setAttribute("cnt", cnt);
 		
 		return "payment.jsp";

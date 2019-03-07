@@ -80,17 +80,18 @@ public class MyPageDAO extends DBConnection implements MyPageInterface {
 	}
 
 	//결제완료
-	public int updateDeposit(String userid,String deposit, String i_code) {
+	public int updateDeposit(String userid,String deposit, String i_code,String o_num) {
 		int cnt = 0;
 		try {
 		dbCon();
 		String sql = " update orderList set o_deposit = ?, o_fix = sysdate "
-				+ " where m_id=? and i_code=? ";
+				+ " where m_id=? and i_code=? and o_num= ?";
 
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, deposit);
 		pstmt.setString(2, userid);
 		pstmt.setString(3, i_code);
+		pstmt.setString(4, o_num);
 		pstmt.executeUpdate();
 		cnt = pstmt.executeUpdate();
 		
