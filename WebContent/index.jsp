@@ -46,7 +46,7 @@
 					<span class="rank">${i }</span>
 					<img src="${ctx }img/store/item-thumnail-${i }.jpg">
 					<div class="item-info">
-						<p class="i-name">${i }번째 상품명</p>
+						<h4 class="i-name">${i }번째 상품명</h4>
 						<span class="i-discount">20</span>
 						<strong class="i-price">45000</strong>
 					</div>

@@ -1,12 +1,5 @@
 $(function(){
-	/*디테일 메인이미지 등록*/
-	var imgTag = $("#detail_img_list li a img").first().clone();
-	$("#detail_img_frame").html(imgTag);
 	
-	/*이미지 클릭이벤트*/
-	$("#detail_img_list li a img").click(function(){
-		$("#detail_img_frame").html($(this).clone());
-	});
 	
 	/*수량 변경*/
 /*	$(".item_count button").click(function(){
