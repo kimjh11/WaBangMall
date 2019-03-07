@@ -17,6 +17,9 @@
 	#orderLiDiv{margin-top:30px;}
 	h2{margin-top:30px}
 </style>
+<script>
+	
+</script>
 </head>
 <body>
 <%@ include file="../index/store-header.jspf" %>
@@ -41,17 +44,20 @@
 				<c:forEach var="OrderVO" items="${list}">
 					<tr>
 						<td>${OrderVO.o_num }</td>
-						<td></td>
-						<td></td>
+						<td>${OrderVO.i_code }</td>
+						<td>
+							색상: ${OrderVO.o_selectOpt }<br/>
+							수량: ${OrderVO.o_count }
+						</td>
 						<td></td>
 						<td>
 							우편번호: ${OrderVO.m_zipCode}<br/>
 							${OrderVO.m_addr}&nbsp;
 							${OrderVO.m_addrDetail}
 						</td>
-						<td>${OrderVO.o_date }</td>
-						<td></td>
-						<td></td>
+						<td>${OrderVO.o_date }</td>						
+						<td><a href="${ctx }mypage/payment.do?i_code=${OrderVO.i_code }" class="money">${OrderVO.o_deposit }</a></td>					
+						<td>${OrderVO.o_delivery}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

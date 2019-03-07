@@ -8,5 +8,7 @@ public interface MyPageInterface {
 	public List<OrderVO> getAllOrder(String userid);
 	//문의목록 불러오기
 	public List<DepositVO> getAllDeposit(String userid);
-	//
+
+	//입금완료
+	public int updateDeposit(String userid,String deposit,String i_code);
 }

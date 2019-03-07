@@ -9,13 +9,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>WaBangMall</title>
-<link rel="stylesheet" href="css/common.css"/>
-<link rel="stylesheet" href="css/index.css"/>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/common.css"/>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/index.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
-<script src="js/index.js"></script>
-
+<script src="<%=request.getContextPath() %>/js/common.js"></script>
+<script src="<%=request.getContextPath() %>/js/index.js"></script>
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </head>
 <!-- 추가 -->
@@ -26,7 +26,11 @@
 <section>
 	<!-- 이벤트 배너 : index.js, jquery로 li생성-->	
 	<div id="event-banner-wrap" class="full_size">
-		<ul id="event-banner" class="event-slider"></ul>
+		<ul id="event-banner" class="event-slider">
+		<c:forEach var="img" begin="1" end="5">
+			<li><a href="#" style="background-image:url(${ctx}img/store/event-banner-img-${img }.png)"></a></li>
+		</c:forEach>
+		</ul>
 	</div>
 	
 	<!-- 베스트상품 start -->
@@ -42,7 +46,7 @@
 			<li>
 				<a href="#">
 					<span class="rank">${i }</span>
-					<img src="img/store/item-thumnail-${i }.jpg">
+					<img src="${ctx }img/store/item-thumnail-${i }.jpg">
 					<div class="item-info">
 						<p class="i-name">${i }번째 상품명</p>
 						<span class="i-discount">20</span>
@@ -105,7 +109,7 @@
 				<a href="#">
 					<span class="i-name">특가상품명${z }</span>
 					<span class="i-discount top-label">76</span>
-					<img class="i-thumnail op-scale" src="img/store/sale-item-${z }.jpg"/>
+					<img class="i-thumnail op-scale" src="${ctx }img/store/sale-item-${z }.jpg"/>
 				</a>
 			</li>
 			</c:forEach>
