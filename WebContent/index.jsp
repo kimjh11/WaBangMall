@@ -42,11 +42,11 @@
 		<ul id="best-item-slider" class="best-item-slider">
 			<c:forEach var="i" begin="1" end="10">
 			<li>
-				<a href="item/detailView.do?i-code=">
+				<a href="item/detailView.do?i-code=20190307-01">
 					<span class="rank">${i }</span>
 					<img src="${ctx }img/store/item-thumnail-${i }.jpg">
 					<div class="item-info">
-						<p class="i-name">${i }번째 상품명</p>
+						<h4 class="i-name">${i }번째 상품명</h4>
 						<span class="i-discount">20</span>
 						<strong class="i-price">45000</strong>
 					</div>
