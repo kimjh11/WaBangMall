@@ -42,13 +42,13 @@
 			</li>
 			<li>
 				<a href="${shoppingList }">
-					<span>장바구니</span>
+					<span><a href="<%=request.getContextPath()%>/orderpage/storeShoppingList.do">장바구니</a></span>
 					<img class="nav_icon" alt="장바구니" title="장바구니" src="${ctx }img/store/footer_03_cart.png"/>
 				</a>
 			</li>
 			<li>
 				<a href="#">
-					<span>MY페이지</span>
+					<span><a href="<%=request.getContextPath()%>/mypage/myPage.do">MY페이지</a></span>
 					<img class="nav_icon" alt="장바구니" title="장바구니" src="${ctx }img/store/footer_04_user.png"/>
 				</a>
 			</li>

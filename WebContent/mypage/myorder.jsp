@@ -40,7 +40,7 @@
 			<tbody id="orderList">
 				<c:forEach var="OrderVO" items="${list}">
 					<tr>
-						<td>${OrderVO.o_num }</td>
+						<td><a style="color:blue" href="${ctx }orderpage/storeOrderList.do?o_num=${OrderVO.o_num }">${OrderVO.o_num }</a></td>
 						<td>${OrderVO.i_code }</td>
 						<td>
 							색상: ${OrderVO.o_selectOpt }<br/>
@@ -70,38 +70,46 @@
 			</tbody>
 		</table>
 </div>
-	<!-- 페이징start -->
-		<ul class="pagination pagination-sm justify-content-center">
-			<!-- 이전페이지 -->
+	<!-- 페이징 start -->
+		<div id="pageBtn">
+			<ul class="pagination justify-content-center">
 			
-				<li class="page-item disabled"><a href="#" class="page-link">prev</a></li>
-			
-			<c:if test="">
-			<li class="page-item"><a href="">prev</a></li>
-			</c:if>
-			<!-- 이전페이지 end -->
-			<c:forEach var="i" begin="" end="">
-				<c:if test="">
-					<c:choose>
-						<c:when test="">
-							<li class="page-item active"><a href="" class="page-link"></a></li>						
-						</c:when>
-						<c:when test="">
-							<li class="page-item"><a href="" class="page-link"></a></li>
-						</c:when>
-					</c:choose>
+			<!-- 이전 페이지 start -->
+				<c:if test="${vo.num == 1}">
+					<li class="page-item disabled"><a class="page-link" href="#">＜</a></li>
 				</c:if>
-			</c:forEach>
-			<!-- 다음페이지 -->
+				<c:if test="${vo.num > 1}">
+					<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/mypage/myOrder.do?num=${vo.num-1}">＜</a></li>
+				</c:if>
+			<!-- 이전 페이지 end -->
 			
-				<li class="page-item disabled"><a href="#" class="page-link">next</a></li>
+			<!-- 페이지 수 start -->
+			<!--                                  1                    1       +       5-1         -->
+				<c:forEach var="i" begin="${vo.startPage}" end="${vo.startPage + vo.pageNumCount-1}">
+					<c:if test="${i<=vo.totalPage}">
+						<c:choose>
+							<c:when test="${ i == vo.num }">
+								<li class="page-item active"><a class="page-link" href="<%=request.getContextPath()%>/mypage/myOrder.do?num=${i}">${i}</a></li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/mypage/myOrder.do?num=${i}">${i}</a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:if>
+				</c:forEach>
+			<!-- 페이지 수 end -->	
 			
-			<c:if test="">
-				<li class="page-item"><a href="" class="page-link">next</a></li>
-			</c:if>
-			<!-- 다음페이지end -->
-		</ul>
-		<!-- 페이징end -->	
+			<!-- 다음 페이지 start  -->
+				<c:if test="${vo.num == vo.totalPage}">
+					<li class="page-item disabled"><a class="page-link" href="#">＞</a></li>
+				</c:if>
+				<c:if test="${vo.num < vo.totalPage}">
+					<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/mypage/myOrder.do?num=${vo.num+1}">＞</a></li>
+				</c:if>
+			<!-- 다음 페이지 end -->
+			</ul>
+		</div>
+		<!-- 페이징 end -->
 </div>
 </body>
 </html>
