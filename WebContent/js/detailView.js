@@ -17,7 +17,7 @@ $(function(){
 	
 	/* 옵션선택 */
 	$('select').change(function(){
-		var optPrice="";
+		var optPrice="";  
 		var colorPrice="";
 		if($('#opt-select option:selected').val()!=""){
 			opt = $('#opt-select option:selected').text();

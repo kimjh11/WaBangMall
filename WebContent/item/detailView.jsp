@@ -51,7 +51,7 @@
 					<span id="i-price" class="del-line won">99000</span>
 					<strong id="sell-price" class="won">2525667</strong>
 				</div>
-			</div>
+			</div>  
 			<!-- 옵션/컬러/수량 선택 -->
 			<ul class="opt-div">
 				<li>
