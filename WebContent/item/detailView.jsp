@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces = "true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </head>
 <body>
-<div id="detail-wrap">
+<div id="content-wrap">
 <!-- Header -->
 <%@ include file="../index/store-header.jspf" %>
 <section>
@@ -29,27 +30,27 @@
 			<div id="thumnail-focus"></div>
 			<!-- 썸네일 리스트(하단) -->
 			<ul id="thumnail-list">
-			<c:forEach var="img" items="">
+			<c:forTokens var="img" items="${vo.iThumbnailStr }" delims="|">
 				<li>
 					<a href="#">
-						<img src="${ctx }img/store/detailview-thumnail-${cnt}.jpg"/>
+						<img src="${ctx }img/store/${img }"/>
 					</a>
 				</li>
-			</c:forEach>
+			</c:forTokens>
 			</ul>
 		</div>
 		<div class="info-wrap">
 			<nav class="i-category">
-				<c:forEach var="cate" begin="1" end="3">
-				<a href="">카테고리${cate }</a>
-				</c:forEach>
+			<c:forTokens var="category" items="${vo.iCategoryStr }" delims="|">
+				<a href="">${category }</a>
+			</c:forTokens>
 			</nav>
 			<div class="info-div">
-				<h4 id="i-name">상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명</h4>
-				<strong id="i-discount" class="percent">10</strong>
+				<h4 id="i-name">${vo.iName }</h4>
+				<strong id="i-discount" class="percent">${vo.iDiscount }</strong>
 				<div class="price-div">
-					<span id="i-price" class="del-line won">99000</span>
-					<strong id="sell-price" class="won">2525667</strong>
+					<span id="i-price" class="del-line won">${vo.iPrice }</span>
+					<strong id="sell-price" class="won">${vo.noOptPrice }</strong>
 				</div>
 			</div>  
 			<!-- 옵션/컬러/수량 선택 -->
@@ -58,28 +59,30 @@
 					<span class="info-title">옵션</span>
 					<select id="opt-select">
 						<!-- 옵션 -->
-						<c:forEach var="opt" begin="0" end="3">
-						<c:if test="${opt<=0 }">
-							<option value="">옵션을 선택해주세요</option>
+						<option value="">옵션을 선택해주세요</option>
+						<c:forTokens var="opt" items="${vo.iOptStr }" delims="|">
+						<c:if test='${fn:contains(opt,"+") }'>
+							<option value='${opt.substring(opt.indexOf("+")+1) }'>${opt }</option>
 						</c:if>
-						<c:if test="${opt>0 }">
-							<option value="옵션가격${opt }">옵션명${opt }</option>
+						<c:if test='${!fn:contains(opt,"+") }'>
+							<option value=0>${opt }</option>
 						</c:if>
-						</c:forEach>
+						</c:forTokens>
 					</select>
 				</li>
 				<li>
 					<span class="info-title">색상</span>
 					<select id="color-select">
 						<!-- 색상  -->
-						<c:forEach var="color" begin="0" end="3">
-						<c:if test="${color<=0 }">
-							<option value="">색상을 선택해주세요</option>
+						<option value="">색상을 선택해주세요</option>
+						<c:forTokens var="color" items="${vo.iColorStr }" delims="|">
+						<c:if test='${fn:contains(color,"+") }'>
+							<option value='${color.substring(opt.indexOf("+")+1) }'>${color }</option>
 						</c:if>
-						<c:if test="${color>0 }">
-							<option value="색상추가금액${color }">색상${color}</option>
-						</c:if>	
-						</c:forEach>
+						<c:if test='${!fn:contains(color,"+") }'>
+							<option value=0>${color }</option>
+						</c:if>
+						</c:forTokens>
 					</select>
 				</li>
 			</ul>
@@ -90,9 +93,10 @@
 					<span class="info-title" >수량</span>
 					<div class="cnt-div">
 						<button class="minus-btn">―</button>
-						<input id="i-count" type="number" value="1" readonly>
+						<input class="num" type="number" value="1" readonly>
 						<button class="plus-btn">＋</button>
 					</div>
+					<input type="hidden" class="select-price"/>
 				</div>
 				<div class="opt-chk" style="display:none">
 					
@@ -106,7 +110,7 @@
 			<!-- 장바구니/구매하기 버튼 -->
 			<ul class="order_btn">
 				<li><a data-toggle="modal" data-target="#add-shopping-list" href="#">장바구니</a></li>
-				<li><a href="#">구매하기</a></li>
+				<li><a class="buy-btn" href="#">구매하기</a></li>
 			</ul>
 			<!-- 장바구니 담기 모달 -->
 			<div id="add-shopping-list" class="modal fade">
@@ -114,7 +118,7 @@
 					<div class="modal-content">
 						<div class="modal-header">장바구니에 물건을 담았습니다 :)</div>
 						<div class="modal-body">
-							<a href="StoreShoppingList.html">장바구니 확인하기</a>
+							<a href="item/orderpage.do">장바구니 확인하기</a>
 							<a data-dismiss="modal" href="#">계속쇼핑하기</a>
 						</div>
 						<div class="modal-footer">
@@ -137,12 +141,29 @@
 		<div class="tab-content">
 			<!-- 상세페이지 view -->
 			<div id="content0"class="tab-pane active" >
-				상품상세페이지
+				<img src="${ctx }img/store/${vo.iDetail }"/>
 			</div>
 			<!-- 상세페이지 view end -->
 			<!-- 리뷰 -->
 			<div id="content1"class="tab-pane" >
-				리뷰
+			<c:if test="${loginStatus=='Y' }">
+				<button>리뷰등록하기</button>
+			</c:if>
+			<table>
+				<thead>
+					<tr>
+						<td></td>
+					</tr>
+				</thead>
+			</table>
+			<form method="post" action="">
+				<input type="text" value="title" />
+				<span>regdate</span>
+				<textarea>content</textarea>
+				
+				<input type="button" value="등록하기"/>
+			</form>
+
 			</div>
 			<!-- 리뷰  end -->
 			<!-- 배송/교환/환불 -->
