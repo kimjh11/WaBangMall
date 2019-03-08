@@ -19,6 +19,9 @@ public interface MemberInterface {
 	//회원 탈퇴(delete)
 	public int myInfoDelete(String userid, MemberVO vo);
 	
+	//어드민 로그인 하기
+	public void adminloginCheck(AdminVO adminvo);
+	
 	//아이디 찾기
 	//비밀번호 찾기
 }
