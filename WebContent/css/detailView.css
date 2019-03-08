@@ -9,9 +9,6 @@
 	float:left;
 }
 /* 썸네일 */
-.thumnail-wrap{
-	padding-left:5%;
-}
 #thumnail-focus{
 	width:90%;
 	max-width:550px;
