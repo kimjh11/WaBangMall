@@ -19,7 +19,14 @@ public class OrderVO {
 		private int m_zipCode;
 		private String m_addr;
 		private String m_addrDetail;
-	
+		//페이징
+		private int num = 1; //현재 페이지
+		private int totalRecord = 0; //총 레코드 수
+		private int totalPage = 1; //총 페이지 수
+		private int onePageRecord = 5; //1page에 표시할 레코드 수
+		private int startPage = 1; //시작 페이지
+		private int pageNumCount = 5; //한번에 출력할 페이지 번호 수
+		
 	public OrderVO() {}
 
 	public String getM_id() {
@@ -148,6 +155,61 @@ public class OrderVO {
 
 	public void setM_addrDetail(String m_addrDetail) {
 		this.m_addrDetail = m_addrDetail;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+		if(num%pageNumCount==0) {
+			startPage = (num/pageNumCount-1)*pageNumCount+1;			
+		}else {
+			startPage = (num/pageNumCount)*pageNumCount+1;
+		}
+	}
+
+	public int getTotalRecord() {
+		return totalRecord;
+	}
+
+	public void setTotalRecord(int totalRecord) {
+		this.totalRecord = totalRecord;
+		//총페이지수
+		totalPage = (int)Math.ceil(totalRecord / (double)onePageRecord);
+	}
+
+	public int getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+
+	public int getOnePageRecord() {
+		return onePageRecord;
+	}
+
+	public void setOnePageRecord(int onePageRecord) {
+		this.onePageRecord = onePageRecord;
+	}
+
+	public int getStartPage() {
+		return startPage;
+	}
+
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
+	}
+
+	public int getPageNumCount() {
+		return pageNumCount;
+	}
+
+	public void setPageNumCount(int pageNumCount) {
+		this.pageNumCount = pageNumCount;
 	}
 
 }

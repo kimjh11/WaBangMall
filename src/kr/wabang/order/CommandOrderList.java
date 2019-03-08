@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.wabang.controller.CommandService;
 
-public class CommandSopping implements CommandService {
+public class CommandOrderList implements CommandService {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
-		return "storeShoppingList.jsp";
+		return "storeOrderList.jsp";
 	}
 
 }
