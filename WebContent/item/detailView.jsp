@@ -29,7 +29,7 @@
 			<div id="thumnail-focus"></div>
 			<!-- 썸네일 리스트(하단) -->
 			<ul id="thumnail-list">
-			<c:forEach var="cnt" begin="1" end="3">
+			<c:forEach var="img" items="">
 				<li>
 					<a href="#">
 						<img src="${ctx }img/store/detailview-thumnail-${cnt}.jpg"/>
