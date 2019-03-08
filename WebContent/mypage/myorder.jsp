@@ -32,20 +32,41 @@
 				<td>선택옵션</td>
 				<td>결제금액</td>
 				<td>받는주소</td>
+				<td>주문날짜</td>
 				<td>결제여부</td>
 				<td>배송여부</td>
 			</tr>
 			</thead>
 			<tbody id="orderList">
+				<c:forEach var="OrderVO" items="${list}">
 					<tr>
-						<td>asdf123</td>
-						<td>asdf1234</td>
-						<td>흰색</td>
-						<td>26800원</td>
-						<td>서울 금천구 시흥</td>
-						<td>미결제</td>
-						<td>결제미확인</td>
+						<td>${OrderVO.o_num }</td>
+						<td>${OrderVO.i_code }</td>
+						<td>
+							색상: ${OrderVO.o_selectOpt }<br/>
+							수량: ${OrderVO.o_count }
+						</td>
+						<td></td>
+						<td>
+							우편번호: ${OrderVO.m_zipCode}<br/>
+							${OrderVO.m_addr}&nbsp;
+							${OrderVO.m_addrDetail}
+						</td>
+						<td>${OrderVO.o_date }</td>
+						<c:if test="${OrderVO.o_deposit=='미결제' }">					
+							<td><a href="${ctx }mypage/payment.do?i_code=${OrderVO.i_code }&o_num=${OrderVO.o_num }" style="color:red">${OrderVO.o_deposit }</a></td>					
+						</c:if>
+						<c:if test="${OrderVO.o_deposit=='결제완료' }">					
+							<td><a href="${ctx }mypage/payment.do?i_code=${OrderVO.i_code }&o_num=${OrderVO.o_num }" style="color:blue">${OrderVO.o_deposit }</a></td>					
+						</c:if>
+						<c:if test="${OrderVO.o_delivery=='배송준비중' }">
+							<td style="color:red">${OrderVO.o_delivery}</td>
+						</c:if>
+						<c:if test="${OrderVO.o_delivery=='배송완료' }">
+							<td style="color:blue">${OrderVO.o_delivery}</td>
+						</c:if>
 					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 </div>

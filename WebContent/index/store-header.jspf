@@ -9,14 +9,14 @@
 	<div id="top-header" class="width-auto">
 		<h1><a href="${home }">WABANG</a></h1>
 		<div class="log_in">
-		<c:if test="${loginStatus == 'N' || loginStatus == null }">
+		<c:if test="${loginStatus == 'N' || loginStatus == null}">
 			<a href="<%=request.getContextPath()%>/member/login.do">로그인</a>
 			<a href="<%=request.getContextPath()%>/member/join.do">회원가입</a>
 		</c:if>
 		<c:if test="${loginStatus == 'Y'}">
 			${loginId}님
 			<a href="<%=request.getContextPath()%>/member/logout.do" >로그아웃</a>
-			<a href="<%=request.getContextPath()%>/mypage/myInfo.do" >마이페이지</a>
+			<a href="<%=request.getContextPath()%>/mypage/myPage.do" >마이페이지</a>
 		</c:if>
 		</div>
 	</div>
@@ -44,7 +44,7 @@
 				<h3><a href="#">Q&A</a></h3>
 			</li>
 			<li class="col">
-				<h3><a href="#">공지사항</a></h3>
+				<h3><a href="<%=request.getContextPath()%>/notice/noticeList.do">공지사항</a></h3>
 			</li>
 		</ul>
 	</nav>

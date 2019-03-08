@@ -13,6 +13,7 @@ public class CommandSecession implements CommandService {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		//È¸¿øÅ»Åð
+		
 		return "secession.jsp";
 	}
 
