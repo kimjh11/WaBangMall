@@ -11,16 +11,15 @@
 
 <style>
 	
-	#anDiv{margin:100px auto;width:1200px;height:300px;border-top:1px solid gray;
+	#anDiv{margin:50px auto;width:900px;height:185px;border-top:1px solid gray;
 			border-bottom:1px solid gray;box-shadow:1px 0px 10px gray}
 	#anDiv>div{float:left}
-	#caution{width:600px;height:250px;margin-top:25px;font-weight:bold;
+	#caution{width:450px;height:140px;margin-top:25px;font-weight:bold;
 	font-family:'Noto Sans KR','Apple SD Gothic Neo','Nanum Gothic','굴림',gulim,Arial, sans-serif;}
-	#accountNum{width:599px;height:250px;margin-top:25px;border-left:1px solid gray;font-weight:bold;
+	#accountNum{width:449px;height:140px;margin-top:25px;border-left:1px solid gray;font-weight:bold;
 	font-family:'Noto Sans KR','Apple SD Gothic Neo','Nanum Gothic','굴림',gulim,Arial, sans-serif;}
 	#accountNum>ul{list-style-type:none}
 </style>
-<div>
 	<div id="anDiv">
 		<div id="caution">
 			&emsp;<span style="color:red;font-size:1.2em">※입금전 주의사항</span><br/><br/>
@@ -36,10 +35,9 @@
 		<div id="accountNum">
 			&emsp;<span style="font-size:1.2em">입금정보</span><br/><br/>
 			<ul>
-				<li>은행명:&ensp;oo은행</li>
-				<li>계좌번호:&ensp;000-0000-00000-000</li>
-				<li>예금주:&ensp;와방(주)</li>
+				<li>&ensp;은행명:&ensp;oo은행</li>
+				<li>&ensp;계좌번호:&ensp;000-0000-00000-000</li>
+				<li>&ensp;예금주:&ensp;와방(주)</li>
 			</ul>
 		</div>
 	</div>
-</div>
