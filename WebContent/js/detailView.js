@@ -17,9 +17,11 @@ $(function(){
 	
 	/* 옵션선택 */
 	$('select').change(function(){
+		
 		var optPrice="";  
 		var colorPrice="";
 		if($('#opt-select option:selected').val()!=""){
+			
 			opt = $('#opt-select option:selected').text();
 			optPrice = $('#opt-select option:selected').val();	
 		}
@@ -30,7 +32,7 @@ $(function(){
 		//옵션을 두개다 선택했을경우
 		if(optPrice!="" && colorPrice!=""){
 			optChkShow(opt,optPrice,color,colorPrice);
-
+			
 			//초기값세팅
 			$('#opt-select').val("").prop("select",true);
 			$('#color-select').val("").prop("select",true);
@@ -47,7 +49,7 @@ $(function(){
 		$('.opt-chk').append(tag);
 		var cnt = $('.cnt-wrap').first().clone().css('display','block');
 		$('.opt-chk').append(cnt);	
-	}
+	};
 	
 	/*var opt="";
 	var color="";
