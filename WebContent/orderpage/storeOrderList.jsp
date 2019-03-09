@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>제목</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/common.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/index.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
@@ -42,10 +41,10 @@
 			<table>
 				<thead style="border-bottom:1px solid gray">
 					<tr class="fs15 row" style="margin-bottom:10px">
-						<td class="col-sm-6" style="width:700px">상품정보</td>
-						<td class="col-sm-2">수량</td>
-						<td class="col-sm-2">배송료</td>
-						<td class="col-sm-2">금액</td>
+						<td class="col-sm-6" style="width:600px">상품정보</td>
+						<td class="col-sm-2" style="width:100px">수량</td>
+						<td class="col-sm-2" style="width:100px">배송료</td>
+						<td class="col-sm-2" style="width:100px">금액</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -109,7 +108,7 @@
 		<%@ include file="storeOrderList.jspf" %>
 		<!-- 확인 btn -->
 		<div id="chdiv">
-			<a href="#" class="chBtn" style="margin-left:400px">확인</a>
+			<a href="${ctx }index.do" class="chBtn" style="margin-left:400px">확인</a>
 		</div>
 	</div>
 </div>
