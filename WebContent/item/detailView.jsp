@@ -118,7 +118,7 @@
 					<div class="modal-content">
 						<div class="modal-header">장바구니에 물건을 담았습니다 :)</div>
 						<div class="modal-body">
-							<a href="item/orderpage.do">장바구니 확인하기</a>
+							<a href="orderpage/storeShoppingList.do">장바구니 확인하기</a>
 							<a data-dismiss="modal" href="#">계속쇼핑하기</a>
 						</div>
 						<div class="modal-footer">
