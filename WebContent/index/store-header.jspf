@@ -56,7 +56,7 @@
 				<h3><a href="#">SALE</a></h3>
 			</li>
 			<li class="col spacing">
-				<h3><a href="#">Q&A</a></h3>
+				<h3><a href="<%=request.getContextPath()%>/qna/qnaList.do">Q&A</a></h3>
 			</li>
 			<li class="col">
 				<h3><a href="<%=request.getContextPath()%>/notice/notice.do">공지사항</a></h3>
