@@ -24,6 +24,7 @@
 <%@ include file="../index/store-header.jspf" %>
 <section>
 <div class="div-wrap width-auto">
+<form method="post" action="${ctx }orderpage/shoppingList.do?iCode=${vo.iCode}">
 	<div class="top-content">
 		<div class="thumnail-wrap">
 			<!-- 썸네일 메인이미지 -->
@@ -93,19 +94,21 @@
 					<span class="info-title" >수량</span>
 					<div class="cnt-div">
 						<button class="minus-btn">―</button>
-						<input class="num" type="number" value="1" readonly>
+						<input type="number" value="1" readonly>
 						<button class="plus-btn">＋</button>
 					</div>
-					<input type="hidden" class="select-price"/>
 				</div>
-				<div class="opt-chk" style="display:none">
-					
-				</div>
+				<ul class="opt-chk" style="display:none"></ul>
 				<div class="price-chk">
 					<span class="info-title">총금액</span>
-					<strong id="total-price" class="won">0</strong>
+					<input type="number" id="bPayment" class="won" value="0"/>
 				</div>
 			</div>
+			<input type='hidden' id="bSelectOpt" value="">
+			<input type='hidden' id="SelectOptPrice" value="">
+			<input type='hidden' id="bColor" value="">
+			<input type='hidden' id="bColorPrice" value="">
+			<input type='hidden' id="bCount" value="">
 			<!-- 주문 체크 end -->
 			<!-- 장바구니/구매하기 버튼 -->
 			<ul class="order_btn">
@@ -118,7 +121,7 @@
 					<div class="modal-content">
 						<div class="modal-header">장바구니에 물건을 담았습니다 :)</div>
 						<div class="modal-body">
-							<a href="orderpage/storeShoppingList.do">장바구니 확인하기</a>
+							<button>장바구니 확인하기</button>
 							<a data-dismiss="modal" href="#">계속쇼핑하기</a>
 						</div>
 						<div class="modal-footer">
@@ -134,6 +137,7 @@
 		<!-- info-wrap end -->
 	</div>
 	<!-- top-content end -->
+</form>
 	<div class="main-content">
 		<!-- 탭메뉴 -->
 		<ul class="nav nav-tabs"></ul>
