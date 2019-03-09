@@ -19,7 +19,7 @@
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </head>
 <body>
-<div id="index-wrap">
+<div id="content-wrap">
 <!-- Header -->
 <%@ include file="index/store-header.jspf" %>
 <section>	

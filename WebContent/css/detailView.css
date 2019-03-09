@@ -80,6 +80,21 @@
 	width:85%;
 	height:30px;
 }
+/* .opt-chk{
+	background-color:#ddd;
+	width:95%;
+	padding:10px;
+}
+.opt-chk.show::after{
+	background-image:url('../img/store/close-btn.png');
+	background-size:100%;
+	content:"";
+	display:block;
+	width:15px;
+	height:15px;
+	position:absolute;
+	cursor: pointer;
+} */
 .cnt-div{
 	width:150px;
 	display:inline-block;
@@ -91,7 +106,7 @@
 	width:30%;
 	text-align: center;
 }
-.price-chk #total-price{
+.price-chk #bPayment{
 	font-size:28pt;
 	font-weight:bold;
 	text-align:right;

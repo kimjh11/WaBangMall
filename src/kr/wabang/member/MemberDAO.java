@@ -91,6 +91,29 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 			dbClose();
 		}
 	}
+	
+	@Override
+	public void adminloginCheck(AdminVO adminvo) {
+		//어드민 로그인
+		try{
+			dbCon();
+			String sql = "select adminId from admin where adminId=? and adminPwd=?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, adminvo.getAdminId());
+			pstmt.setString(2, adminvo.getAdminPwd());
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				adminvo.setAdminId(rs.getString(1));
+				adminvo.setAdminloginStatus("Y");
+			}
+		}catch(Exception e){
+			System.out.println("어드민 로그인 에러"+e.getMessage());
+		}finally{
+			dbClose();
+		}
+	}
 
 	@Override
 	public MemberVO myInfoSelect(String userid) {
@@ -201,5 +224,4 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 		}
 		return cnt;
 	}
-	
 }

@@ -14,12 +14,13 @@ public class CmdDetailView implements CommandService {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// 상품 상세페이지
-		String iCode = req.getParameter("i-code");
-
+		ItemVO vo = new ItemVO(req.getParameter("i-code"));
 		ItemDAO dao = new ItemDAO();
-		List<ItemVO> list = dao.itemSelect(iCode);
-		
-		req.setAttribute("list", list);
+
+		dao.itemSelect(vo);
+		vo.setNoOptPrice(vo.getiPrice(), vo.getiDiscount());
+		System.out.println(vo.getNoOptPrice());
+		req.setAttribute("vo", vo);
 		
 		return "detailView.jsp";
 	}
