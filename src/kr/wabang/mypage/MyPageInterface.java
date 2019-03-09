@@ -16,5 +16,8 @@ public interface MyPageInterface {
 
 	//총  레코드 수
 	public int totalRecord(OrderVO vo,String userid);
+	
+	//주문취소
+	public int orderDelete(String id,String num,String itemNum,String opt);
 		
 }

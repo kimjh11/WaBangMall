@@ -35,6 +35,7 @@
 				<td>주문날짜</td>
 				<td>결제여부</td>
 				<td>배송여부</td>
+				<td>주문여부</td>
 			</tr>
 			</thead>
 			<tbody id="orderList">
@@ -65,6 +66,7 @@
 						<c:if test="${OrderVO.o_delivery=='배송완료' }">
 							<td style="color:blue">${OrderVO.o_delivery}</td>
 						</c:if>
+						<td><a href="${ctx }mypage/orderDelete.do?m_id=${OrderVO.m_id}&o_num=${OrderVO.o_num }&i_code=${OrderVO.i_code }&o_selectOpt=${OrderVO.o_selectOpt }">주문취소</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -27,7 +27,7 @@
 	#itemintro>div{float:left}
 	.fs15{font-size:1.5em}
 	#chDiv{margin-top:50px}
-	#chDiv>ul>li{float:left}
+	#chDiv>a{float:left}
 	.chBtn{font-size:3em;color:pink}
 </style>
 <body>

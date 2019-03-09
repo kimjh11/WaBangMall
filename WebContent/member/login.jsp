@@ -63,7 +63,7 @@
 			<div class="formDiv">
 				<form method="post" action="<%=request.getContextPath()%>/member/loginOk.do" name="frm1" id="frm1">
 					<div class="form-group" id="useridDiv">
-						<label for="userid" class="font-noto-login-T">아이디</label><br/>
+						<label for="userid">아이디</label><br/>
 						<input type="text" id="userid" name="userid" placeholder="아이디를 입력해주세요." 
 							   class="form-control"/>
 						<label></label>
@@ -80,7 +80,7 @@
 				
 				<div class="join">
 					<a href="<%=request.getContextPath()%>/member/join.do" class="font-noto-login-T">회원가입</a> &nbsp;&nbsp;
-					<a href="#" class="font-noto-login-T">아이디/비밀번호찾기</a>
+					<a href="<%=request.getContextPath()%>/member/find.do" class="font-noto-login-T">아이디/비밀번호찾기</a>
 				</div>
 				<hr/>
 			</div>
