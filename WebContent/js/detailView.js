@@ -8,44 +8,45 @@ $(function(){
 		$("#thumnail-focus").html($(this).clone());
 	});
 	
-	
-	/*판매가 세팅*/
+	/*판매가 초기값세팅*/
 	$('#bPayment').ready(function(){
 		var price;
 		price = $("#sell-price").text();
 		$('#bPayment').val(price);
 	});
 	
+	
 	/* 옵션선택 */
 	$('select').change(function(){
-		var opt="";
-		var optPrice="";  
-		var color="";
-		var colorPrice="";
+		var selectOpt="";//옵션명
+		var selectOptPrice="";//옵션가 
+		var selectColor="";//컬러
+		var selectColorPrice="";//컬러옵션가
+		var selectCount=1;
 		
 		if($('#opt-select option:selected').val()!=""){
-			
-			opt = $('#opt-select option:selected').text();
-			optPrice = $('#opt-select option:selected').val();	
+			selectOpt = $('#opt-select option:selected').text();
+			selectOptPrice = $('#opt-select option:selected').val();	
 		}
 		if($('#color-select option:selected').val()!=""){
-			color = $('#color-select option:selected').text();
-			colorPrice = $('#color-select option:selected').val();
+			selectColor = $('#color-select option:selected').text();
+			selectColorPrice = $('#color-select option:selected').val();
+			console.log(selectColor+","+selectColorPrice);
 		}
+		
 		//옵션을 두개다 선택했을경우
-		if(optPrice!="" && colorPrice!=""){
-
-			optChkShow(opt,optPrice,color,colorPrice);
+		if(selectOptPrice!="" && selectColorPrice!=""){
+			//선택한 옵션확인창
+			var chk = optChkShow(selectOpt,selectColor);
 			
-
-			var select = opt+color;
-			if(!$('.opt-chk li div').hasClass(select)){
-				optChkShow(select,opt,optPrice,color,colorPrice);
-			}else{
-				alert('동일한 옵션이 선택되어 있습니다');
+			if(chk!=false){//동일한 선택이 없을경우
+				//총판매가 변경
+				totalPriceChange(selectOptPrice,selectColorPrice);
+				//input에 값 저장
+				optInsert(selectOpt,selectOptPrice,selectColor,selectColorPrice,selectCount);
 			}
-
-			//초기값세팅
+			
+			//옵션선택 초기화
 			$('#opt-select').val("").prop("select",true);
 			$('#color-select').val("").prop("select",true);
 		}
@@ -53,55 +54,56 @@ $(function(){
 	});
 
 
-
-	
 	/* 선택한 옵션 확인창 생성 */
-	function optChkShow(select,opt,optPrice,color,colorPrice){
-		optPrice = Number(optPrice);
-		colorPrice = Number(colorPrice);
-		
+	function optChkShow(selectOpt,selectColor){
+		//옵션체크상자 block
 		if($('.opt-chk').css('display','none')){
 			$('.opt-chk').css('display','block');
-			$('.opt-chk').addClass('show');
 		}
 		
-
-		var tag = "<div>옵션 : "+opt+" / 색상 : "+color+"</div>";
-		$('.opt-chk').append(tag);
-		var cnt = $('.cnt-wrap').first().clone().css('display','block');
-		$('.opt-chk').append(cnt);	
-	
-/*
-		var txtDiv = "<li><div class="+select+">옵션 : "+opt+" / 색상 : "+color+"</div>";
+		//선택한 옵션추가
+		var txtDiv = "<li><div class="+selectOpt+selectColor+">"
+			txtDiv += "옵션 : "+selectOpt+" , 색상 : "+selectColor+"</div></li>";
 		
-		var cntDiv = '<div class="cnt-wrap">';
-			cntDiv += 	'<span class="info-title" >수량</span>';
-			cntDiv += 	'<div class="cnt-div">';
-			cntDiv += 		'<button class="minus-btn">―</button>';
-			cntDiv += 		'<input type="number" value="1" readonly>';
-			cntDiv += 		'<button class="plus-btn">＋</button>';
-			cntDiv += 	'</div></div></li>';
-
-		$('.opt-chk').append(txtDiv+cntDiv);*/
-
-		totalPrice(optPrice+colorPrice);//총 판매가 변경
+		//동일한옵션이 없을때 txtDiv 추가
+		if(!$('.opt-chk li div').hasClass(selectOpt+selectColor)){
+			$('.opt-chk').append(txtDiv);
+		}else{
+			alert('동일한 옵션이 선택되어 있습니다');
+			return false;
+		}
 		
-		//input상자 value
+		//수량 버튼 추가
+		var cntDiv = $('.cnt-wrap').first().clone(true,true).css('display','block');
+		$('.opt-chk li').append(cntDiv);	
+	};
+
+	/* 총구매금액 : 판매가+옵션+수량적용 */
+	function totalPriceChange(selectOptPrice,selectColorPrice){
+		selectOptPrice = Number(selectOptPrice);
+		selectColorPrice = Number(selectColorPrice);
+		var price = Number($('#bPayment').val());
+		$("#bPayment").val(price + selectOptPrice + selectColorPrice);
+	}
+
+	/* input insert */
+	function optInsert(selectOpt,selectOptPrice,selectColor,selectColorPrice,selectCount){
 		var bSelectOpt = $('#bSelectOpt').val();
 		var SelectOptPrice = $('#SelectOptPrice').val();
 		var bColor = $('#bColor').val();
 		var bColorPrice = $('#bColorPrice').val();
 		var bCount = $('#bCount').val();
 		
-		
-		$('#bSelectOpt').val(bSelectOpt+'/'+opt);
-		$('#SelectOptPrice').val(SelectOptPrice+'/'+optPrice);
-		$('#bColor').val(bColor+'/'+color);
-		$('#bColorPrice').val(bColorPrice+'/'+colorPrice);
-		$('#bCount').val(bCount+'/'+1);
-};
+		$('#bSelectOpt').val(bSelectOpt+'/'+selectOpt);
+		$('#SelectOptPrice').val(SelectOptPrice+'/'+selectOptPrice);
+		$('#bColor').val(bColor+'/'+selectColor);
+		$('#bColorPrice').val(bColorPrice+'/'+selectColorPrice);
+		$('#bCount').val(bCount+'/'+selectCount);
+	}
+/////////////////////////////////////////////////////////////////////
 	
 	
+
 	/* 수량버튼 클릭시 수량/금액변경*/
 	$('.cnt-div button').click(function(){
 		alert('클릭');
@@ -129,11 +131,7 @@ $(function(){
 	// 인덱스번째/부터 다음/까지의 값을 제거
 	
 	
-	/* 총구매금액 : 판매가+옵션+수량적용 */
-	function totalPrice(add){
-		 var price = Number($('#bPayment').val());
-		 $("#bPayment").val(price+add);
-	}
+
 	
 	/* 탭메뉴 */
 	$('.nav-tabs').ready(function(){

@@ -33,6 +33,9 @@ public class CommandShoppingList implements CommandService {
 		
 		ShoppingListDAO dao = new ShoppingListDAO();
 		int cnt = dao.insertShoppingList(vo);
+		req.setAttribute("cnt", cnt);
+		req.setAttribute("itemVO", itemVO);
+		req.setAttribute("ShoppingListVO", vo);
 		
 		return "storeShoppingList.jsp";
 	}

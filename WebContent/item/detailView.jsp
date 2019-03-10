@@ -61,14 +61,26 @@
 					<select id="opt-select">
 						<!-- 옵션 -->
 						<option value="">옵션을 선택해주세요</option>
-						<c:forTokens var="opt" items="${vo.iOptStr }" delims="|">
-						<c:if test='${fn:contains(opt,"+") }'>
-							<option value='${opt.substring(opt.indexOf("+")+1) }'>${opt }</option>
+						<!-- 옵션이 없을경우 -->
+						<c:if test='${vo.iOptStr.contains("undefined")==true}'>
+							<option value=0>선택안함</option>
 						</c:if>
-						<c:if test='${!fn:contains(opt,"+") }'>
-							<option value=0>${opt }</option>
+						<!-- 옵션이 있을경우 -->
+						<c:if test='${vo.iOptStr.contains("undefined")==false}'>
+							<option value=0>선택안함</option>
+							<!-- 옵션나누기 -->
+							<c:forTokens var="opt" items="${vo.iOptStr }" delims="|">
+								<!-- 추가 옵션가가 있을 경우 : value값 = 옵션가 -->
+								<c:if test='${fn:contains(opt,"+") }'>
+									<!-- 옵션명/옵션가 나누기 -->
+									<option value='${opt.substring(opt.indexOf("+")+1) }'>${opt }</option>
+								</c:if>
+								<!-- 추가옵션가가 없을 경우 : value값 = 0-->
+								<c:if test='${!fn:contains(opt,"+") }'>
+									<option value=0>${opt }</option>
+								</c:if>
+							</c:forTokens>
 						</c:if>
-						</c:forTokens>
 					</select>
 				</li>
 				<li>
@@ -76,14 +88,24 @@
 					<select id="color-select">
 						<!-- 색상  -->
 						<option value="">색상을 선택해주세요</option>
-						<c:forTokens var="color" items="${vo.iColorStr }" delims="|">
-						<c:if test='${fn:contains(color,"+") }'>
-							<option value='${color.substring(opt.indexOf("+")+1) }'>${color }</option>
+						<!-- 색상옵션이 없을경우 -->
+						<c:if test='${vo.iColorStr.contains("undefined")==true}'>
+							<option value=0>선택안함</option>
 						</c:if>
-						<c:if test='${!fn:contains(color,"+") }'>
-							<option value=0>${color }</option>
+						<!-- 색상옵션이 있을경우 -->
+						<c:if test='${vo.iColorStr.contains("undefined")==false}'>
+							<!-- 색상나누기 -->
+							<c:forTokens var="color" items="${vo.iColorStr }" delims="|">
+								<!-- 추가 옵션가가 있을 경우 : value값 = 옵션가 -->
+								<c:if test='${fn:contains(color,"+") }'>
+									<option value='${color.substring(opt.indexOf("+")+1) }'>${color }</option>
+								</c:if>
+								<!-- 추가 옵션가가 없을 경우: value값 = 옵션가 -->
+								<c:if test='${!fn:contains(color,"+") }'>
+									<option value=0>${color }</option>
+								</c:if>
+							</c:forTokens>
 						</c:if>
-						</c:forTokens>
 					</select>
 				</li>
 			</ul>

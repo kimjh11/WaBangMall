@@ -80,12 +80,12 @@
 	width:85%;
 	height:30px;
 }
-/* .opt-chk{
-	background-color:#ddd;
+.opt-chk.show{
 	width:95%;
-	padding:10px;
+	height:100px;
+	background-color:black;
 }
-.opt-chk.show::after{
+/*.opt-chk.show::after{
 	background-image:url('../img/store/close-btn.png');
 	background-size:100%;
 	content:"";
