@@ -10,20 +10,23 @@ $(function(){
 	
 	
 	/*판매가 세팅*/
-	var price;
-	$('#total-price').ready(function(){
+	$('#bPayment').ready(function(){
+		var price;
 		price = $("#sell-price").text();
-		$('#total-price').text(price);
+		$('#bPayment').val(price);
 	});
 	
 	/* 옵션선택 */
 	$('select').change(function(){
+		var opt="";
 		var optPrice="";  
+		var color="";
 		var colorPrice="";
+		
 		if($('#opt-select option:selected').val()!=""){
-			opt = $('#opt-select option:selected').text();
-			optPrice = $('#opt-select option:selected').val();
 			
+			opt = $('#opt-select option:selected').text();
+			optPrice = $('#opt-select option:selected').val();	
 		}
 		if($('#color-select option:selected').val()!=""){
 			color = $('#color-select option:selected').text();
@@ -31,8 +34,12 @@ $(function(){
 		}
 		//옵션을 두개다 선택했을경우
 		if(optPrice!="" && colorPrice!=""){
+
+			optChkShow(opt,optPrice,color,colorPrice);
+			
+
 			var select = opt+color;
-			if(!$('.opt-chk div').hasClass(select)){
+			if(!$('.opt-chk li div').hasClass(select)){
 				optChkShow(select,opt,optPrice,color,colorPrice);
 			}else{
 				alert('동일한 옵션이 선택되어 있습니다');
@@ -42,7 +49,11 @@ $(function(){
 			$('#opt-select').val("").prop("select",true);
 			$('#color-select').val("").prop("select",true);
 		}
+		
 	});
+
+
+
 	
 	/* 선택한 옵션 확인창 생성 */
 	function optChkShow(select,opt,optPrice,color,colorPrice){
@@ -53,39 +64,75 @@ $(function(){
 			$('.opt-chk').css('display','block');
 			$('.opt-chk').addClass('show');
 		}
-		var tag = "<div class="+select+">옵션 : "+opt+" / 색상 : "+color+"</div>";
-		$('.opt-chk').append(tag);//옵션 설명 추가
-		var cnt = $('.cnt-wrap').first().clone(true).css('display','block');//복제
-		cnt.children('.select-price').val(optPrice+colorPrice);//추가되는 옵션가 추가
-		$("#total-price").text(price);
 		
-		totalPrice(optPrice+colorPrice);//총 판매가 변경
+
+		var tag = "<div>옵션 : "+opt+" / 색상 : "+color+"</div>";
+		$('.opt-chk').append(tag);
+		var cnt = $('.cnt-wrap').first().clone().css('display','block');
+		$('.opt-chk').append(cnt);	
 	
-		$('.opt-chk').append(cnt);//수량 버튼 추가
-	}
+/*
+		var txtDiv = "<li><div class="+select+">옵션 : "+opt+" / 색상 : "+color+"</div>";
+		
+		var cntDiv = '<div class="cnt-wrap">';
+			cntDiv += 	'<span class="info-title" >수량</span>';
+			cntDiv += 	'<div class="cnt-div">';
+			cntDiv += 		'<button class="minus-btn">―</button>';
+			cntDiv += 		'<input type="number" value="1" readonly>';
+			cntDiv += 		'<button class="plus-btn">＋</button>';
+			cntDiv += 	'</div></div></li>';
 
+		$('.opt-chk').append(txtDiv+cntDiv);*/
 
-	/* 수량 버튼 클릭이벤트 */
-	$(".cnt-div button").click(function(){
+		totalPrice(optPrice+colorPrice);//총 판매가 변경
+		
+		//input상자 value
+		var bSelectOpt = $('#bSelectOpt').val();
+		var SelectOptPrice = $('#SelectOptPrice').val();
+		var bColor = $('#bColor').val();
+		var bColorPrice = $('#bColorPrice').val();
+		var bCount = $('#bCount').val();
+		
+		
+		$('#bSelectOpt').val(bSelectOpt+'/'+opt);
+		$('#SelectOptPrice').val(SelectOptPrice+'/'+optPrice);
+		$('#bColor').val(bColor+'/'+color);
+		$('#bColorPrice').val(bColorPrice+'/'+colorPrice);
+		$('#bCount').val(bCount+'/'+1);
+};
+	
+	
+	/* 수량버튼 클릭시 수량/금액변경*/
+	$('.cnt-div button').click(function(){
+		alert('클릭');
+		
 	    var cnt = $(this).siblings("input").val();//수량
 	    var add = Number($(this).parent().next().val());//추가되는 옵션가
+	    console.log(add);
 
 	    if($(this).attr("class")=='plus-btn'){
 	    	 cnt++;
 	    	 totalPrice(add);//총구매금액 변경
 	     }else{
-	    	 if(cnt==0) return;
+	    	 if(cnt<=1) return;
 	    	 cnt--;
 	    	 totalPrice(-add);//총구매금액 변경
 	     }
 	     $(this).siblings("input").val(cnt);
+	     var idx = $(this).parent().parent().parent().index();
+	     
 	});
-
+	
+	
+	/* 옵션 삭제버튼 클릭시 */
+	//삭제한 상자의 인덱스
+	// 인덱스번째/부터 다음/까지의 값을 제거
+	
 	
 	/* 총구매금액 : 판매가+옵션+수량적용 */
 	function totalPrice(add){
-		 var price = Number($('#total-price').text());
-		 $("#total-price").text(price+add);
+		 var price = Number($('#bPayment').val());
+		 $("#bPayment").val(price+add);
 	}
 	
 	/* 탭메뉴 */
