@@ -20,14 +20,14 @@ public class CmdShoppingListInsert implements CommandService {
 		// 장바구니페이지
 		req.setCharacterEncoding("UTF-8");
 
-		System.out.println("insert준비");
+
 		String bSelectOpt[] = req.getParameterValues("bSelectOpt");
-		System.out.println("옵션명:"+Arrays.deepToString(bSelectOpt));		
-		String bColor[] = req.getParameterValues("bColor");
-		System.out.println("색상명:"+Arrays.deepToString(bColor));	
+		String bColor[] = req.getParameterValues("bColor");		
 		String bCount[] = req.getParameterValues("bCount");
-		System.out.println("수량:"+Arrays.deepToString(bCount));
 		
+		//System.out.println("옵션명:"+Arrays.deepToString(bSelectOpt));
+		//System.out.println("색상명:"+Arrays.deepToString(bColor));
+		//System.out.println("수량:"+Arrays.deepToString(bCount));
 		
 		ItemVO itemVO = new ItemVO(req.getParameter("iCode"));
 		ItemDAO itemDAO = new ItemDAO();
@@ -40,9 +40,7 @@ public class CmdShoppingListInsert implements CommandService {
 		ShoppingListVO listVO = new ShoppingListVO();
 		
 		listVO.setiCode(req.getParameter("iCode"));
-		System.out.println("icode="+req.getParameter("iCode"));
 		listVO.setmId((String)ses.getAttribute("loginId"));
-		System.out.println("id="+(String)ses.getAttribute("loginId"));
 		listVO.setbCount(bCount);
 		listVO.setbSelectOpt(bSelectOpt);
 		listVO.setbColor(bColor);

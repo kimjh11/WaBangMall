@@ -132,21 +132,21 @@ $(function(){
 			}else{//장바구니 담기 클릭
 				if($('input[name="loginStatus"]').val()=='Y'){//로그인 :Y
 					var form = $('#frm').serialize();
-					//var data = new FormData(form);
+					var data = new FormData(form);
 					$.ajax({
 						type : "post",
-						//enctype : "multipart/form-data",
+						enctype : "multipart/form-data",
 						url : "/WaBangMall/orderpage/shoppingListInsert.do",
-						data :"form",
+						data : form ,
 						dataType :"text",
 						success: function(){
 							alert('insert성공');
+							if(confirm('장바구니로 이동하시겠습니까?')){//장바구니 확인
+								$("#frm").attr("action","/WaBangMall/orderpage/shoppingList.do");
+								$("#frm").submit();
+							}
 						}
 					});
-					/*if(confirm('장바구니로 이동하시겠습니까?')){//장바구니 확인
-						$("#frm").attr("action","/WaBangMall/orderpage/shoppingListInsert.do");
-						$("#frm").submit();
-					}	*/
 				}else{//로그인 :N
 					if(confirm('로그인 후 이용가능합니다.\n로그인페이지로 이동하시겠습니까?')){
 						location.href="/WabangMall/member/login.do";

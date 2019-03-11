@@ -13,8 +13,12 @@ public class CmdShoppingList implements CommandService {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// 장바구니보기
+		req.setCharacterEncoding("UTF-8");
 		
-		return "storeShoppingList.jsp";
+		
+		
+		
+		return "shoppingList.jsp";
 	}
 
 }
