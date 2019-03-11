@@ -41,7 +41,7 @@
 			<!-- 아이디찾기  -->
 				<div class="card">
 					<div class="card-header"><a href="#acc1" data-toggle="collapse" data-parent="#accordion" class="font-noto-login-T">아이디 찾기</a></div>
-					<div id="acc1" class="collapse show">
+					<div id="acc1" class="collapse show" style="text-align:center">
 						<!-- 이메일 -->
 						<form class="form-inline" id="searchId" action="<%=request.getContextPath()%>/member/findId.do">
 							<div class="searchForm" style="margin:30px auto 30px;text-align:center">
@@ -51,13 +51,14 @@
 								<input type="submit" value="확인" class="form-control" />
 							</div>
 						</form>
+						 검색한 아이디: ${id}
 					</div>
 				</div>
 			</div>
 			<!--  -->
 			<div class="card">
 				<div class="card-header"><a href="#acc2" data-toggle="collapse" data-parent="#accordion" class="font-noto-login-T">비밀번호 찾기</a></div>
-				<div id="acc2" class="collapse show">
+				<div id="acc2" class="collapse show" style="text-align:center">
 					<form class="form-inline" id="searchPwd" action="<%=request.getContextPath()%>/member/findPwd.do">
 						<div class="searchForm" style="margin:30px auto 30px;text-align:center">
 							아이디
@@ -67,7 +68,8 @@
 							<!-- 확인 btn -->
 							<input type="submit" value="확인" class="form-control" style="width:252px;margin-top:10px"/>
 						</div>
-					</form>				
+					</form>
+					검색한 비밀번호: ${pwd}		
 				</div>
 				</div>
 		</div>		

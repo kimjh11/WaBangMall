@@ -27,7 +27,7 @@ public class CommandFindPwd implements CommandService {
 		req.setAttribute("pwd", vo.getM_pwd());
 		System.out.println("pwd:"+vo.getM_pwd());;
 		
-		return "findPwd.jsp";
+		return "find.jsp";
 	}
 
 }

@@ -25,7 +25,7 @@ public class CommandFindId implements CommandService {
 		
 		req.setAttribute("id", vo.getM_id());
 		System.out.println("¾ÆÀÌµð:"+vo.getM_id());
-		return "findId.jsp";
+		return "find.jsp";
 	}
 
 }
