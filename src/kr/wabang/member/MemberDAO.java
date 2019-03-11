@@ -13,7 +13,7 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 		int cnt =0;
 		try{
 			dbCon();
-			String sql = "insert into member(m_num, m_id, m_pwd, m_name, m_tel, m_email, m_zipCode, m_addr,"
+			String sql = "insert into Storemember(m_num, m_id, m_pwd, m_name, m_tel, m_email, m_zipCode, m_addr,"
 					   + " m_addrDetail, m_addrReference, m_regdate) values(memberSq.nextVal,?,?,?,?,?,?,?,?,?,sysdate)";
 			pstmt = con.prepareStatement(sql);
 			
@@ -53,7 +53,7 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 		int cnt = 0;
 		try{
 			dbCon();
-			String sql = "select count(m_id) from member where m_id=?";
+			String sql = "select count(m_id) from Storemember where m_id=?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, userid);
@@ -76,7 +76,7 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 		//로그인 체크 (아이디/비밀번호)
 		try{
 			dbCon();
-			String sql = "select m_id from member where m_id=? and m_pwd=?";
+			String sql = "select m_id from Storemember where m_id=? and m_pwd=?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, vo.getM_id());
@@ -125,7 +125,7 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 		try{
 			dbCon();
 			String sql = "select m_id, m_pwd, m_name, m_tel, m_email, m_zipcode, m_addr, m_addrDetail, m_addrReference "
-					+ " from member where m_id=?";
+					+ " from Storemember where m_id=?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, userid);
@@ -167,7 +167,7 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 		int cnt = 0;
 		try{
 			dbCon();
-			String sql = "update member set m_name=?, m_tel=?, m_email=?, m_zipCode=?, m_addr=?, m_addrDetail=?, m_addrReference=? "
+			String sql = "update Storemember set m_name=?, m_tel=?, m_email=?, m_zipCode=?, m_addr=?, m_addrDetail=?, m_addrReference=? "
 					+ "where m_id=? and m_pwd=?";
 			pstmt = con.prepareStatement(sql);
 			
@@ -208,7 +208,7 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 		int cnt =0;
 		try{
 			dbCon();
-			String sql ="delete from member where m_id=? and m_pwd=?";
+			String sql ="delete from Storemember where m_id=? and m_pwd=?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, userid);
@@ -233,7 +233,7 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 		MemberVO vo = new MemberVO();
 		try {
 			dbCon();
-			String sql = " select m_id from member where m_email = ? ";
+			String sql = " select m_id from Storemember where m_email = ? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
@@ -254,7 +254,7 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 		MemberVO vo = new MemberVO();
 		try {
 			dbCon();
-			String sql = " select m_pwd from member where m_email = ? and m_id = ? ";
+			String sql = " select m_pwd from Storemember where m_email = ? and m_id = ? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			pstmt.setString(2, userid);

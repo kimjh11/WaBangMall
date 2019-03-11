@@ -20,7 +20,9 @@
 <%@ include file="../index/store-header.jspf" %>
 <section>
 <div class="div-wrap width-auto">
-<form id="frm" method="post" action="${ctx }orderpage/shoppingListInsert.do?iCode=${vo.iCode }">
+<form id="frm" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="iCode" value="${vo.iCode }"/>
+	<input type="hidden" name="loginStatus" value="<%=session.getAttribute("loginStatus") %>"/>
 	<div class="top-content">
 		<div class="thumnail-wrap">
 			<!-- 썸네일 메인이미지 -->
@@ -111,21 +113,14 @@
 				<ul class="opt-chk" style="display:none"></ul>
 				<div class="price-chk">
 					<span class="info-title">총금액</span>
-					<strong id="total-price" class="won"></strong>
-				
+					<input type="number" name="bPayment" id="bPayment" readonly/>원
 				</div>
 			</div>
-			<input type='hidden' id="bSelectOpt" name="bSelectOpt" value="">
-			<input type='hidden' id="SelectOptPrice" name="SelectOptPrice" value="">
-			<input type='hidden' id="bColor" name="bColor" value="">
-			<input type='hidden' id="bColorPrice" name="bColorPrice" value="">
-			<input type='hidden' id="bCount" name="bCount" value="">
-			<input type='hidden' id="bPayment" name="bPayment" />
 			<!-- 주문 체크 end -->
 			<!-- 장바구니/구매하기 버튼 -->
 			<ul class="order_btn">
-				<li><button data-toggle="modal" data-target="#add-shopping-list" href="#">장바구니담기</button></li>
-				<li><button class="buy-btn" href="#">구매하기</button></li>
+				<li><input type="button" value="장바구니담기"/></li>
+				<li><input type="button" value="구매하기" class="buy-btn"/></li>
 			</ul>
 			<!-- 장바구니 담기 모달 -->
 			<div id="add-shopping-list" class="modal fade">

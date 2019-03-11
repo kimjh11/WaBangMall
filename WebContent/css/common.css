@@ -75,6 +75,27 @@ li.col{
 input:focus{
 	outline:none;
 }
+span.close {
+    display: inline-block;
+    position: relative;
+    margin: 0 20px 0 7px;
+    padding: 0;
+    width: 4px;
+    height: 20px;
+    background: #000;
+    transform: rotate(45deg);
+}
+span.close:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    width: 20px;
+    height: 4px;
+    margin-top: -2px;
+    background: #000;
+}
 
 /*헤더*/
 /*///헤더(로고/로그인/로그아웃)///*/

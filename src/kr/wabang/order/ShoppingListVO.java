@@ -3,9 +3,9 @@ package kr.wabang.order;
 public class ShoppingListVO {
 	private String iCode;
 	private String mId;
-	private String bCount;
-	private String bSelectOpt;
-	private String bColor;
+	private String[] bCount;
+	private String[] bSelectOpt;
+	private String[] bColor;
 	private int bPrice;//원가
 	private int bPayment;//총결제금액(옵션+수량적용)
 	private String bRegdate;
@@ -29,27 +29,27 @@ public class ShoppingListVO {
 		this.mId = mId;
 	}
 
-	public String getbCount() {
+	public String[] getbCount() {
 		return bCount;
 	}
 
-	public void setbCount(String bCount) {
+	public void setbCount(String[] bCount) {
 		this.bCount = bCount;
 	}
 
-	public String getbSelectOpt() {
+	public String[] getbSelectOpt() {
 		return bSelectOpt;
 	}
 
-	public void setbSelectOpt(String bSelectOpt) {
+	public void setbSelectOpt(String[] bSelectOpt) {
 		this.bSelectOpt = bSelectOpt;
 	}
 
-	public String getbColor() {
+	public String[] getbColor() {
 		return bColor;
 	}
 
-	public void setbColor(String bColor) {
+	public void setbColor(String[] bColor) {
 		this.bColor = bColor;
 	}
 
