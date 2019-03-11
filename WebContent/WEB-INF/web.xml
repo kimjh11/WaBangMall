@@ -30,13 +30,8 @@
   	<servlet-name>home</servlet-name>
   	<servlet-class>kr.wabang.controller.ControllerAction</servlet-class>
   	<init-param>
-<<<<<<< HEAD
   		<param-name>proConfig</param-name>
   		<param-value>E:\workspaceWeb\WaBangMall\WebContent\WEB-INF\properties\UrlMapping.properties</param-value>
-=======
-  		<param-name>proConfig</param-name>
-  		<param-value>D:\workspaceWeb\pro1\WaBangMall\WebContent\WEB-INF\properties\UrlMapping.properties</param-value>
->>>>>>> refs/remotes/origin/master
   	</init-param>
   </servlet>
   <servlet-mapping>
