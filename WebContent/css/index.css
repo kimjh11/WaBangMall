@@ -18,7 +18,7 @@ ul#event-banner li a{
 	background-size: 100% 340px;
 }
 
-#index-wrap .bx-wrapper{
+#content-wrap .bx-wrapper{
 	/*bx-slider 테두리없애기*/
 	box-shadow: inherit;
 	border:none;

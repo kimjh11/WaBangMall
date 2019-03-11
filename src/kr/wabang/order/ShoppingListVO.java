@@ -3,7 +3,7 @@ package kr.wabang.order;
 public class ShoppingListVO {
 	private String iCode;
 	private String mId;
-	private int bCount;
+	private String bCount;
 	private String bSelectOpt;
 	private String bColor;
 	private int bPrice;//¿ø°¡
@@ -12,6 +12,7 @@ public class ShoppingListVO {
 	
 	public ShoppingListVO() {}
 
+	
 	public String getiCode() {
 		return iCode;
 	}
@@ -28,11 +29,11 @@ public class ShoppingListVO {
 		this.mId = mId;
 	}
 
-	public int getbCount() {
+	public String getbCount() {
 		return bCount;
 	}
 
-	public void setbCount(int bCount) {
+	public void setbCount(String bCount) {
 		this.bCount = bCount;
 	}
 
@@ -75,8 +76,5 @@ public class ShoppingListVO {
 	public void setbRegdate(String bRegdate) {
 		this.bRegdate = bRegdate;
 	}
-	
-	
-	
 }
 
