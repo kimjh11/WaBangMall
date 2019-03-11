@@ -3,11 +3,57 @@ package kr.wabang.mypage;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.wabang.notice.NoticeVO;
 import kr.wabang.util.DBConnection;
 
 public class MyPageDAO extends DBConnection implements MyPageInterface {
+	
+	@Override
+	public int totalRecord(OrderVO vo,String userid) {
+		//총 레코드 수
+				int totalRecord = 0;
+				try{
+					dbCon();
+					String sql = "select count(o_num) from orderList where m_id = ?  ";
+		
+					System.out.println(sql);
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1,userid);
+					rs = pstmt.executeQuery();
+					if(rs.next()){
+						totalRecord = Integer.parseInt(rs.getString(1));
+					}
+				}catch(Exception e){
+					System.out.println("총 레코드수 에러"+e.getMessage());
+				}finally{
+					dbClose();
+				}
+				return totalRecord;
+	}
 
+	@Override
+	public int totalRecordMyDeposit(DepositVO vo, String userid) {
+		// 총 레코드 수 - 내문의
+		int totalRecord = 0;
+		try{
+			dbCon();
+			String sql = "select count(q_num) from question where m_id=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				//totalRecord = Integer.parseInt(rs.getString(1));
+				totalRecord = rs.getInt(1);
+			}
+		}catch(Exception e){
+			System.out.println("총 레코드 수 내문의"+e.getMessage());
+		}finally{
+			dbClose();
+		}
+		return totalRecord;
+	}
+	
 	//주문목록
 	public List<OrderVO> getAllOrder(String userid,OrderVO vo) {
 		List<OrderVO> list = new ArrayList<OrderVO>();
@@ -72,27 +118,56 @@ public class MyPageDAO extends DBConnection implements MyPageInterface {
 	}
 
 	//문의목록
-	public List<DepositVO> getAllDeposit(String userid) {
+	public List<DepositVO> getAllDeposit(String userid, DepositVO vo) {
 		List<DepositVO> list = new ArrayList<DepositVO>();
 		try {
 			dbCon();
-			String sql = " select q.q_num, q.m_id, q.q_title, q.q_content, "
-					+ " to_char(q.q_regdate,'YYYY-MM-DD') "
-					+ " from member m join question q "
-					+ " on m.m_id=q.m_id "
-					+ " where q.m_id=? "
-					+ " order by q.q_regdate desc ";
+			String sql = "select * from "
+					+	" (select qq, mm, q_title, q_content, e, aq, e1 from " 
+					+	" (select q.q_num qq, m.m_id mm, q_title, q_content, to_char(q.q_regdate,'YY-MM-DD') e, a.q_num aq, to_char(a.a_regdate,'YY-MM-DD HH:mm:ss') e1 "   
+					+	" from question q join member m " 
+					+	" on m.m_id = q.m_id "
+					+	" full outer join answer a "
+					+	" on a.q_num = q.q_num "
+					+	" where q.m_id= ?"  
+					+	" order by q.q_regdate desc) " 
+					+	" where rownum <= ? order by qq asc) " 
+					+	" where rownum <= ? order by qq desc ";
 			pstmt = con.prepareStatement(sql);
+			System.out.println("문의목록="+sql);
+			
 			pstmt.setString(1, userid);
+			
+			pstmt.setInt(2, vo.getNum()*vo.getOnePageRecord());
+			System.out.println("**="+vo.getNum()*vo.getOnePageRecord());
+			
+			int lastPageRecord = vo.getTotalRecord()%vo.getOnePageRecord();
+			
+			if(vo.getNum() == vo.getTotalPage()){
+				// 1,2,3,4,0
+				pstmt.setInt(3, lastPageRecord);
+				System.out.println("lastPageRecord="+lastPageRecord);
+			}else{
+				// 5,5,5,5....
+				pstmt.setInt(3, vo.getOnePageRecord());
+				System.out.println("vo.getOnePageRecord()="+vo.getOnePageRecord());
+			}
+			
+			if(vo.getNum() == vo.getTotalPage() && lastPageRecord == 0){
+				pstmt.setInt(3, vo.getOnePageRecord());
+			}
 			rs = pstmt.executeQuery();
+			
 			while(rs.next()) {
-				DepositVO vo = new DepositVO();
-				vo.setQ_num(rs.getInt(1));
-				vo.setM_id(rs.getString(2));
-				vo.setQ_title(rs.getString(3));
-				vo.setQ_content(rs.getString(4));
-				vo.setQ_regdate(rs.getString(5));
-				list.add(vo);
+				DepositVO vo1 = new DepositVO();
+				vo1.setQ_num(rs.getInt(1));
+				vo1.setM_id(rs.getString(2));
+				vo1.setQ_title(rs.getString(3));
+				vo1.setQ_content(rs.getString(4));
+				vo1.setQ_regdate(rs.getString(5));
+				vo1.setA_num(rs.getInt(6));
+				vo1.setA_regdate(rs.getString(7));
+				list.add(vo1);
 			}
 			
 		}catch(Exception e){
@@ -126,30 +201,7 @@ public class MyPageDAO extends DBConnection implements MyPageInterface {
 		}
 		return cnt;
 	}
-
-	@Override
-	public int totalRecord(OrderVO vo,String userid) {
-		//총 레코드 수
-				int totalRecord = 0;
-				try{
-					dbCon();
-					String sql = "select count(o_num) from orderList where m_id = ?  ";
-		
-					System.out.println(sql);
-					pstmt = con.prepareStatement(sql);
-					pstmt.setString(1,userid);
-					rs = pstmt.executeQuery();
-					if(rs.next()){
-						totalRecord = Integer.parseInt(rs.getString(1));
-					}
-				}catch(Exception e){
-					System.out.println("총 레코드수 에러"+e.getMessage());
-				}finally{
-					dbClose();
-				}
-				return totalRecord;
-	}
-
+	
 	@Override
 	public int orderDelete(String id, String num, String itemNum, String opt) {
 		int cnt = 0;
@@ -172,5 +224,4 @@ public class MyPageDAO extends DBConnection implements MyPageInterface {
 		}
 		return cnt;
 	}
-
 }

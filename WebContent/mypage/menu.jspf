@@ -12,7 +12,7 @@
 <div id="mpDiv">	
 		<div id="mpCal1"><a href="${ctx }mypage/myPage.do">내정보</a></div>
 		<div id="mpCal2"><a href="${ctx }mypage/myOrder.do">주문목록</a></div>
-		<div id="mpCal3"><a href="${ctx }mypage/myDeposit.do">내문의</a></div>
+		<div id="mpCal3"><a href="${ctx }mypage/mydeposit.do">내문의</a></div>
 		<div id="mpCal4"><a href="${ctx }mypage/secession.do">회원탈퇴</a></div>
 		<div id="mpCal5"></div>	
 </div>
