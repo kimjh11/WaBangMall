@@ -85,6 +85,9 @@
 	height:100px;
 	background-color:black;
 }
+.opt-chk li div:first-child{
+	font-size:10pt;
+}
 /*.opt-chk.show::after{
 	background-image:url('../img/store/close-btn.png');
 	background-size:100%;
@@ -94,10 +97,10 @@
 	height:15px;
 	position:absolute;
 	cursor: pointer;
-} */
+}*/
 .cnt-div{
-	width:150px;
 	display:inline-block;
+	width:50%;
 }
 .cnt-div > *{
 	font-size:13pt;
@@ -106,7 +109,7 @@
 	width:30%;
 	text-align: center;
 }
-.price-chk #bPayment{
+.price-chk #total-price{
 	font-size:28pt;
 	font-weight:bold;
 	text-align:right;

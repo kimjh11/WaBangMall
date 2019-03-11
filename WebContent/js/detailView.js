@@ -9,10 +9,10 @@ $(function(){
 	});
 	
 	/*판매가 초기값세팅*/
-	$('#bPayment').ready(function(){
+	$('#total-price').ready(function(){
 		var price;
 		price = $("#sell-price").text();
-		$('#bPayment').val(price);
+		$('#total-price').text(price);
 	});
 	
 	
@@ -31,7 +31,7 @@ $(function(){
 		if($('#color-select option:selected').val()!=""){
 			selectColor = $('#color-select option:selected').text();
 			selectColorPrice = $('#color-select option:selected').val();
-			console.log(selectColor+","+selectColorPrice);
+
 		}
 		
 		//옵션을 두개다 선택했을경우
@@ -62,28 +62,45 @@ $(function(){
 		}
 		
 		//선택한 옵션추가
-		var txtDiv = "<li><div class="+selectOpt+selectColor+">"
-			txtDiv += "옵션 : "+selectOpt+" , 색상 : "+selectColor+"</div></li>";
+		/*var txtDiv = "<li class="+selectOpt+selectColor+"><div>"
+			txtDiv += "옵션 : "+selectOpt+" , 색상 : "+selectColor+"</div></li>";*/
 		
-		//동일한옵션이 없을때 txtDiv 추가
-		if(!$('.opt-chk li div').hasClass(selectOpt+selectColor)){
-			$('.opt-chk').append(txtDiv);
+		var optDiv = "<li class="+selectOpt+selectColor+">";
+			optDiv += 	"<div>옵션 : "+selectOpt+" , 색상 : "+selectColor+"</div>";
+			optDiv += 	"<div class='cnt-clone'>";
+			optDiv +=	"<span class='info-title' >수량</span>";
+			optDiv +=	"<div class='cnt-div'>";
+			optDiv +=		"<button class='cnt-down'>―</button>";
+			optDiv +=		"<input type='number' value=1 readonly>";
+			optDiv +=		"<button class='cnt-up'>+</button>";
+			optDiv +=	"</div></div></li>";
+		
+		//동일한옵션이 없을때 optDiv 추가
+		if(!$('.opt-chk li').hasClass(selectOpt+selectColor)){
+			$('.opt-chk').append(optDiv);
 		}else{
 			alert('동일한 옵션이 선택되어 있습니다');
 			return false;
 		}
 		
 		//수량 버튼 추가
-		var cntDiv = $('.cnt-wrap').first().clone(true,true).css('display','block');
-		$('.opt-chk li').append(cntDiv);	
+		/*var cntClone = $('.cnt-wrap').clone(true,true);
+			cntClone.attr('class','cnt-clone');
+			cntClone.css('display','block');
+
+		if($('.opt-chk li').attr('class')==selectOpt+selectColor){
+			$('.opt-chk li').append(cntClone);
+		}*/	
 	};
 
 	/* 총구매금액 : 판매가+옵션+수량적용 */
 	function totalPriceChange(selectOptPrice,selectColorPrice){
 		selectOptPrice = Number(selectOptPrice);
 		selectColorPrice = Number(selectColorPrice);
-		var price = Number($('#bPayment').val());
-		$("#bPayment").val(price + selectOptPrice + selectColorPrice);
+		var price = Number($('#total-price').text());
+		$('#total-price').text(price + selectOptPrice + selectColorPrice);
+		//var type=$('#bPayment').val();
+		//console.log(jQuery.type(type));
 	}
 
 	/* input insert */
@@ -93,37 +110,42 @@ $(function(){
 		var bColor = $('#bColor').val();
 		var bColorPrice = $('#bColorPrice').val();
 		var bCount = $('#bCount').val();
+		var bPayment = $('#bPayment').val();
 		
 		$('#bSelectOpt').val(bSelectOpt+'/'+selectOpt);
 		$('#SelectOptPrice').val(SelectOptPrice+'/'+selectOptPrice);
 		$('#bColor').val(bColor+'/'+selectColor);
 		$('#bColorPrice').val(bColorPrice+'/'+selectColorPrice);
 		$('#bCount').val(bCount+'/'+selectCount);
+		$('#bPayment').val($('#total-price').text());
+		
 	}
 /////////////////////////////////////////////////////////////////////
 	
-	
+	/* 장바구니,구매하기 버튼 클릭시 */
+	$('.order_btn li button').click(function(){
+		if($('.opt-chk li').length==0){
+			alert('옵션을 선택해주세요');
+			return;
+		}else{
+			if($(this).hasClass('buy-btn')){//구매하기
+				var input = $("<input>") .attr("type", "hidden") .attr("name", "order-chk").val("buy"); 
+				$('#frm').append(input);
+			}else{//장바구니
+				alert("장바구니 클릭");
+				var input = $("<input>") .attr("type", "hidden") .attr("name", "order-chk").val("shoppingList"); 
+				$('#frm').append(input);
+			}
+			$('#frm').submit();	
+		}
+	});
 
 	/* 수량버튼 클릭시 수량/금액변경*/
-	$('.cnt-div button').click(function(){
-		alert('클릭');
-		
-	    var cnt = $(this).siblings("input").val();//수량
-	    var add = Number($(this).parent().next().val());//추가되는 옵션가
-	    console.log(add);
-
-	    if($(this).attr("class")=='plus-btn'){
-	    	 cnt++;
-	    	 totalPrice(add);//총구매금액 변경
-	     }else{
-	    	 if(cnt<=1) return;
-	    	 cnt--;
-	    	 totalPrice(-add);//총구매금액 변경
-	     }
-	     $(this).siblings("input").val(cnt);
-	     var idx = $(this).parent().parent().parent().index();
-	     
-	});
+	console.log($('.opt-chk li').length);
+	/*$(
+		|| $('.opt-chk li')){
+			
+		}*/
 	
 	
 	/* 옵션 삭제버튼 클릭시 */
@@ -131,7 +153,10 @@ $(function(){
 	// 인덱스번째/부터 다음/까지의 값을 제거
 	
 	
-
+	/* 장바구니담기, 구매하기 버튼 클릭이벤트 */
+	/*$('.order_btn li a').click(function(){
+		if()
+	});*/
 	
 	/* 탭메뉴 */
 	$('.nav-tabs').ready(function(){

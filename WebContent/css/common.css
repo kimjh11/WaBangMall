@@ -72,6 +72,9 @@ li.col{
 .del-line{
 	text-decoration: line-through;
 }
+input:focus{
+	outline:none;
+}
 
 /*헤더*/
 /*///헤더(로고/로그인/로그아웃)///*/

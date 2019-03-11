@@ -8,15 +8,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>상품 상세페이지</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/common.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/detailView.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="<%=request.getContextPath() %>/js/common.js"></script>
 <script src="<%=request.getContextPath() %>/js/detailView.js"></script>
-<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </head>
 <body>
 <div id="content-wrap">
@@ -24,7 +20,7 @@
 <%@ include file="../index/store-header.jspf" %>
 <section>
 <div class="div-wrap width-auto">
-<form method="post" action="${ctx }orderpage/shoppingList.do?iCode=${vo.iCode}">
+<form id="frm" method="post" action="${ctx }orderpage/shoppingListInsert.do?iCode=${vo.iCode }">
 	<div class="top-content">
 		<div class="thumnail-wrap">
 			<!-- 썸네일 메인이미지 -->
@@ -112,30 +108,24 @@
 			<!-- 옵션/컬러/수량 선택 end-->
 			<!-- 주문 체크 -->
 			<div class="order-chk-div">
-				<div class="cnt-wrap" style="display:none">
-					<span class="info-title" >수량</span>
-					<div class="cnt-div">
-						<button class="minus-btn">―</button>
-						<input type="number" value="1" readonly>
-						<button class="plus-btn">＋</button>
-					</div>
-				</div>
 				<ul class="opt-chk" style="display:none"></ul>
 				<div class="price-chk">
 					<span class="info-title">총금액</span>
-					<input type="number" id="bPayment" class="won" value="0"/>
+					<strong id="total-price" class="won"></strong>
+				
 				</div>
 			</div>
-			<input type='hidden' id="bSelectOpt" value="">
-			<input type='hidden' id="SelectOptPrice" value="">
-			<input type='hidden' id="bColor" value="">
-			<input type='hidden' id="bColorPrice" value="">
-			<input type='hidden' id="bCount" value="">
+			<input type='hidden' id="bSelectOpt" name="bSelectOpt" value="">
+			<input type='hidden' id="SelectOptPrice" name="SelectOptPrice" value="">
+			<input type='hidden' id="bColor" name="bColor" value="">
+			<input type='hidden' id="bColorPrice" name="bColorPrice" value="">
+			<input type='hidden' id="bCount" name="bCount" value="">
+			<input type='hidden' id="bPayment" name="bPayment" />
 			<!-- 주문 체크 end -->
 			<!-- 장바구니/구매하기 버튼 -->
 			<ul class="order_btn">
-				<li><a data-toggle="modal" data-target="#add-shopping-list" href="#">장바구니</a></li>
-				<li><a class="buy-btn" href="#">구매하기</a></li>
+				<li><button data-toggle="modal" data-target="#add-shopping-list" href="#">장바구니담기</button></li>
+				<li><button class="buy-btn" href="#">구매하기</button></li>
 			</ul>
 			<!-- 장바구니 담기 모달 -->
 			<div id="add-shopping-list" class="modal fade">
