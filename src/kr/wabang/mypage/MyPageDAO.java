@@ -18,7 +18,7 @@ public class MyPageDAO extends DBConnection implements MyPageInterface {
 							+ " to_char(o.o_date,'YYYY-MM-DD') e, "
 							+ " m.m_zipCode, m.m_addr, m.m_addrDetail,"
 							+ "	o.o_deposit, o.o_delivery "
-							+ " from storemember m join orderList o "
+							+ " from member m join orderList o "
 							+ " on m.m_id=o.m_id "
 							+ " where m.m_id=? order by o.o_date desc)"
 						+" where rownum <= ? order by e asc) "
