@@ -36,24 +36,16 @@
 <div id="shoppingDiv">
 	<h4>장바구니</h4>
 	<div id="shoppingLiDiv">
-		
-		<!-- 장바구니 선택상품 삭제 -->
-		<div class="list_chk_option">
-			<input type="checkbox" id="all_chk" onclick="checkAll()"/>
-			<a href="#" onclick="checkAll(0)">전체선택</a><span>｜</span>
-			<a href="#" onclick="tr_del()">선택삭제</a><span>｜</span>
-			<a href="#" onclick="all_del()">전체삭제</a>
-		</div>
-		
+
 		<!-- 선택상품 리스트 -->
 		<div id="shopTb" >
 			<table>
 				<thead style="border-bottom:1px solid gray">
-					<tr class="fs15 row" style="margin-bottom:10px">
-						<td class="col-sm-6" style="width:700px">상품정보</td>
-						<td class="col-sm-2">수량</td>
-						<td class="col-sm-2">배송료</td>
-						<td class="col-sm-2">금액</td>
+					<tr class="fs15" style="margin-bottom:10px">
+						<td style="width:600px">상품정보</td>
+						<td style="width:100px">수량</td>
+						<td style="width:100px">배송료</td>
+						<td style="width:100px">금액</td>
 					</tr>
 					<tr>
 					<td>
@@ -62,12 +54,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="row">
-						<td class="col-sm-6">
+					<tr>
+						<td>
 							<!-- 선택 상품이미지 -->	
 							<div id="itemDiv" style="margin-top:20px">
 								<ul>
-									<li><input type="checkbox"/> 스토어<span>></span></li>
+									<li>스토어<span>></span></li>
 									<li>가전<span>></span></li>
 									<li>계절가전<span>></span></li>
 									<li>가습기</li>
@@ -81,38 +73,43 @@
 									<div style="width:150px;height:150px;padding-left:20px">
 										<span><a style="font-size:2.5em">상품명1</a></span><br/><br/>
 										<span class="fs15">선택옵션</span><br/>
-										<span class="fs15">선택색상</span>
+										<span class="fs15">선택색상</span><br/><br/>
+										<span class="fs15"><a href="" style="color:red">장바구니 제외</a></span>
 									</div>
 								</div>
 							</div>	
 						</td>
 						<!-- 수량 -->
-						<td class="col-sm-2 fs15" style="line-height:200px">
-							개
+						<td class="fs15" style="line-height:200px">
+							3개
 						</td>
 						<!-- 배송비 -->
-						<td class="col-sm-2 fs15" style="line-height:200px">
+						<td class="fs15" style="line-height:200px">
 							무료
 						</td>
 						<!-- 가격 -->
-						<td class="col-sm-2 fs15" style="line-height:200px">
-							원
+						<td class="fs15" style="line-height:200px">
+							20000000원
 						</td>
 					</tr>
 				</tbody>
+				
+			<!-- 선택상품 합친가격,수량 -->
 			<tfoot>
 				<tr>
 					<td colspan="5" style="text-align:right">
 						<div>
 							<span class="fs15">총 수량</span>
-							<strong class="fs15">1</strong><small class="fs15">개</small>
+							<strong class="fs15">1</strong>
+							<small class="fs15">개</small>
 						</div>
 						<div>
-							<span class="fs15">배송료 합계</span>
-							<strong class="fs15">4,000</strong><small class="fs15">원</small>
+							<span class="fs15">배송료</span>
+							<strong class="fs15">무료</strong>
 						</div><div>
 							<span class="fs15">총 구매금액</span>
-							<strong class="fs15">53,500</strong><small class="fs15">원</small>
+							<strong class="fs15">53,500</strong>
+							<small class="fs15">원</small>
 						</div>
 					</td>
 				</tr>
@@ -123,7 +120,7 @@
 		<!-- 쇼핑계속 and 주문하기 btn -->
 		<div id="chdiv">
 			<a href="#" class="chBtn" style="margin-left:250px;">쇼핑계속하기</a>
-			<a href="#" class="chBtn" style="margin-left:20px;">주문하기</a>
+			<a href="${ctx }orderpage/storeOrderList.do" class="chBtn" style="margin-left:20px;">주문하기</a>
 		</div>
 	</div>
 </div>

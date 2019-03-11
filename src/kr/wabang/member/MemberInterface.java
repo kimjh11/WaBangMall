@@ -1,5 +1,7 @@
 package kr.wabang.member;
 
+import java.util.List;
+
 public interface MemberInterface {
 	//회원 가입(insert)
 	public int memberInsert(MemberVO vo);
@@ -23,5 +25,7 @@ public interface MemberInterface {
 	public void adminloginCheck(AdminVO adminvo);
 	
 	//아이디 찾기
+	public MemberVO findId(String email);
 	//비밀번호 찾기
+	public MemberVO findPwd(String userid,String email);
 }

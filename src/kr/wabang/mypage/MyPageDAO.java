@@ -150,4 +150,27 @@ public class MyPageDAO extends DBConnection implements MyPageInterface {
 				return totalRecord;
 	}
 
+	@Override
+	public int orderDelete(String id, String num, String itemNum, String opt) {
+		int cnt = 0;
+		try {
+		dbCon();
+		String sql = " delete from orderList "
+				+ " where m_id=? and i_code=? and o_num= ? and o_selectopt=? ";
+
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, id);
+		pstmt.setString(2, itemNum);
+		pstmt.setString(3, num);
+		pstmt.setString(4, opt);
+		cnt = pstmt.executeUpdate();
+		
+		}catch(Exception e){
+			System.out.println("주문취소 에러..."+e.getMessage());
+		}finally {
+			dbClose();
+		}
+		return cnt;
+	}
+
 }

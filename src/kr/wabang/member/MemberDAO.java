@@ -1,5 +1,8 @@
 package kr.wabang.member;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import kr.wabang.util.DBConnection;
 
 public class MemberDAO extends DBConnection implements MemberInterface  {
@@ -223,5 +226,48 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 			dbClose();
 		}
 		return cnt;
+	}
+
+	@Override
+	public MemberVO findId(String email) {
+		MemberVO vo = new MemberVO();
+		try {
+			dbCon();
+			String sql = " select m_id from member where m_email = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {	
+				vo.setM_id(rs.getString(1));
+			}
+			
+		}catch(Exception e){
+			System.out.println("아이디찾기 에러..."+e.getMessage());
+		}finally {
+			dbClose();
+		}
+		return vo;
+	}
+
+	@Override
+	public MemberVO findPwd(String userid, String email) {
+		MemberVO vo = new MemberVO();
+		try {
+			dbCon();
+			String sql = " select m_pwd from member where m_email = ? and m_id = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			pstmt.setString(2, userid);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setM_pwd(rs.getString(1));
+			}
+			
+		}catch(Exception e){
+			System.out.println("비번찾기 에러..."+e.getMessage());
+		}finally {
+			dbClose();
+		}	
+		return vo;
 	}
 }
