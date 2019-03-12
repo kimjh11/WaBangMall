@@ -14,7 +14,7 @@
 		<c:if test="${loginStatus == 'Y'}">
 			${loginId}님
 			<a href="<%=request.getContextPath()%>/member/logout.do" >로그아웃</a>
-			<a href="<%=request.getContextPath()%>/mypage/myInfo.do">마이페이지</a>
+			<a href="<%=request.getContextPath()%>/mypage/myPage.do">마이페이지</a>
 		</c:if>
 		</div>
 	</div>
