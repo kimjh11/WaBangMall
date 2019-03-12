@@ -49,25 +49,31 @@ li.col{
 	float:left;
 	text-align: center;
 }
- button{
+button{
 	border:none;
 	color:#555;
 }
- button:hover{
+button:hover{
 	cursor: pointer;
 }
- .width-auto{
+.width-auto{
 	width:80%;
 	margin:0 auto;
 }
- .spacing{
+.spacing{
 	letter-spacing: 2px;
 }
- .percent::after{
+.percent::after{
 	content:"%";
+	margin-left:2px;
 }
- .won::after{
+.won::after{
 	content:"원";
+	margin-left:2px;
+}
+.cnt-txt::after{
+	content:"개";
+	margin-left:2px;
 }
 .del-line{
 	text-decoration: line-through;
