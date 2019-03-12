@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+/*//////////장바구니 목록//////////*/
+h4{font-size:2em;margin: 20px 0 20px 20px;}
+#shoppingLiDiv{/* margin-top:30px; */margin-bottom:100px;}
+#shopTb{/* margin-top:30px */}
+#itemDiv>ul>li{float:left}
+#itemintro>div{float:left}
+.fs15{font-size:1.5em}
+#chDiv{margin-top:50px}
+#chDiv>ul>li{float:left}
+.chBtn{font-size:3em;color:pink}
+
+/* 테이블 레이아웃 */
+div.table-wrap,
+table.shopping-list{
+	width:100%;
+	text-align: center;
+}
+colgroup .col1{width:50%}
+colgroup .col2{width:10%}
+colgroup .col3{width:10%}
+colgroup .col4{width:12%}
+colgroup .col5{width:18%}
+tbody td:nth-child(2),
+tbody td:nth-child(3),
+tbody td:nth-child(4){
+	font-size:11pt;
+}
+/*체크박스*/
+.list-checkbox{
+	padding:5px 5px;
+	border-top:1px solid #ddd;
+	/* border-bottom:1px solid #ddd; */
+}
+.list-checkbox input[type="checkbox"]{
+	vertical-align:middle;
+	height:20px;
+}
+.list-checkbox a{
+	text-align:center;
+	font-size:9.5pt;
+	display:inline-block;
+	vertical-align:middle;
+	line-height:20px;
+	width:55px;
+}
+.list-checkbox a::after{
+	padding-left:5px;
+	content:'|';
+}
+.list-checkbox a:last-child::after{
+	content:'';
+}
+table.shopping-list tr{
+	border-top: 1px solid #ddd;
+}
+table.shopping-list thead tr td{
+	font-size:12pt;
+	font-weight: bold;
+	height:30px;
+}
+table.shopping-list thead tr td:first-child,
+table.shopping-list thead tr td:nth-child(4){
+	letter-spacing:5px;
+}
+table tbody tr td.item-info{
+	text-align:left;
+	position:relative;
+	padding:10px;
+}
+td.item-info input[type="checkbox"]{
+	position:absolute;
+	top:10px;
+	left: 10px;
+	margin:0;
+	width: 15px;
+	height: 15px;
+}
+td.item-info a.img-click{
+	float:left;
+	width:100px;
+	margin-right: 20px;
+	display:none;
+}
+td.item-info a.img-click img{
+	width:100px;
+}
+.i-category span{
+	font-size:9pt;
+}
+.i-category span::after{
+	content:" >";
+}
+.i-category span:last-child::after{
+	content:"";
+}
+.item-title h5{
+	font-size: 13pt;
+	font-weight: bold;
+	height: 35px;
+	line-height: 35px;
+}
+.item-title span{
+	line-height: 17px;
+}
+.item-title span strong{
+	display: inline-block;
+	width: 40px;
+}
+.setting .del-btn{
+	display:block;
+	width:70%;
+	margin:0 auto;
+	background:none;
+	border:1px solid #ddd;
+	line-height:30px;
+	hieght:30px;
+	border-radius:5px;
+}
+
+
+
+
+
+
+
+/*//////////구매하기 목록//////////*/
