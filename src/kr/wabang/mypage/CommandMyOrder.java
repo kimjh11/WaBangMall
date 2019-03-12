@@ -38,7 +38,7 @@ public class CommandMyOrder implements CommandService {
 		System.out.println("토탈테코드="+vo.getTotalRecord());
 		System.out.println("시작페이지="+vo.getStartPage());
 		List<OrderVO> list = dao.getAllOrder(userid,vo);
-
+		
 		req.setAttribute("vo", vo);
 		req.setAttribute("list", list);
 		System.out.println("list"+list);

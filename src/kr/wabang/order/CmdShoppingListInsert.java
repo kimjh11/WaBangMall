@@ -1,6 +1,8 @@
 package kr.wabang.order;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,30 +19,39 @@ public class CmdShoppingListInsert implements CommandService {
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// 장바구니페이지
 		req.setCharacterEncoding("UTF-8");
+
+
+		String bSelectOpt[] = req.getParameterValues("bSelectOpt");
+		String bColor[] = req.getParameterValues("bColor");		
+		String bCount[] = req.getParameterValues("bCount");
+		
+		//System.out.println("옵션명:"+Arrays.deepToString(bSelectOpt));
+		//System.out.println("색상명:"+Arrays.deepToString(bColor));
+		//System.out.println("수량:"+Arrays.deepToString(bCount));
 		
 		ItemVO itemVO = new ItemVO(req.getParameter("iCode"));
 		ItemDAO itemDAO = new ItemDAO();
 		
 		itemDAO.itemSelect(itemVO);
-		itemVO.setNoOptPrice(itemVO.getiPrice(), itemVO.getiDiscount());
+		itemVO.setNoOptPrice(itemVO.getiPrice(), itemVO.getiDiscount());//원가
 		
 		HttpSession ses = req.getSession();
+
+		ShoppingListVO listVO = new ShoppingListVO();
 		
-		ShoppingListVO vo = new ShoppingListVO();
-		vo.setiCode(req.getParameter("iCode"));
-		vo.setmId((String)ses.getAttribute("loginId"));
-		vo.setbCount(req.getParameter("bCount"));
-		vo.setbSelectOpt(req.getParameter("bSelectOpt"));
-		vo.setbColor(req.getParameter("bColor"));
-		vo.setbPrice(itemVO.getNoOptPrice());
-		vo.setbPayment(Integer.parseInt(req.getParameter("bPayment")));
+		listVO.setiCode(req.getParameter("iCode"));
+		listVO.setmId((String)ses.getAttribute("loginId"));
+		listVO.setbCount(bCount);
+		listVO.setbSelectOpt(bSelectOpt);
+		listVO.setbColor(bColor);
+		listVO.setbPrice(itemVO.getNoOptPrice());//상품원가
+		listVO.setbPayment(Integer.parseInt(req.getParameter("bPayment")));//총결제금액
 		
 		ShoppingListDAO dao = new ShoppingListDAO();
-		int cnt = dao.insertShoppingList(vo);
-
-		req.setAttribute("cnt", cnt);
-		req.setAttribute("iCode", itemVO.getiCode());
+		List<ShoppingListVO> list = dao.insertShoppingList(listVO);
 		
+		req.setAttribute("list", list);
+
 		return "shoppingListInsertOk.jsp";
 	}
 
