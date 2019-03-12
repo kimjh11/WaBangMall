@@ -2,13 +2,24 @@ package kr.wabang.order;
 
 public class ShoppingListVO {
 	private String iCode;
+	private String iCategory;
+	private String iName;
+	private String iThumbnail;
+	
 	private String mId;
+	
+	private String bCountStr;
+	private String bSelectOptStr;
+	private String bColorStr;
+	
 	private String[] bCount;
 	private String[] bSelectOpt;
 	private String[] bColor;
 	private int bPrice;//원가
 	private int bPayment;//총결제금액(옵션+수량적용)
 	private String bRegdate;
+	
+	
 	
 	public ShoppingListVO() {}
 
@@ -21,6 +32,36 @@ public class ShoppingListVO {
 		this.iCode = iCode;
 	}
 
+	public String getiCategory() {
+		return iCategory;
+	}
+
+
+	public void setiCategory(String iCategory) {
+		this.iCategory = iCategory;
+	}
+
+
+	public String getiName() {
+		return iName;
+	}
+
+
+	public void setiName(String iName) {
+		this.iName = iName;
+	}
+
+
+	public String getiThumbnail() {
+		return iThumbnail;
+	}
+
+
+	public void setiThumbnail(String iThumbnail) {
+		this.iThumbnail = iThumbnail;
+	}
+
+
 	public String getmId() {
 		return mId;
 	}
@@ -28,6 +69,36 @@ public class ShoppingListVO {
 	public void setmId(String mId) {
 		this.mId = mId;
 	}
+
+	public String getbCountStr() {
+		return bCountStr;
+	}
+
+
+	public void setbCountStr(String bCountStr) {
+		this.bCountStr = bCountStr;
+	}
+
+
+	public String getbSelectOptStr() {
+		return bSelectOptStr;
+	}
+
+
+	public void setbSelectOptStr(String bSelectOptStr) {
+		this.bSelectOptStr = bSelectOptStr;
+	}
+
+
+	public String getbColorStr() {
+		return bColorStr;
+	}
+
+
+	public void setbColorStr(String bColorStr) {
+		this.bColorStr = bColorStr;
+	}
+
 
 	public String[] getbCount() {
 		return bCount;

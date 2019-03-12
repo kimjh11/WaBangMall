@@ -142,9 +142,11 @@ $(function(){
 						dataType :"text",
 						success: function(){
 							if(confirm('장바구니로 이동하시겠습니까?')){//장바구니 확인
-								$("#frm").attr("action","/WaBangMall/orderpage/shoppingList.do");
-								$("#frm").submit();
+								location.href= "/WaBangMall/orderpage/shoppingList.do";								
 							}
+						},
+						error: function(){
+							alert('장바구니 생성실패');
 						}
 					});
 				}else{//로그인 :N

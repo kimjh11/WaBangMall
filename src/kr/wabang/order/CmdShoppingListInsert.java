@@ -48,9 +48,10 @@ public class CmdShoppingListInsert implements CommandService {
 		listVO.setbPayment(Integer.parseInt(req.getParameter("bPayment")));//총결제금액
 		
 		ShoppingListDAO dao = new ShoppingListDAO();
-		List<ShoppingListVO> list = dao.insertShoppingList(listVO);
 		
-		req.setAttribute("list", list);
+		int cnt = dao.insertShoppingList(listVO);
+		
+		req.setAttribute("cnt", cnt);
 
 		//mvc패턴에서 view파일명을 리턴해줘야하지만 ajax호출 시 실행되지는 않음
 		//없으면 에러발생
