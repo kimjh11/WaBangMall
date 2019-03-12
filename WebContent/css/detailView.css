@@ -80,12 +80,15 @@
 	width:85%;
 	height:30px;
 }
-/* .opt-chk{
-	background-color:#ddd;
+.opt-chk.show{
 	width:95%;
-	padding:10px;
+	height:100px;
+	background-color:black;
 }
-.opt-chk.show::after{
+.opt-chk li div:first-child{
+	font-size:10pt;
+}
+/*.opt-chk.show::after{
 	background-image:url('../img/store/close-btn.png');
 	background-size:100%;
 	content:"";
@@ -94,10 +97,10 @@
 	height:15px;
 	position:absolute;
 	cursor: pointer;
-} */
+}*/
 .cnt-div{
-	width:150px;
 	display:inline-block;
+	width:50%;
 }
 .cnt-div > *{
 	font-size:13pt;

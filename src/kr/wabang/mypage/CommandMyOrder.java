@@ -41,7 +41,7 @@ public class CommandMyOrder implements CommandService {
 
 		req.setAttribute("vo", vo);
 		req.setAttribute("list", list);
-		
+		System.out.println("list"+list);
 		return "myorder.jsp";
 	}
 
