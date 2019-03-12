@@ -15,7 +15,6 @@ $(function(){
 				on++;
 			}
 		});
-		console.log(on);
 		if(on!=0 && on!=$("input[name=row-check]").length){
 			chkClear();
 		}
@@ -36,14 +35,31 @@ $(function(){
 		$('input[name=row-check]').prop('checked',false);
 	}
 	
-	//장바구니 삭제
+	//삭제 버튼 이벤트
 	$('.del-btn').click(function(){
-		alert('삭제');
+		if($(this).hasClass('all')){
+			alert('장바구니 전체를 삭제하시겠습니까?');
+			$('tbody tr').remove();
+		}
+		if($(this).hasClass('part')){
+			$("input[name=row-check]").each(function(idex,data){
+				if($(data).is(':checked')==true){
+					$(this).parent().parent().remove();
+				}
+			});
+		}
+		if($(this).hasClass('row')){
+			$(this).parent().parent().remove();
+		}
 	});
 
-	
-	
-	
+	//총 수량, 합계
+	$('table').ready(function(){
+		$('tbody tr td').each(function(){
+			$(this).hasClass('won')
+				
+		});
+	});
 		/* $('tbody').ready(function(){
 			var bCount = Number($('.b-cnt').text());
 			console.log($('.b-cnt').text());
