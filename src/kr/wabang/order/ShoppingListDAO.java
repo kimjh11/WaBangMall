@@ -3,6 +3,7 @@ package kr.wabang.order;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.wabang.mypage.OrderVO;
 import kr.wabang.util.DBConnection;
 
 public class ShoppingListDAO extends DBConnection implements ShoppingListInterface {
@@ -55,7 +56,7 @@ public class ShoppingListDAO extends DBConnection implements ShoppingListInterfa
 			dbCon();
 			String sql = "select i.i_code, i.i_category, i.i_name, i.i_thumbnail,"
 					+ " b.m_id, b.b_count, b.b_selectOpt, b.b_selectColor, b.b_price, b.b_payment, b.b_regdate"
-					+ " from basket b join item i on b.i_code = i.i_code where b.m_id = ? order by b.b_regdate desc";
+					+ " from basket b join item i on b.i_code = i.i_code where b.m_id = ? order by rownum desc";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, loginId);
 			rs = pstmt.executeQuery();
@@ -82,4 +83,92 @@ public class ShoppingListDAO extends DBConnection implements ShoppingListInterfa
 		}
 		return list;
 	}
+
+
+
+	@Override
+	public int insertOrderList(String userid) {
+		int cnt = 0;
+		try {
+			dbCon();
+			String sql = " insert into orderList (o_num,i_code, m_id, o_count, o_selectOpt,o_selectColor, "
+					+ " o_price,o_payment,o_deposit,o_date, o_delivery) " 
+					+ " select ?||to_char(b_regdate,'YYYYMMDDhh24mi'), "
+					+ " i_code, m_id, b_count,b_selectopt,b_selectColor, "
+					+ " b_price, b_payment, '미결제', sysdate, '배송준비중' "
+					+ " from basket where m_id= ? ";
+					
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,userid);
+			pstmt.setString(2,userid);
+			
+			cnt= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("주문등록 오류..."+e.getMessage());
+		}finally {
+			dbClose();
+		}
+		return cnt;
+	}
+
+	//장바구니삭제
+	public int deleteShoppingList(String userid) {
+		int cnt = 0;
+		try {
+		dbCon();
+		String sql = " delete from basket "
+				+ " where m_id=? ";
+
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, userid);
+		cnt = pstmt.executeUpdate();
+		
+		}catch(Exception e){
+			System.out.println("장바구니삭제 에러..."+e.getMessage());
+		}finally {
+			dbClose();
+		}
+		return cnt;
+	}
+
+
+
+	@Override
+	public List<OrderListVO> selectOrderList(String userid) {
+		List<OrderListVO> list = new ArrayList<OrderListVO>();
+		try {
+			dbCon();
+			String sql = "select i.i_code, i.i_category, i.i_name, i.i_thumbnail,"
+							+ " o.o_selectOpt, o.o_selectColor, o.o_count, o.o_payment "
+							+ " from item i join orderList o "
+							+ " on i.i_code = o.i_code "
+							+ " where m_id=? order by rownum desc ";
+						
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userid);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				OrderListVO vo = new OrderListVO();
+				vo.setI_code(rs.getString(1));
+				vo.setI_category(rs.getString(2));
+				vo.setI_name(rs.getString(3));
+				vo.setI_thumbnail(rs.getString(4));
+				vo.setO_selectOpt(rs.getString(5));
+				vo.setO_selectColor(rs.getString(6));
+				vo.setO_count(rs.getString(7));
+				vo.setO_payment(rs.getInt(8));
+					
+				list.add(vo);
+			}
+			
+		}catch(Exception e){
+			System.out.println("주문 목록 불러오기 에러..."+e.getMessage());
+		}finally {
+			dbClose();
+		}
+		return list;
+	}
+	
 }

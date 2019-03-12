@@ -48,6 +48,7 @@
 					</tr>
 				</thead>
 				<tbody>
+				<c:forEach var="vo" items="${list }">
 					<tr class="row">
 						<td class="col-sm-6">
 							<!-- 선택 상품이미지 -->	
@@ -65,7 +66,7 @@
 										</a>
 									</div>
 									<div style="width:150px;height:150px;padding-left:20px">
-										<span><a style="font-size:2.5em">상품명1</a></span><br/><br/>
+										<span><a style="font-size:2.5em">${vo.i_name }</a></span><br/><br/>
 										<span class="fs15">선택옵션</span><br/>
 										<span class="fs15">선택색상</span>
 									</div>
@@ -85,6 +86,7 @@
 							원
 						</td>
 					</tr>
+					</c:forEach>
 				</tbody>
 			<tfoot>
 				<tr>

@@ -60,7 +60,7 @@ public class MyPageDAO extends DBConnection implements MyPageInterface {
 		try {
 			dbCon();
 			String sql = "select * from (select * from "
-						+ "(select m.m_id, o.o_num, o.i_code,o.o_selectOpt,o.o_count, "
+						+ "(select m.m_id, o.o_num, o.i_code,o.o_selectOpt,o.o_selectColor,o.o_count, o.o_payment, "
 							+ " to_char(o.o_date,'YYYY-MM-DD') e, "
 							+ " m.m_zipCode, m.m_addr, m.m_addrDetail,"
 							+ "	o.o_deposit, o.o_delivery "
@@ -98,13 +98,15 @@ public class MyPageDAO extends DBConnection implements MyPageInterface {
 				vo1.setO_num(rs.getString(2));
 				vo1.setI_code(rs.getString(3));
 				vo1.setO_selectOpt(rs.getString(4));
-				vo1.setO_count(rs.getInt(5));		
-				vo1.setO_date(rs.getString(6));
-				vo1.setM_zipCode(rs.getInt(7));
-				vo1.setM_addr(rs.getString(8));
-				vo1.setM_addrDetail(rs.getString(9));
-				vo1.setO_deposit(rs.getString(10));
-				vo1.setO_delivery(rs.getString(11));
+				vo1.setO_selectColor(rs.getString(5));
+				vo1.setO_count(rs.getInt(6));
+				vo1.setO_payment(rs.getInt(7));
+				vo1.setO_date(rs.getString(8));
+				vo1.setM_zipCode(rs.getInt(9));
+				vo1.setM_addr(rs.getString(10));
+				vo1.setM_addrDetail(rs.getString(11));
+				vo1.setO_deposit(rs.getString(12));
+				vo1.setO_delivery(rs.getString(13));
 							
 				list.add(vo1);
 			}

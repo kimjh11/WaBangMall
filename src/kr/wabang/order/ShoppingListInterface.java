@@ -7,4 +7,10 @@ public interface ShoppingListInterface {
 	public int insertShoppingList (ShoppingListVO vo);
 	//장바구니 목록
 	public List<ShoppingListVO> selectShoppingList (String userid);
+	//주문 목록 등록
+	public int insertOrderList (String userid);
+	//장바구니 삭제
+	public int deleteShoppingList (String userid);
+	//주문 목록
+	public List<OrderListVO> selectOrderList (String userid);
 }

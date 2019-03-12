@@ -44,10 +44,11 @@
 						<td><a style="color:blue" href="${ctx }orderpage/storeOrderList.do?o_num=${OrderVO.o_num }">${OrderVO.o_num }</a></td>
 						<td>${OrderVO.i_code }</td>
 						<td>
-							색상: ${OrderVO.o_selectOpt }<br/>
+							옵션: ${OrderVO.o_selectOpt }<br/>
+							색상: ${OrderVO.o_selectColor }<br/>
 							수량: ${OrderVO.o_count }
 						</td>
-						<td></td>
+						<td>${OrderVO.o_payment } 원</td>
 						<td>
 							우편번호: ${OrderVO.m_zipCode}<br/>
 							${OrderVO.m_addr}&nbsp;

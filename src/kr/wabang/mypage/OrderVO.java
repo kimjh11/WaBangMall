@@ -6,6 +6,7 @@ public class OrderVO {
 	private String i_code;
 	private int o_count;
 	private String o_selectOpt;
+	private String o_selectColor;
 	private int i_price;
 	private int o_price;
 	private int o_payment;
@@ -210,6 +211,14 @@ public class OrderVO {
 
 	public void setPageNumCount(int pageNumCount) {
 		this.pageNumCount = pageNumCount;
+	}
+
+	public String getO_selectColor() {
+		return o_selectColor;
+	}
+
+	public void setO_selectColor(String o_selectColor) {
+		this.o_selectColor = o_selectColor;
 	}
 
 }
