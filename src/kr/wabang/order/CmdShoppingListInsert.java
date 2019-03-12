@@ -52,6 +52,8 @@ public class CmdShoppingListInsert implements CommandService {
 		
 		req.setAttribute("list", list);
 
+		//mvc패턴에서 view파일명을 리턴해줘야하지만 ajax호출 시 실행되지는 않음
+		//없으면 에러발생
 		return "shoppingListInsertOk.jsp";
 	}
 

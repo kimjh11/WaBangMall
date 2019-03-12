@@ -133,6 +133,7 @@ $(function(){
 				if($('input[name="loginStatus"]').val()=='Y'){//로그인 :Y
 					var form = $('#frm').serialize();
 					var data = new FormData(form);
+					//ajax호출
 					$.ajax({
 						type : "post",
 						enctype : "multipart/form-data",
@@ -140,7 +141,6 @@ $(function(){
 						data : form ,
 						dataType :"text",
 						success: function(){
-							alert('insert성공');
 							if(confirm('장바구니로 이동하시겠습니까?')){//장바구니 확인
 								$("#frm").attr("action","/WaBangMall/orderpage/shoppingList.do");
 								$("#frm").submit();

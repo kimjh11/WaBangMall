@@ -15,6 +15,8 @@ public class CmdShoppingList implements CommandService {
 		// 장바구니보기
 		req.setCharacterEncoding("UTF-8");
 		
+		System.out.println("iCode="+req.getParameter("iCode"));
+		System.out.println("bSelectOpt="+req.getParameter("bSelectOpt"));
 		
 		
 		

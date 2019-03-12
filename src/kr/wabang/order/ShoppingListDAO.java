@@ -45,4 +45,12 @@ public class ShoppingListDAO extends DBConnection implements ShoppingListInterfa
 		}
 		return list;
 	}
+
+	@Override
+	public List<ShoppingListVO> selectShoppingList(String iCode) {
+		// 장바구니 목록확인
+		
+		
+		return null;
+	}
 }
