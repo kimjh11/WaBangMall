@@ -47,22 +47,17 @@
 						<td style="width:100px">배송료</td>
 						<td style="width:100px">금액</td>
 					</tr>
-					<tr>
-					<td>
-					
-					</td>
-					</tr>
 				</thead>
 				<tbody>
+					<c:forEach var="vo" items="${list }">
 					<tr>
 						<td>
 							<!-- 선택 상품이미지 -->	
 							<div id="itemDiv" style="margin-top:20px">
-								<ul>
-									<li>스토어<span>></span></li>
-									<li>가전<span>></span></li>
-									<li>계절가전<span>></span></li>
-									<li>가습기</li>
+								<ul class="i-category">
+								<c:forTokens var="category" items="${vo.iCategory }" delims="|">
+									<li>${category }</li>
+								</c:forTokens>
 								</ul><br/>
 								<div id="itemintro" style="margin-top:20px;background:red;">
 									<div>
@@ -71,17 +66,17 @@
 										</a>
 									</div>
 									<div style="width:150px;height:150px;padding-left:20px">
-										<span><a style="font-size:2.5em">상품명1</a></span><br/><br/>
-										<span class="fs15">선택옵션</span><br/>
-										<span class="fs15">선택색상</span><br/><br/>
+										<span><a style="font-size:2.5em">${vo.iName }</a></span><br/><br/>
+										<span class="fs15">${vo.bSelectOptStr }</span><br/>
+										<span class="fs15">${vo.bColorStr }</span><br/><br/>
 										<span class="fs15"><a href="" style="color:red">장바구니 제외</a></span>
 									</div>
 								</div>
 							</div>	
 						</td>
 						<!-- 수량 -->
-						<td class="fs15" style="line-height:200px">
-							3개
+						<td class="fs15 b-cnt" style="line-height:200px">
+							${vo.bCountStr }
 						</td>
 						<!-- 배송비 -->
 						<td class="fs15" style="line-height:200px">
@@ -89,9 +84,10 @@
 						</td>
 						<!-- 가격 -->
 						<td class="fs15" style="line-height:200px">
-							20000000원
+							${vo.bPrice * vo.bCountStr }
 						</td>
 					</tr>
+					</c:forEach>
 				</tbody>
 				
 			<!-- 선택상품 합친가격,수량 -->
@@ -100,7 +96,7 @@
 					<td colspan="5" style="text-align:right">
 						<div>
 							<span class="fs15">총 수량</span>
-							<strong class="fs15">1</strong>
+							<strong class="fs15 total-cnt"></strong>
 							<small class="fs15">개</small>
 						</div>
 						<div>
@@ -124,5 +120,18 @@
 		</div>
 	</div>
 </div>
+<script>
+	$(function(){
+		$('tbody').ready(function(){
+			var bCount = Number($('.b-cnt').text());
+			console.log($('.b-cnt').text());
+			var cntSum = 0;
+			for(i=0; i<bCount.index(); i++){
+				cntSum = cntSum+bCount;
+			}
+			$('.total-cnt').text(cntSum);
+		});
+	});
+</script>
 </body>
 </html>

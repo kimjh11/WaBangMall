@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page trimDirectiveWhitespaces = "true" %>
 <c:url var="home" value="/index.do"/>
-<c:url var="shoppingList" value="/shoppingList.do"/>
+<c:url var="shoppingList" value="/orderpage/shoppingList.do"/>
 <footer>
 <div id="footer-info-warp">
 	<div id="footer-info" class="width-auto">
