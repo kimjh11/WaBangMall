@@ -5,19 +5,19 @@ $(function(){
 	});
    
 	/*메뉴바에 카테고리 생성*/	
-	$.getJSON('index/category.json',function(allCategory){
+	$.getJSON('/WaBangMall/index/category.json',function(allCategory){
 		var cateTag = '<ul id="main-category">';
 		
 		for(var mainCateTitle in allCategory){
 			//console.log(mainCateTitle);
 			cateTag += 	'<li class="col">';
-			cateTag += 	'<h3><a href="#">'+mainCateTitle+'</a></h3>';
+			cateTag += 	'<h3><a href="/WaBangMall/item/itemList.do?category='+mainCateTitle+'">'+mainCateTitle+'</a></h3>';
 			cateTag += 	'<ul id="middle-category">';
 
 			for(var middleCateTitle in allCategory[mainCateTitle]){
 				//console.log(middleCateTitle);
 				cateTag += 	'<li>';
-				cateTag +=		'<h3><a href="#">'+middleCateTitle+'</a></h3>';
+				cateTag +=		'<h3><a href="/WaBangMall/item/itemList.do?category='+middleCateTitle+'">'+middleCateTitle+'</a></h3>';
 				cateTag +=		'<ul id="sub-category" >';
 				for(var subCateTitle in allCategory[mainCateTitle][middleCateTitle]){
 					cateTag +=			'<li><a href="#" style="display:none">'+allCategory[mainCateTitle][middleCateTitle][subCateTitle]+'</a></li>';
@@ -69,7 +69,7 @@ $(function(){
 				, prevText: '<span></span>'
 				, onSlideBefore: function ($slideElement, oldIndex, newIndex) {}
            });
-		}
+		};
 		
 	});
 	
@@ -89,7 +89,7 @@ $(function(){
 			$(this).css('bottom','50px');
 			$('#footer-menubar-warp').css('height','50px');
 			$('footer nav').show();
-		}
+		};
 	});	
 	
 	
