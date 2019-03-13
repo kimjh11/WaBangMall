@@ -25,6 +25,16 @@
 		
 		<!-- 어드민 로그인시 -->
 		<c:if test="${adminloginStatus == 'Y'}">
+		<script>
+		$(function(){
+			$("#adminPage").on("click",function(){
+				location.href="http://localhost:8080/WaBangAdmin_pro/search/memberList.do";
+				});
+			});
+		</script>
+		<button id="adminPage">관리자 페이지로</button>
+			
+			
 			${adminloginId}님
 			<a href="<%=request.getContextPath()%>/member/logout.do" >로그아웃</a>
 			<!-- 관리자 아이디 값 -->

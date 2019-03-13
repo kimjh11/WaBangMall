@@ -63,7 +63,7 @@
 			<div class="formDiv">
 				<form method="post" action="<%=request.getContextPath()%>/member/loginOk.do" name="frm1" id="frm1">
 					<div class="form-group" id="useridDiv">
-						<label for="userid">아이디</label><br/>
+						<label for="userid" class="font-noto-login-T">아이디</label><br/>
 						<input type="text" id="userid" name="userid" placeholder="아이디를 입력해주세요." 
 							   class="form-control"/>
 						<label></label>

@@ -1,0 +1,39 @@
+#email1{
+	width:200px;
+}
+#userid{
+	width:200px;
+	margin-bottom:10px;
+}
+#useridBtn{
+	width:203px;
+	margin-top:10px;
+	margin-left: 16.5%;
+	background:  #adb5bd;
+}
+#passwordBtn{
+	width:203px;
+	margin-top:10px;
+	margin-left: 15%;
+	background:  #adb5bd;
+}
+#acc1{
+	text-align:center;
+}
+#acc2{
+	text-align:center;
+}
+#searchId{
+	margin-left: 30%;
+    margin-top: 3%;
+}
+#searchPwd{
+	margin-left: 30%;
+    margin-top: 3%;
+}
+#warningid , #warningpwd1, #warningpwd2{
+	color: red;
+}
+.searchColor{
+	color: blue;
+}
