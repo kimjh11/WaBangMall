@@ -69,11 +69,11 @@ $(function(){
 		
 		var addOption = '<li class="'+bSelectOpt+bColor+'">';
 			addOption += 	'<span>옵션</span>';
-			addOption += 	'<input type="text" name="bSelectOpt" value="'+bSelectOpt+'" readonly/>';
-			addOption += 	'<input type="text" name="bSelectOptPrice" value="'+bSelectOptPrice+'" readonly/>';
+			addOption += 	'<input type="text" name="bSelectOpt" class="opt-name" value="'+bSelectOpt+'" readonly/>';
+			addOption += 	'<input type="text" name="bSelectOptPrice" class="opt-price" value="'+bSelectOptPrice+'" readonly/><br/>';
 			addOption += 	'<span>색상</span>';
-			addOption += 	'<input type="text" name="bColor" value="'+bColor+'" readonly/>';
-			addOption += 	'<input type="text" name="bColorPrice" value="'+bColorPrice+'" readonly/>';
+			addOption += 	'<input type="text" name="bColor" class="opt-name" value="'+bColor+'" readonly/>';
+			addOption += 	'<input type="text" name="bColorPrice" class="opt-price" value="'+bColorPrice+'" readonly/>';
 			addOption +=	'<div class="cnt-div">';
 			addOption +=		"<input type='button' class='cnt-btn' value='-' />";
 			addOption +=		"<input type='number' name='bCount' class='cnt-val' value=1 readonly>";
@@ -152,7 +152,7 @@ $(function(){
 					});
 				}else{//로그인 :N
 					if(confirm('로그인 후 이용가능합니다.\n로그인페이지로 이동하시겠습니까?')){
-						location.href="/WabangMall/member/login.do";
+						location.href="/WaBangMall/member/login.do";
 						return;
 					}	
 				}

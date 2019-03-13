@@ -25,11 +25,9 @@ public class CommandOrderList implements CommandService {
 		int cnt = dao.insertOrderList(userid);
 		System.out.println("cnt:"+cnt);
 		
-		List<BasketVO> list = dao.selectList(userid);
+		List<BasketVO2> list = dao.selectList(userid);
 		
 		req.setAttribute("list", list);
-
-		System.out.println("주문리스트 cShoppingnt:"+cnt);
 
 		return "storeOrderList.jsp";
 	}

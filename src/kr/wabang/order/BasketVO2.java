@@ -1,10 +1,10 @@
 package kr.wabang.order;
 
-public class BasketVO {
+public class BasketVO2 {
 	private String iCode;
 	private String iCategory;
 	private String iName;
-	private String iThumbnail;
+	private String i_Thumbnail;
 	
 	private String mId;
 
@@ -12,7 +12,7 @@ public class BasketVO {
 	private String bSelectOptStr;
 	private String bColorStr;
 	
-	private String bCode;
+	private int bCode;
 	private String[] bCount;
 	private String[] bSelectOpt;
 	private String[] bColor;
@@ -22,7 +22,7 @@ public class BasketVO {
 	
 	
 	
-	public BasketVO() {}
+	public BasketVO2() {}
 
 	
 	public String getiCode() {
@@ -101,13 +101,15 @@ public class BasketVO {
 	}
 
 
-	public String getbCode() {
+	public int getbCode() {
 		return bCode;
 	}
 
-	public void setbCode(String bCode) {
+
+	public void setbCode(int bCode) {
 		this.bCode = bCode;
 	}
+
 
 	public String[] getbCount() {
 		return bCount;

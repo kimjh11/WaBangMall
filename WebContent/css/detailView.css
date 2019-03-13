@@ -138,7 +138,9 @@
 	display:inline-block;
 	width: 100%;
 }
-
+input.opt-price{
+	width:10%;
+}
 
 
 
