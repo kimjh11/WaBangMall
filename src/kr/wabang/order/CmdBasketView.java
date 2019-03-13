@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.wabang.controller.CommandService;
 
-public class CmdShoppingList implements CommandService {
+public class CmdBasketView implements CommandService {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -20,12 +20,12 @@ public class CmdShoppingList implements CommandService {
 		HttpSession ses = req.getSession();
 		String loginId = (String)ses.getAttribute("loginId");
 		
-		ShoppingListDAO dao = new ShoppingListDAO();
-		List<ShoppingListVO> list = dao.selectShoppingList(loginId);
+		BasketDAO dao = new BasketDAO();
+		List<BasketVO> list = dao.selectList(loginId);
 		
 		req.setAttribute("list", list);
 		
-		return "shoppingList.jsp";
+		return "basketView.jsp";
 	}
 
 }

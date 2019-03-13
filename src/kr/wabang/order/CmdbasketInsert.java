@@ -13,14 +13,14 @@ import kr.wabang.controller.CommandService;
 import kr.wabang.item.ItemDAO;
 import kr.wabang.item.ItemVO;
 
-public class CmdShoppingListInsert implements CommandService {
+public class CmdbasketInsert implements CommandService {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// 장바구니페이지
 		req.setCharacterEncoding("UTF-8");
 
-
+		
 		String bSelectOpt[] = req.getParameterValues("bSelectOpt");
 		String bColor[] = req.getParameterValues("bColor");		
 		String bCount[] = req.getParameterValues("bCount");
@@ -37,7 +37,8 @@ public class CmdShoppingListInsert implements CommandService {
 		
 		HttpSession ses = req.getSession();
 
-		ShoppingListVO listVO = new ShoppingListVO();
+		BasketVO listVO = new BasketVO();
+		BasketDAO dao = new BasketDAO();
 		
 		listVO.setiCode(req.getParameter("iCode"));
 		listVO.setmId((String)ses.getAttribute("loginId"));
@@ -47,15 +48,13 @@ public class CmdShoppingListInsert implements CommandService {
 		listVO.setbPrice(itemVO.getNoOptPrice());//상품원가
 		listVO.setbPayment(Integer.parseInt(req.getParameter("bPayment")));//총결제금액
 		
-		ShoppingListDAO dao = new ShoppingListDAO();
-		
-		int cnt = dao.insertShoppingList(listVO);
+		int cnt = dao.insertList(listVO);
 		
 		req.setAttribute("cnt", cnt);
 
 		//mvc패턴에서 view파일명을 리턴해줘야하지만 ajax호출 시 실행되지는 않음
 		//없으면 에러발생
-		return "shoppingListInsertOk.jsp";
+		return "basketInsertOk.jsp";
 	}
 
 }
