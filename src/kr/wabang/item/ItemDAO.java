@@ -27,7 +27,8 @@ public class ItemDAO extends DBConnection implements ItemInterface{
 				
 				String thum = rs.getString(6).substring(0,rs.getString(6).indexOf("|"));
 				vo.setThumbnail(thum);
-				int disprice = rs.getInt(3)-rs.getInt(4)/rs.getInt(3);
+				int disprice = rs.getInt(3)-((rs.getInt(3)*rs.getInt(4))/100);
+				System.out.println(disprice);
 				vo.setDisprice(disprice);
 				list.add(vo);
 			}
