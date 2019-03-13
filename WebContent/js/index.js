@@ -1,5 +1,5 @@
 $(function(){
-	/*이벤트 베너 슬라이드*/
+	/*이벤트 베너 생성*/
 	$('#event-banner').ready(function eventTagSet(){
 		$('.event-slider').bxSlider({
 			mode: 'fade'
@@ -32,9 +32,8 @@ $(function(){
 				, prevText: '<span></span>'
 				, onSlideBefore: function ($slideElement, oldIndex, newIndex) {}
            });
-		}
+		};
 		
 	});
-	
 	
 });
