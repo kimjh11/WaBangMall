@@ -22,9 +22,6 @@ public class CommandOrderList implements CommandService {
 		BasketDAO dao = new BasketDAO();
 		System.out.println("¾ÆÀÌµð:"+userid);
 		
-		int cnt = dao.insertOrderList(userid);
-		System.out.println("cnt:"+cnt);
-		
 		List<BasketVO> list = dao.selectList(userid);
 		
 		req.setAttribute("list", list);
