@@ -127,6 +127,11 @@ public class ItemVO {
 	}
 	
 
+	
+	
+	/////////////////////////////////////////////////
+	//아이템 등록(어드민)
+	
 	private String code;
 	private String category;
 	private String name;

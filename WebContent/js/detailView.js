@@ -152,7 +152,7 @@ $(function(){
 					});
 				}else{//로그인 :N
 					if(confirm('로그인 후 이용가능합니다.\n로그인페이지로 이동하시겠습니까?')){
-						location.href="/WabangMall/member/login.do";
+						location.href="/WaBangMall/member/login.do";
 						return;
 					}	
 				}
