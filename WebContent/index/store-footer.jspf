@@ -16,7 +16,7 @@
 			<span>주소:서울특별시 구로구 시흥대로 163길 33 2층(구로동, 주호타워)</span>
 			<span>Copyrightⓒ2019 by GoottAcademy흥해라 All Rights Reserved</span>
 		</address>
-		<ul id="app-icon">
+		<ul id="app-icon"> 
 			<li><a href=""><img src="${ctx }img/icon/instagram.png"/></a></li>
 			<li><a href=""><img src="${ctx }img/icon/facebook.png"/></a></li>
 			<li><a href=""><img src="${ctx }img/icon/twitter.png"/></a></li>

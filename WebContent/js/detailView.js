@@ -68,12 +68,12 @@ $(function(){
 		}
 		
 		var addOption = '<li class="'+bSelectOpt+bColor+'">';
-			addOption += 	'<span>옵션</span>';
+			addOption += 	'<span class="opt-title">옵션</span>';
 			addOption += 	'<input type="text" name="bSelectOpt" class="opt-name" value="'+bSelectOpt+'" readonly/>';
 			addOption += 	'<input type="text" name="bSelectOptPrice" class="opt-price" value="'+bSelectOptPrice+'" readonly/><br/>';
-			addOption += 	'<span>색상</span>';
+			addOption += 	'<span class="opt-title">색상</span>';
 			addOption += 	'<input type="text" name="bColor" class="opt-name" value="'+bColor+'" readonly/>';
-			addOption += 	'<input type="text" name="bColorPrice" class="opt-price" value="'+bColorPrice+'" readonly/>';
+			addOption += 	'<input type="text" name="bColorPrice" class="opt-price" value="'+bColorPrice+'" readonly/><br/>';
 			addOption +=	'<div class="cnt-div">';
 			addOption +=		"<input type='button' class='cnt-btn' value='-' />";
 			addOption +=		"<input type='number' name='bCount' class='cnt-val' value=1 readonly>";

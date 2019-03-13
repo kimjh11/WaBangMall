@@ -12,7 +12,7 @@
 	<div id="top-header" class="width-auto">
 		<h1><a href="${home }">WABANG</a></h1>
 		<div class="log_in">
-		
+		 
 		<c:if test="${(loginStatus == 'N' || loginStatus == null)
 						&& (adminloginStatus == 'N' || adminloginStatus == null)}">
 			<a href="<%=request.getContextPath()%>/member/login.do">로그인</a>
