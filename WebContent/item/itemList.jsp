@@ -39,7 +39,7 @@
 			 if($("#start option:selected").attr("id")=="big"+i){
 				 $(".on").removeClass("on");
 				 $("#mid"+i).addClass("on");
-				 $("#big").html($("#start option:selected").val()+"-");
+				 $("#big").html($("#start option:selected").val());
 			 }
 		 }$(".Pack").filter(function(){
 			 if($(this).find("input").val().indexOf($("#start option:selected").val()) > -1){
@@ -58,7 +58,7 @@
 			 if($(this).find("input").val().indexOf($("#mid1 option:selected").val()) > -1){
 				 $(this).addClass("on");
 				 $(this).removeClass("off");
-				 $("#mid").html($("#mid1").val());
+				 $("#mid").html("-"+$("#mid1").val());
 			 } else{
 				 $(this).addClass("off");
 				 $(this).removeClass("on");
@@ -71,7 +71,7 @@
 			 if($(this).find("input").val().indexOf($("#mid2 option:selected").val()) > -1){
 				 $(this).addClass("on");
 				 $(this).removeClass("off");
-				 $("#mid").html($("#mid2").val());
+				 $("#mid").html("-"+$("#mid2").val());
 			 } else{
 				 $(this).addClass("off");
 				 $(this).removeClass("on");
@@ -84,7 +84,7 @@
 			 if($(this).find("input").val().indexOf($("#mid3 option:selected").val()) > -1){
 				 $(this).addClass("on");
 				 $(this).removeClass("off");
-				 $("#mid").html($("#mid3").val());
+				 $("#mid").html("-"+$("#mid3").val());
 			 } else{
 				 $(this).addClass("off");
 				 $(this).removeClass("on");
@@ -97,7 +97,7 @@
 			 if($(this).find("input").val().indexOf($("#mid4 option:selected").val()) > -1){
 				 $(this).addClass("on");
 				 $(this).removeClass("off");
-				 $("#mid").html($("#mid4").val());
+				 $("#mid").html("-"+$("#mid4").val());
 			 } else{
 				 $(this).addClass("off");
 				 $(this).removeClass("on");
