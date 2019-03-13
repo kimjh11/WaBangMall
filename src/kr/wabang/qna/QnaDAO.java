@@ -235,4 +235,45 @@ public class QnaDAO extends DBConnection implements QnaInterface {
 		}
 		return cnt;
 	}
+
+	@Override
+	public int deleteQnaAnswer(String userid) {
+		// 답변 지우기 -회원탈퇴
+		int answerCnt =0;
+		try{
+			dbCon();
+			String sql = "delete from answer where m_id=?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userid);
+			
+			answerCnt = pstmt.executeUpdate();
+		}catch(Exception e){
+			System.out.println("답변 지우기 -회원탈퇴 에러"+e.getMessage());
+		}finally{
+			dbClose();
+		}
+		return answerCnt;
+	}
+
+	@Override
+	public int deletequestion(String userid) {
+		// 질문 지우기 -회원탈퇴
+		int questionCnt =0;
+		try{
+			dbCon();
+			String sql = "delete from question where m_id=?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userid);
+			
+			questionCnt = pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println("질문 지우기 -회원탈퇴 에러"+e.getMessage());
+		}finally{
+			dbClose();
+		}
+		return questionCnt;
+	}
 }

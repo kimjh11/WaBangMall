@@ -170,5 +170,26 @@ public class ShoppingListDAO extends DBConnection implements ShoppingListInterfa
 		}
 		return list;
 	}
+
+	@Override
+	public int orderDelete(String userid) {
+		// 주문삭제-회원 탈퇴
+		int orderCnt = 0;
+		try{
+			dbCon();
+			String sql = "delete from orderList where m_id=?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userid);
+			
+			orderCnt = pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println("장바구니 삭제-회원 탈퇴 에러"+e.getMessage());
+		}finally{
+			dbClose();
+		}
+		return orderCnt;
+	}
 	
 }

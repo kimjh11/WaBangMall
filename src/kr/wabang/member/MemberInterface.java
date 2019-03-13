@@ -19,7 +19,7 @@ public interface MemberInterface {
 	public int myInfoUpdate(MemberVO vo);
 	
 	//È¸¿ø Å»Åð(delete)
-	public int myInfoDelete(String userid, MemberVO vo);
+	public int myInfoDelete(String userid, MemberVO membervo);
 	
 	//¾îµå¹Î ·Î±×ÀÎ ÇÏ±â
 	public void adminloginCheck(AdminVO adminvo);

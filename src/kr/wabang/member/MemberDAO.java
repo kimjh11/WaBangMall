@@ -203,40 +203,44 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 	}
 
 	@Override
-	public int myInfoDelete(String userid, MemberVO vo) {
+	public int myInfoDelete(String userid, MemberVO membervo) {
 		//회원 탈퇴
-		int cnt =0;
+		int membercnt =0;
 		try{
 			dbCon();
 			String sql ="delete from member where m_id=? and m_pwd=?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, userid);
-			pstmt.setString(2, vo.getM_pwd());
+			pstmt.setString(2, membervo.getM_pwd());
 			
 			System.out.println("===delete====");
-			System.out.println(vo.getM_id());
-			System.out.println(vo.getM_pwd());
+			System.out.println(membervo.getM_id());
+			System.out.println(membervo.getM_pwd());
 			
-			cnt = pstmt.executeUpdate();
+			membercnt = pstmt.executeUpdate();
 			
 		}catch(Exception e){
 			System.out.println("회원탈퇴 에러"+e.getMessage());
 		}finally{
 			dbClose();
 		}
-		return cnt;
+		return membercnt;
 	}
 
 	@Override
 	public MemberVO findId(String email) {
+		//아이디 찾기
 		MemberVO vo = new MemberVO();
 		try {
 			dbCon();
 			String sql = " select m_id from member where m_email = ? ";
 			pstmt = con.prepareStatement(sql);
+			
 			pstmt.setString(1, email);
+			
 			rs = pstmt.executeQuery();
+			
 			if(rs.next()) {	
 				vo.setM_id(rs.getString(1));
 			}
@@ -251,6 +255,7 @@ public class MemberDAO extends DBConnection implements MemberInterface  {
 
 	@Override
 	public MemberVO findPwd(String userid, String email) {
+		//비밀번호 찾기
 		MemberVO vo = new MemberVO();
 		try {
 			dbCon();

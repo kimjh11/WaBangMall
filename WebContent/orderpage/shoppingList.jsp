@@ -84,7 +84,7 @@
 					<td class="won">${vo.bPrice * vo.bCountStr }</td>
 					<!-- 기타옵션 -->
 					<td class="setting">
-						<button class="del-btn" class="btn-pointer del-btn row">상품삭제</button>		
+						<button class="btn-pointer del-btn row">상품삭제</button>		
 					</td>
 				</tr>
 				</c:forEach>

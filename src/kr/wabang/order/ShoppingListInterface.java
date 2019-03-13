@@ -13,4 +13,7 @@ public interface ShoppingListInterface {
 	public int deleteShoppingList (String userid);
 	//주문 목록
 	public List<OrderListVO> selectOrderList (String userid);
+	
+	//주문 삭제-회원 탈퇴
+	public int orderDelete(String userid);
 }

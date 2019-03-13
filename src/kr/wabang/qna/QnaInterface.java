@@ -26,4 +26,10 @@ public interface QnaInterface {
 	
 	//답변 내용 지우기
 	public int deleteAnswer(AnswerVO answervo);
+	
+	//답변 지우기 -회원탈퇴
+	public int deleteQnaAnswer(String userid);
+	
+	//질문 지우기 -회원탈퇴
+	public int deletequestion(String userid);
 }
