@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/itemList.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<%=request.getContextPath() %>/js/common.js"></script>
-<script src="<%=request.getContextPath() %>/js/shoppingList.js"></script>
+<script src="<%=request.getContextPath() %>/js/basket.js"></script>
 </head>
 <body>
 <div id="content-wrap">
@@ -49,12 +49,15 @@
 				</tr>
 			</thead>
 			<tbody>
+			<form id="frm">
 				<c:forEach var="vo" items="${list }">
 				<tr>
 					<!-- 상품정보 -->
 					<td class="item-info">
 						<!-- 체크박스 -->
-						<input type="checkbox" name="row-check"/>
+						<input type="checkbox" name="check" value='${vo.bCode }'/>
+						
+					
 						<!-- 썸네일 -->
 						<div class="img-wrap">
 							<c:forTokens var="img" items='${vo.iThumbnail }' delims="|">
@@ -84,10 +87,11 @@
 					<td class="won">${vo.bPrice * vo.bCountStr }</td>
 					<!-- 기타옵션 -->
 					<td class="setting">
-						<button class="btn-pointer del-btn row">상품삭제</button>		
+						<input type="button" class="btn-pointer del-btn row" value="상품삭제"/>		
 					</td>
 				</tr>
 				</c:forEach>
+			</form>
 			</tbody>
 			<tfoot>
 			<!-- 선택상품 합친가격,수량 -->
@@ -95,7 +99,7 @@
 					<td colspan="5">
 						<div>
 							<span class="fs15">총 수량</span>
-							<strong class="fs15 total-cnt"></strong>
+							<strong class="fs15 cnt-txt total-cnt"></strong>
 						</div>
 						<div>
 							<span class="fs15">배송료</span>
@@ -103,7 +107,7 @@
 						</div>
 						<div>
 							<span class="fs15">총 구매금액</span>
-							<strong class="fs15 won">53,500</strong>
+							<strong class="fs15 won total-price">53,500</strong>
 						</div>
 					</td>
 				</tr>

@@ -137,12 +137,13 @@ $(function(){
 					$.ajax({
 						type : "post",
 						enctype : "multipart/form-data",
-						url : "/WaBangMall/orderpage/shoppingListInsert.do",
+						url : "/WaBangMall/orderpage/basketInsert.do",
 						data : form ,
 						dataType :"text",
-						success: function(){
+						success: function(result){
+							console.log(result);
 							if(confirm('장바구니로 이동하시겠습니까?')){//장바구니 확인
-								location.href= "/WaBangMall/orderpage/shoppingList.do";								
+								location.href= "/WaBangMall/orderpage/basketView.do";								
 							}
 						},
 						error: function(){
