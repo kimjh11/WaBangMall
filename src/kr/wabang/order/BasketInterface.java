@@ -11,4 +11,12 @@ public interface BasketInterface {
 	public int deleteListOne(String loginId, String bCode);
 	//장바구니 목록삭제
 	public void deleteList(String bCode[], String loginId);
+	//오더리스트 등록
+	public int insertOrderList(String userid);
+	// 주문삭제-회원 탈퇴
+	public int orderDelete(String userid);
+	// 장바구니 전체삭제
+	public int deleteListAll(String userid);
+	
+	
 }

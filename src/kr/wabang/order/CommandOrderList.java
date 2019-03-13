@@ -19,22 +19,18 @@ public class CommandOrderList implements CommandService {
 		HttpSession ses = req.getSession();
 		String userid = (String)ses.getAttribute("loginId");
 		
-		ShoppingListDAO dao = new ShoppingListDAO();
+		BasketDAO dao = new BasketDAO();
 		System.out.println("아이디:"+userid);
 		
 		int cnt = dao.insertOrderList(userid);
 		System.out.println("cnt:"+cnt);
 		
-		System.out.println("주문리스트 cnt:"+cnt);
-		int cnt2 = dao.deleteShoppingList(userid);
-		System.out.println("장바구니리스트 삭제 cnt:"+cnt2);
-	
-		List<OrderListVO> list = dao.selectOrderList(userid);
+		List<BasketVO> list = dao.selectList(userid);
+		
 		req.setAttribute("list", list);
-			
-		
-		
-		
+
+		System.out.println("주문리스트 cShoppingnt:"+cnt);
+
 		return "storeOrderList.jsp";
 	}
 

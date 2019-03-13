@@ -1,6 +1,6 @@
 /*메뉴바에 카테고리 생성*/
 function cateSet(root){
-	console.log(root)
+	console.log(root);
 	/*메뉴바에 카테고리 생성*/	
 	$.getJSON('/WaBangMall/index/category.json',function(allCategory){
 		var cateTag = '<ul id="main-category">';

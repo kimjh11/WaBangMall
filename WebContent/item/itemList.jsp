@@ -9,6 +9,7 @@
 <title>상품 리스트</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/common.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/index.css"/>
+<script src="<%=request.getContextPath() %>/js/common.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
 <style>

@@ -85,6 +85,51 @@ public class BasketDAO extends DBConnection implements BasketInterface {
 		return list;
 	}
 
+	@Override
+	public int insertOrderList(String userid) {
+		int cnt = 0;
+		try {
+			dbCon();
+			String sql = " insert into orderList (o_num,i_code, m_id, o_count, o_selectOpt,o_selectColor, "
+					+ " o_price,o_payment,o_deposit,o_date, o_delivery) " 
+					+ " select ?||to_char(b_regdate,'YYYYMMDDhh24mi'), "
+					+ " i_code, m_id, b_count,b_selectopt,b_selectColor, "
+					+ " b_price, b_payment, '미결제', sysdate, '배송준비중' "
+					+ " from basket where m_id= ? ";
+					
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,userid);
+			pstmt.setString(2,userid);
+			
+			cnt= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("주문등록 오류..."+e.getMessage());
+		}finally {
+			dbClose();
+		}
+		return cnt;
+	}
+	
+	@Override
+	public int orderDelete(String userid) {
+		// 주문삭제-회원 탈퇴
+		int orderCnt = 0;
+		try{
+			dbCon();
+			String sql = "delete from orderList where m_id=?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userid);
+			
+			orderCnt = pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println("장바구니 삭제-회원 탈퇴 에러"+e.getMessage());
+		}finally{
+			dbClose();
+		}
+		return orderCnt;
+	}
 
 
 	@Override
@@ -119,6 +164,25 @@ public class BasketDAO extends DBConnection implements BasketInterface {
 	}
 
 
+	//장바구니삭제
+		public int deleteListAll(String userid) {
+			int cnt = 0;
+			try {
+			dbCon();
+			String sql = " delete from basket "
+					+ " where m_id=? ";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			cnt = pstmt.executeUpdate();
+			
+			}catch(Exception e){
+				System.out.println("장바구니삭제 에러..."+e.getMessage());
+			}finally {
+				dbClose();
+			}
+			return cnt;
+		}
 
 
 }

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 import kr.wabang.controller.CommandService;
 import kr.wabang.member.MemberDAO;
 import kr.wabang.member.MemberVO;
-import kr.wabang.order.ShoppingListDAO;
-import kr.wabang.order.ShoppingListVO;
+import kr.wabang.order.BasketDAO;
+import kr.wabang.order.BasketVO;
 import kr.wabang.qna.AnswerVO;
 import kr.wabang.qna.QnaDAO;
 import kr.wabang.qna.QnaVO;
@@ -32,11 +32,11 @@ public class CommandSecessionDelete implements CommandService {
 		
 		//////////////////////////////////////////////////////
 		//1.장바구니 지우기
-		ShoppingListDAO shoppingListDao = new ShoppingListDAO();
-		int cnt = shoppingListDao.deleteShoppingList(userid);
+		BasketDAO BasketDAO = new BasketDAO();
+		//int cnt = BasketDAO.deleteList(userid);
 		
 		//2.주문 지우기
-		ShoppingListDAO orderDao = new ShoppingListDAO();
+		BasketDAO orderDao = new BasketDAO();
 		int orderCnt = orderDao.orderDelete(userid);
 		
 		//3.답변 지우기
@@ -58,7 +58,7 @@ public class CommandSecessionDelete implements CommandService {
 		}
 		
 		//뷰 페이지로 값 전달
-		req.setAttribute("cnt", cnt);
+		//req.setAttribute("cnt", cnt);
 		req.setAttribute("orderCnt", orderCnt);
 		req.setAttribute("answerCnt", answerCnt);
 		req.setAttribute("questionCnt", questionCnt);
