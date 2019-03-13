@@ -41,7 +41,7 @@
 			<tbody id="orderList">
 				<c:forEach var="OrderVO" items="${list}">
 					<tr>
-						<td><a style="color:blue" href="${ctx }orderpage/storeOrderList.do?o_num=${OrderVO.o_num }">${OrderVO.o_num }</a></td>
+						<td>${OrderVO.o_num }</td>
 						<td>${OrderVO.i_code }</td>
 						<td>
 							옵션: ${OrderVO.o_selectOpt }<br/>
