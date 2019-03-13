@@ -96,7 +96,7 @@
 			<tfoot>
 			<!-- 선택상품 합친가격,수량 -->
 				<tr>
-					<td colspan="5" style="text-align:right">
+					<td colspan="5">
 						<div>
 							<span class="fs15">총 수량</span>
 							<strong class="fs15 cnt-txt total-cnt"></strong>

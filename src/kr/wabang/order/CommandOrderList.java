@@ -15,13 +15,17 @@ public class CommandOrderList implements CommandService {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-req.setCharacterEncoding("UTF-8");
-		
+		//주문확인페이지
 		HttpSession ses = req.getSession();
-		String loginId = (String)ses.getAttribute("loginId");
+		String userid = (String)ses.getAttribute("loginId");
 		
 		BasketDAO dao = new BasketDAO();
-		List<BasketVO> list = dao.selectList(loginId);
+		System.out.println("아이디:"+userid);
+		
+		int cnt = dao.insertOrderList(userid);
+		System.out.println("cnt:"+cnt);
+		
+		List<BasketVO> list = dao.selectList(userid);
 		
 		req.setAttribute("list", list);
 

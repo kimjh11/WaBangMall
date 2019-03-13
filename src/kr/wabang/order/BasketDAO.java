@@ -67,7 +67,7 @@ public class BasketDAO extends DBConnection implements BasketInterface {
 				vo.setiCategory(rs.getString(2));
 				vo.setiName(rs.getString(3));
 				vo.setiThumbnail(rs.getString(4));
-				vo.setbCode(rs.getString(5));
+				vo.setbCode(rs.getInt(5));
 				vo.setmId(rs.getString(6));
 				vo.setbCountStr(rs.getString(7));
 				vo.setbSelectOptStr(rs.getString(8));
@@ -139,8 +139,6 @@ public class BasketDAO extends DBConnection implements BasketInterface {
 		return cnt;
 	}
 
-
-
 	@Override
 	public void deleteList(String[] bCode, String loginId) {
 		// 장바구니 목록 삭제
@@ -163,11 +161,10 @@ public class BasketDAO extends DBConnection implements BasketInterface {
 		}
 	}
 
-
 	//장바구니삭제
-		public int deleteListAll(String userid) {
-			int cnt = 0;
-			try {
+	public int deleteListAll(String userid) {
+	int cnt = 0;
+		try {
 			dbCon();
 			String sql = " delete from basket "
 					+ " where m_id=? ";
@@ -176,13 +173,11 @@ public class BasketDAO extends DBConnection implements BasketInterface {
 			pstmt.setString(1, userid);
 			cnt = pstmt.executeUpdate();
 			
-			}catch(Exception e){
-				System.out.println("장바구니삭제 에러..."+e.getMessage());
-			}finally {
-				dbClose();
-			}
-			return cnt;
+		}catch(Exception e){
+			System.out.println("장바구니삭제 에러..."+e.getMessage());
+		}finally {
+			dbClose();
 		}
-
-
+			return cnt;
+	}
 }

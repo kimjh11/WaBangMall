@@ -33,7 +33,7 @@ public class CommandSecessionDelete implements CommandService {
 		//////////////////////////////////////////////////////
 		//1.장바구니 지우기
 		BasketDAO BasketDAO = new BasketDAO();
-		//int cnt = BasketDAO.deleteList(userid);
+		int cnt = BasketDAO.deleteListAll(userid);
 		
 		//2.주문 지우기
 		BasketDAO orderDao = new BasketDAO();
@@ -58,7 +58,7 @@ public class CommandSecessionDelete implements CommandService {
 		}
 		
 		//뷰 페이지로 값 전달
-		//req.setAttribute("cnt", cnt);
+		req.setAttribute("cnt", cnt);
 		req.setAttribute("orderCnt", orderCnt);
 		req.setAttribute("answerCnt", answerCnt);
 		req.setAttribute("questionCnt", questionCnt);

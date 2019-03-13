@@ -15,7 +15,7 @@ public interface BasketInterface {
 	public int insertOrderList(String userid);
 	// 주문삭제-회원 탈퇴
 	public int orderDelete(String userid);
-	// 장바구니 전체삭제
+	// 장바구니 전체삭제 - 회원탈퇴
 	public int deleteListAll(String userid);
 	
 	

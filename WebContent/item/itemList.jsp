@@ -21,7 +21,7 @@
 	.Pack{height:310px ;width:330px;margin-top:35px;text-align:center;float:left;margin-left:6%; border-radius:30px;
 			font-size:1.5em}
 	.thum{overflow:hidden;height:235px; border-radius:30px}
-	.itemName{font-size:2em}
+	.itemName{font-size:1.5em;}
 	.itemdate{fomt-size:1em; text-lign:center;margin:0 auto}
 	.itemPrice, .discount{font-size:1em; width:30%;margin:0 auto;float:left}
 	.itemPrice{color:rgb(87, 150, 246);margin-left:15%}
