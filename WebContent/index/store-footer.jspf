@@ -3,7 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page trimDirectiveWhitespaces = "true" %>
 <c:url var="home" value="/index.do"/>
-<c:url var="shoppingList" value="/orderpage/shoppingList.do"/>
+<c:url var="shoppingList" value="/orderpage/basketView.do"/>
+<head>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/common.css"/>
+</head>
 <footer>
 <div id="footer-info-warp">
 	<div id="footer-info" class="width-auto">
@@ -13,11 +16,10 @@
 			<span>주소:서울특별시 구로구 시흥대로 163길 33 2층(구로동, 주호타워)</span>
 			<span>Copyrightⓒ2019 by GoottAcademy흥해라 All Rights Reserved</span>
 		</address>
-		<ul id="app-icon">
-
-			<li><a href=""><img src="${ctx }img/icon/instagram.png"/></a></li>
-			<li><a href=""><img src="${ctx }img/icon/facebook.png"/></a></li>
-			<li><a href=""><img src="${ctx }img/icon/twitter.png"/></a></li>
+		<ul id="app-icon"> 
+			<li><a href=""><img src="http://172.16.1.14:9090/WaBangMall/img/icon/instagram.png"/></a></li>
+			<li><a href=""><img src="http://172.16.1.14:9090/WaBangMall/img/icon/facebook.png"/></a></li>
+			<li><a href=""><img src="http://172.16.1.14:9090/WaBangMall/img/icon/twitter.png"/></a></li>
 
 		</ul>
 	</div>
@@ -41,19 +43,19 @@
 				</div>
 			</li>
 			<li>
-				<a href="${shoppingList }">
+				<a href="${shoppingList }" class="basket-btn">
 					<span>장바구니</span>
 					<img class="nav_icon" alt="장바구니" title="장바구니" src="${ctx }img/store/footer_03_cart.png"/>
 				</a>
 			</li>
 			<li>
-				<a href="#">
-					<span><a href="<%=request.getContextPath()%>/mypage/myPage.do">MY페이지</a></span>
+				<a href="<%=request.getContextPath()%>/mypage/myPage.do" class="mypage-btn">
+					<span>MY페이지</a></span>
 					<img class="nav_icon" alt="장바구니" title="장바구니" src="${ctx }img/store/footer_04_user.png"/>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="<%=request.getContextPath()%>/notice/notice.do">
 					<span>고객센터</span>
 					<img class="nav_icon" alt="고객센터" title="고객센터" src="${ctx }img/store/footer_05_call.png">
 				</a>
@@ -65,3 +67,54 @@
 	</div>
 </div>
 </footer>
+<script>
+$(function(){
+	/*푸터 접기,펼치기*/
+	$('#toggle-pointer').click(function(){
+		if($(this).hasClass('show')){
+			$(this).removeClass('show');
+			$(this).text('펼치기');
+			$(this).css('bottom',0);
+			$('#footer-menubar-warp').css('height',0);
+			$('footer nav').hide();
+			$('#footer-info-warp').css('margin-bottom',0);
+		}else{
+			$(this).addClass('show');
+			$(this).text('접기');
+			$(this).css('bottom','50px');
+			$('#footer-menubar-warp').css('height','50px');
+			$('footer nav').show();
+			$('#footer-info-warp').css('margin-bottom','50px');
+		}
+	});	
+	
+	$('.basket-btn').click(function(){
+		console.log($('input[name=login-status]').val());
+		if($('input[name=login-status]').val()=='Y'){
+		}else{
+			if(confirm('로그인 후 이용가능합니다.\n로그인페이지로 이동하시겠습니까?')){
+				location.href="/WaBangMall/member/login.do";
+				return false;
+			}else{
+				return;
+			}
+		}
+	});
+	
+	$('.mypage-btn').click(function(){
+		console.log($('input[name=login-status]').val());
+		if($('input[name=login-status]').val()=='Y'){
+		}else{
+			if(confirm('로그인 후 이용가능합니다.\n로그인페이지로 이동하시겠습니까?')){
+				location.href="/WaBangMall/member/login.do";
+				return false;
+			}else{
+				return;
+			}
+		}
+	});
+});
+
+
+
+</script>

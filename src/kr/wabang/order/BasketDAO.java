@@ -67,7 +67,7 @@ public class BasketDAO extends DBConnection implements BasketInterface {
 				vo.setiCategory(rs.getString(2));
 				vo.setiName(rs.getString(3));
 				vo.setiThumbnail(rs.getString(4));
-				vo.setbCode(rs.getInt(5));
+				vo.setbCode(rs.getString(5));
 				vo.setmId(rs.getString(6));
 				vo.setbCountStr(rs.getString(7));
 				vo.setbSelectOptStr(rs.getString(8));

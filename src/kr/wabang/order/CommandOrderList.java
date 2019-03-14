@@ -20,10 +20,10 @@ public class CommandOrderList implements CommandService {
 		String userid = (String)ses.getAttribute("loginId");
 		
 		BasketDAO dao = new BasketDAO();
-		System.out.println("¾ÆÀÌµð:"+userid);
-		
+
+
 		List<BasketVO> list = dao.selectList(userid);
-		
+	
 		req.setAttribute("list", list);
 
 		return "storeOrderList.jsp";

@@ -8,10 +8,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>상품 상세페이지</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/common.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/detailView.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="<%=request.getContextPath() %>/js/common.js"></script>
 <script src="<%=request.getContextPath() %>/js/detailView.js"></script>
 </head>
 <body>
@@ -32,7 +30,7 @@
 			<c:forTokens var="img" items="${vo.iThumbnailStr }" delims="|">
 				<li>
 					<a href="#">
-						<img src="${ctx }img/store/${img }"/>
+						<img src="http://172.16.1.14:9090/WaBangAdmin/item/itemImg/${img }"/>
 					</a>
 				</li>
 			</c:forTokens>
@@ -133,7 +131,7 @@
 						</div>
 						<div class="modal-footer">
 							<a href="#">
-								<img data-dismiss="modal" alt="종료버튼" src="${ctx }img/store/close-btn.png">
+								<img data-dismiss="modal" alt="종료버튼" src="http://localhost:9090/WaBangMall/img/store/close-btn.png">
 							</a>
 						</div>
 					</div>

@@ -140,7 +140,7 @@
 			<div class="Pack"> <!-- 상품하나 -->
 				<a href="${ctx}item/detailView.do?code=${item.code}">
 				<div class="thum">
-					<img src="http://localhost:9090/WaBangAdmin/item/itemImg/${item.thumbnail}" style="display: inline-block;width: 100%;margin-left: 0px;margin-top: 0px;height: 250px;"/>
+					<img src="http://172.16.1.14:9090/WaBangAdmin/item/itemImg/${item.thumbnail}" style="display: inline-block;width: 100%;margin-left: 0px;margin-top: 0px;height: 250px;"/>
 				</div>
 				<div class="box">
 					<label class="itemName">${item.name}</label><br/>

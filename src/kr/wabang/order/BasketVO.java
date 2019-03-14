@@ -12,7 +12,7 @@ public class BasketVO {
 	private String bSelectOptStr;
 	private String bColorStr;
 	
-	private int bCode;
+	private String bCode;
 	private String[] bCount;
 	private String[] bSelectOpt;
 	private String[] bColor;
@@ -101,15 +101,13 @@ public class BasketVO {
 	}
 
 
-	public int getbCode() {
+	public String getbCode() {
 		return bCode;
 	}
 
-
-	public void setbCode(int bCode) {
+	public void setbCode(String bCode) {
 		this.bCode = bCode;
 	}
-
 
 	public String[] getbCount() {
 		return bCount;

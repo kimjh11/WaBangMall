@@ -2,7 +2,7 @@
     <wb-module deploy-name="WaBangMall">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="WaBangMall"/>
         <property name="java-output-path" value="/WaBangMall/build/classes"/>
+        <property name="context-root" value="WaBangMall"/>
     </wb-module>
 </project-modules>
