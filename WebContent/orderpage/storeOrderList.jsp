@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>장바구니</title>
+<title>구매페이지</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/common.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/itemList.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -20,7 +20,7 @@
 <%@ include file="../index/store-header.jspf" %>
 <section>
 <div class="div-wrap width-auto">
-	<h4>장바구니</h4>
+	<h4>구매리스트</h4>
 	<div id="shoppingLiDiv">
 		<!-- 체크박스 -->
 		<div class="list-checkbox">
@@ -90,7 +90,7 @@
 			<tfoot>
 			<!-- 선택상품 합친가격,수량 -->
 				<tr>
-					<td colspan="5">
+					<td colspan="5" class="total-info" >
 						<div>
 							<span class="fs15">총 수량</span>
 							<strong class="fs15 cnt-txt total-cnt"></strong>
@@ -101,7 +101,7 @@
 						</div>
 						<div>
 							<span class="fs15">총 구매금액</span>
-							<strong class="fs15 won total-price">53,500</strong>
+							<strong class="fs15 won total-price"></strong>
 						</div>
 					</td>
 				</tr>

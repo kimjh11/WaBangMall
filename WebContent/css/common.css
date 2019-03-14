@@ -82,7 +82,7 @@ input[type=button]:hover{
 input:focus{
 	outline:none;
 }
-span.close {
+/* span.close {
     border-radius: 40px;
     display: inline-block;
     position: absolute;
@@ -94,7 +94,7 @@ span.close {
     transform: rotate(45deg);
 }
 span.close:before {
-    /* border-radius: 103px; */
+    border-radius: 103px;
     display: block;
     content: "";
     position: absolute;
@@ -105,7 +105,7 @@ span.close:before {
     margin-top: -2px;
     background: #666;
 }
-
+ */
 /*헤더*/
 /*///헤더(로고/로그인/로그아웃)///*/
 div#top-header{

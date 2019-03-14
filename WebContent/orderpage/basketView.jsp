@@ -94,7 +94,7 @@
 			<tfoot>
 			<!-- 선택상품 합친가격,수량 -->
 				<tr>
-					<td colspan="5">
+					<td class="total-info" colspan="5">
 						<div>
 							<span class="fs15">총 수량</span>
 							<strong class="fs15 cnt-txt total-cnt"></strong>
@@ -105,7 +105,7 @@
 						</div>
 						<div>
 							<span class="fs15">총 구매금액</span>
-							<strong class="fs15 won total-price">53,500</strong>
+							<strong class="fs15 won total-price"></strong>
 						</div>
 					</td>
 				</tr>
@@ -114,9 +114,9 @@
 		</div>
 		
 		<!-- 쇼핑계속 and 주문하기 btn -->
-		<div id="chdiv">
-			<a href="#" class="chBtn" style="margin-left:250px;">쇼핑계속하기</a>
-			<a href="${ctx }orderpage/storeOrderList.do" class="chBtn" style="margin-left:20px;">주문하기</a>
+		<div class="order-btn-div">
+			<a href="#" class="back-btn">쇼핑계속하기</a>
+			<a href="${ctx }orderpage/storeOrderList.do" class="order-btn">주문하기</a>
 		</div>
 	</div>
 </div>
