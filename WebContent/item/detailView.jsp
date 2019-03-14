@@ -121,7 +121,7 @@
 				<li><input type="button" value="구매하기" class="buy-btn"/></li>
 			</ul>
 			<!-- 장바구니 담기 모달 -->
-			<div id="add-shopping-list" class="modal fade">
+			<!-- <div id="add-shopping-list" class="modal fade">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">장바구니에 물건을 담았습니다 :)</div>
@@ -136,7 +136,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- 장바구니 담기 모달 end -->
 		</div>
 		<!-- info-wrap end -->

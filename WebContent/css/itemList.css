@@ -118,10 +118,42 @@ td.item-info a.img-click img{
 	hieght:30px;
 	border-radius:5px;
 }
-
-
-
-
+.total-info{
+	padding: 20px 0;
+	border-bottom:1px solid #ddd;
+}
+.total-info > div{
+	margin-right: 5%;
+	text-align: right;
+	height: 35px;
+	line-height: 35px;
+}
+.total-info > div > *{
+	display: inline-block;
+}
+.total-info > div > span{
+	width: 150px;
+	font-size: 1.8em;
+}
+.total-info > div > strong{
+	width: 180px;
+	font-size: 2em;
+	text-align: center;
+}
+.order-btn-div{
+	width: 32%;
+	margin:30px auto;
+}
+.order-btn-div > a{
+	display: inline-block;
+	/* width: 44%; */
+	font-size:3em;
+	color:pink;
+	text-align: center;
+}
+.order-btn-div > a:first-child{
+	margin-right:20px;
+}
 
 
 

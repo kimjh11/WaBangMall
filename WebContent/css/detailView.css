@@ -53,6 +53,7 @@
 .info-title{
 	display:inline-block;
 	width:50px;
+	/* line-height: 60px; */
 	font-size:11pt;
 	font-weight:bold;
 }
@@ -84,15 +85,21 @@
 	width:95%;
 }
 .opt-chk li .close{
-	top: 3px;
-	right: -7px;
+	display:inline-block;
+	width: 12px;
+	height: 12px;
+	position:absolute;
+	top: 8px;
+	right: 8px;
+	background: url('../img/store/opt-cancel-btn.png') 0 0 no-repeat;
+	background-size: 100%;
 }
 .cnt-div{
 	display:inline-block;
 	width: 24%;
 	position: absolute;
-	right: 5px;
-	top: 18px;
+	right: 35px;
+	top: 9px;
 }
 .cnt-div > *{
 	font-size:13pt;
@@ -101,6 +108,13 @@
 	width: 33%;
 	text-align: center;
 	display: inline-block;
+}
+.cnt-div input[type='button']{
+	padding:0;
+	background-color:#ddd;
+	border-radius: 5px;
+	font-size: 18pt;
+	color: #666;
 }
 .price-chk #total-price{
 	font-size:28pt;
@@ -112,7 +126,7 @@
 .order_btn{
 	width:90%;
 	overflow:hidden;
-	margin:0 auto;
+	margin:20px auto;
 }
 .order_btn li{
 	height:45px;
@@ -125,12 +139,16 @@
 .order_btn li:first-child{
 	margin-right:2%;
 }
-.order_btn li a{
-	width:100%;
+.order_btn input[type='button']{
 	line-height:45px;
-	letter-spacing:4px;
-	font-size:13pt;
 	color:#fff;
+	font-size: 1.5em;
+	width: 100%;
+}
+.nav-tabs{
+	margin-bottom:10px;
+	overflow: hidden;
+	border-bottom: 1px solid #ddd;
 }
 .nav-tabs li{
 	margin-bottom:-1px;
@@ -140,14 +158,15 @@
 	line-height: 40px;
 	text-align: center;
 	font-size:11pt;
-	border-radius:10px 10px 0 0;	
+	border-radius:10px 10px 0 0;
+	float: left;
 }
 .nav-tabs li a{
 	display:inline-block;
 	width: 100%;
 }
 input.opt-price{
-	width:10%;
+	width: 10%;
 }
 input[type="text"]{
 	border:none;
@@ -162,7 +181,7 @@ input[type="number"]{
 	position: relative;
 	border: 1px solid #ddd;
 	padding: 5px;
-	width: 98%;
+	width: 100%;
 	margin-top: 5px;
 }
 .opt-title{
@@ -172,6 +191,23 @@ input[type="number"]{
 	font-size:10pt;
 	font-weight:bold;
 }
+.order-chk-div .price-chk{
+	height: 65px;
+	font-size: 30px;
+	font-weight: bold;
+}
+.order-chk-div .price-chk span{
+	line-height:50px;
+}
 .order-chk-div .price-chk #bPayment{
-	font-size:20pt;
+	width: 80%;
+	font-size: 40px;
+	font-weight:bold;
+	text-align: right;
+	line-height: 35px;
+	padding-top: 15px;
+}
+input[type='button']{
+	border:none;
+	background-color:transparent;
 }
