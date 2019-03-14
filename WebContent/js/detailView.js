@@ -9,11 +9,11 @@ $(function(){
 	});
 	
 	/*판매가 초기값세팅*/
-	$('#bPayment').ready(function(){
+	/*$('#bPayment').ready(function(){
 		var price = $("#sell-price").text();
 		$('#bPayment').val(price);
 	});
-	
+	*/
 	
 	/* 옵션선택 */
 	$('select').change(function(){
@@ -21,17 +21,22 @@ $(function(){
 		var bSelectOptPrice="";//옵션가 
 		var bColor="";//컬러
 		var bColorPrice="";//컬러옵션가
+		var noOptPrice = Number($('#sell-price').text());
 		
 		var opt = $('#opt-select option:selected');
 		var color = $('#color-select option:selected');
 		
-		if(opt.val()!=""){
+		if(opt.text()=="선택안함"){
+			bSelectOpt = "선택안함";
+			bSelectOptPrice = noOptPrice;
+		}
+		if(opt.text()!="선택안함" && opt.val()!=""){
 			if(opt.text().indexOf("+")>=0){
 				bSelectOpt = opt.text().substring(0, opt.text().indexOf("+"));
-				bSelectOptPrice = opt.val();
+				bSelectOptPrice = noOptPrice + Number(opt.val());
 			}else{
 				bSelectOpt = opt.text();
-				bSelectOptPrice = opt.val();
+				bSelectOptPrice = noOptPrice;
 			}	
 		}
 		if(color.val()!=""){
@@ -44,6 +49,7 @@ $(function(){
 			}
 		}
 		
+
 		//옵션을 두개다 선택했을경우
 		if(bSelectOptPrice!="" && bColorPrice!=""){
 			//선택한 옵션확인창
@@ -182,7 +188,6 @@ $(function(){
 			$('.nav-tabs').append(tapTag);
 		}
 	});
-	
 });
 
 

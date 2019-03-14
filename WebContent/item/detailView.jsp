@@ -59,7 +59,7 @@
 						<option value="">옵션을 선택해주세요</option>
 						<!-- 옵션이 없을경우 -->
 						<c:if test='${vo.iOptStr.contains("undefined")==true}'>
-							<option value=0>선택안함</option>
+							<option value='${vo.noOptPrice }'>선택안함</option>
 						</c:if>
 						<!-- 옵션이 있을경우 -->
 						<c:if test='${vo.iOptStr.contains("undefined")==false}'>
@@ -86,6 +86,9 @@
 						<option value="">색상을 선택해주세요</option>
 						<!-- 색상옵션이 없을경우 -->
 						<c:if test='${vo.iColorStr.contains("undefined")==true}'>
+							<option value=0>선택안함</option>
+						</c:if>
+						<c:if test='${vo.iColorStr.substring(vo.iColorStr.indexOf("|")+1)==""}'>
 							<option value=0>선택안함</option>
 						</c:if>
 						<!-- 색상옵션이 있을경우 -->
@@ -150,7 +153,7 @@
 		<div class="tab-content">
 			<!-- 상세페이지 view -->
 			<div id="content0"class="tab-pane active" >
-				<img src="${ctx }img/store/${vo.iDetail }"/>
+				<img src="http://172.16.1.14:9090/WaBangAdmin/item/itemImg/${vo.iDetail }"/>
 			</div>
 			<!-- 상세페이지 view end -->
 			<!-- 리뷰 -->
@@ -158,6 +161,7 @@
 			<c:if test="${loginStatus=='Y' }">
 				<button>리뷰등록하기</button>
 			</c:if>
+			<!--
 			<table>
 				<thead>
 					<tr>
@@ -172,8 +176,8 @@
 				
 				<input type="button" value="등록하기"/>
 			</form>
-
 			</div>
+			 -->
 			<!-- 리뷰  end -->
 			<!-- 배송/교환/환불 -->
 			<div id="content2"class="tab-pane" >

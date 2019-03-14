@@ -17,7 +17,7 @@
 
 <style>
 	.content{margin:0 auto;width:1200px}
-	.content>h2{font-size:2em}
+	.content>h2{font-size:2em;margin-top:100px}
 	#secessionDiv{margin-top:30px;}
 	h2{margin-top:30px}
 </style>

@@ -22,13 +22,6 @@
 <div class="div-wrap width-auto">
 	<h4>구매리스트</h4>
 	<div id="shoppingLiDiv">
-		<!-- 체크박스 -->
-		<div class="list-checkbox">
-			<input type="checkbox" class="all-chk"/>
-			<a href="#" class="all-chk txt-btn">전체선택</a>
-			<a href="#" class="del-btn part">선택삭제</a>
-			<a href="#" class="del-btn all">전체삭제</a>
-		</div>
 		<!-- 선택상품 리스트 -->
 		<div class="table-wrap" id="shopTb" >
 		<table class="shopping-list">
@@ -52,15 +45,11 @@
 				<tr>
 					<!-- 상품정보 -->
 					<td class="item-info">
-						<!-- 체크박스 -->
-						<input type="checkbox" name="check" value='${vo.bCode }'/>
-						
-					
 						<!-- 썸네일 -->
 						<div class="img-wrap">
 							<c:forTokens var="img" items='${vo.iThumbnail }' delims="|">
 							<a href="#" class="img-click">
-								<img src="${ctx }img/store/${img }"/>
+								<img src="http://172.16.1.14:9090/WaBangAdmin/item/itemImg/${img }"/>
 							</a>
 							</c:forTokens>
 						</div>

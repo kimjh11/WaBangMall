@@ -60,7 +60,7 @@
 						<div class="img-wrap">
 							<c:forTokens var="img" items='${vo.iThumbnail }' delims="|">
 							<a href="#" class="img-click">
-								<img src="${ctx }img/store/${img }"/>
+								<img src="http://172.16.1.14:9090/WaBangAdmin/item/itemImg/${img }"/>
 							</a>
 							</c:forTokens>
 						</div>

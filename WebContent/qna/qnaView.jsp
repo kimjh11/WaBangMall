@@ -54,7 +54,7 @@
 		
 		<!-- 아이디 -->
 		<div class="form-group row">
-			<input type="text" id="userid" name="userid" value="${loginId}" readonly class="form-control col-sm-9 qnaViewId"/>
+			<input type="text" id="userid" name="userid" value="${vo.m_id}" readonly class="form-control col-sm-9 qnaViewId"/>
 		</div>
 			
 		<!-- 글 제목, 글 내용  -->
